@@ -1,62 +1,64 @@
-# Design System — Бюджет участі Івано-Франківськ
+# Design System — Participatory Budgeting Ivano-Frankivsk
 
-> Дизайн-система для бюджету участі (громадського бюджету) м. Івано-Франківська. Побудована за форматом [Google Stitch DESIGN.md](https://stitch.withgoogle.com/) / — плейн-маркдаун для AI-агентів (Claude, Stitch, Cursor, Lovable), що генерують UI, інфографіку та аналітичні візуалізації в бренді БУ ІФ.
+> *[🇺🇦 Читати українською (Read in Ukrainian)](design.ua.md)*
+
+> A design system for the Participatory Budget (PB) of Ivano-Frankivsk. Built following the [Google Stitch DESIGN.md](https://stitch.withgoogle.com/) format — plain markdown tailored for AI agents (Claude, Stitch, Cursor, Lovable) generating UI, infographics, and analytical visualizations within the IF PB brand.
 
 ---
 
 ## 1. Visual Theme & Atmosphere
 
-Бюджет участі — це муніципальний інструмент, який живе на перетині двох енергій: **громадянської довіри** (спокій, прозорість, порядок) та **активної участі** (рух, голос, вибір). Дизайн-система побудована навколо цього дуалізму. Phenomena — умовний, широкий, майже архітектурний гротеск — виступає в ролі голосу-героя: в дисплейних заголовках, рубриках, цифрах-рекордах. Його геометричність і прозорий контур асоціюються з громадським простором, офіційністю без холодності. Proxima Nova — універсальна робоча гарнітура — відповідає за щільні шари інтерфейсу, аналітичні підписи, довгі описи проєктів і таблиці даних.
+Participatory Budgeting is a municipal tool that exists at the intersection of two energies: **civic trust** (calmness, transparency, order) and **active participation** (movement, voice, choice). The design system is built around this duality. Phenomena — a condensed, broad, almost architectural sans-serif — acts as the hero voice: used in display headings, sections, and record-breaking numbers. Its geometric nature and clean outlines evoke public spaces, feeling official yet approachable. Proxima Nova — a versatile workhorse typeface — handles dense interface layers, analytical labels, long project descriptions, and data tables.
 
-Палітра тримається на двох кольорах з логотипу: **фіолетовий `#654EA3`** (серйозність, влада, креативність) і **жовтий `#FFEC08`** (енергія, голос, видимість). Фіолетовий — як чорнило документа, жовтий — як маркер для найважливішого. Фон майже білий (`#FDFDFD`), текст глибокий графітовий (`#1A1A1A`) — пара для максимальної читабельності і фокусу на даних. Ненасичена дисципліна кольору — у ядрі тримаємо тільки два бренд-кольори + сірі нейтрали; розширена data-viz-палітра (коли треба передати 5+ категорій на одному графіку) живе в окремому `design-data.md`, що створюється за реальної потреби.
+The palette relies on two core logo colors: **Purple `#654EA3`** (seriousness, authority, creativity) and **Yellow `#FFEC08`** (energy, voice, visibility). Purple acts as the document's ink, while yellow serves as a highlighter for what's most important. The background is an off-white (`#FDFDFD`), and text is deep graphite (`#1A1A1A`) — pairing perfectly for maximum readability and data focus. We practice strict color discipline: the core relies only on the two brand colors plus neutral grays. An extended data-viz palette (for charts needing 5+ categories) lives in a separate `design-data.md` file, which is created only when genuinely needed.
 
-Естетика стриманої інфографіки: багато білого простору, чіткі сітки, великі числа як героїв композиції, акуратні іконки з товщиною 1.5px, м'які (8–12px) заокруглення на картках, тіні ледве помітні. Жодних неонових градієнтів, жодних декоративних анімацій — усе служить читанню даних і довірі.
+The aesthetic is restrained infographics: abundant white space, clear grids, large numbers acting as composition heroes, crisp 1.5px icons, soft (8–12px) border radii on cards, and barely visible shadows. No neon gradients, no decorative animations — everything serves data readability and trust.
 
 **Key Characteristics:**
-- Дві гарнітури: Phenomena (дисплей + заголовки) + Proxima Nova (UI, текст, дані)
-- Двоколірний логотипний бренд: фіолетовий `#654EA3` + жовтий `#FFEC08`
-- Data-viz у ядрі — Primary shades + жовтий; розширена палітра для аналітики виноситься в `design-data.md` (створюється за реальної потреби)
-- Історичний, аналітичний фокус — система створена для візуалізації **10 років** БУ, не для поточного циклу
-- Жовтий — завжди маркер ВАЖЛИВОГО (переможець, акцент, CTA), ніколи фон великих поверхонь
-- Акуратні тіні, 8px grid, широкі gutters — муніципальна довіра = «не тісно»
-- Mobile-first: сайт і соцмережі споживають з телефону
+- Two typefaces: Phenomena (display + headings) & Proxima Nova (UI, text, data).
+- Two-color brand identity: Purple `#654EA3` & Yellow `#FFEC08`.
+- Core Data-viz: Primary shades + yellow; an extended palette for analytics is maintained in `design-data.md` (created as needed).
+- Historical, analytical focus: The system is designed to visualize **10 years** of PB data, not to run the current voting cycle.
+- Yellow is always a marker of IMPORTANCE (winner, accent, CTA), never a background for large areas.
+- Subtle shadows, 8px grid, wide gutters — municipal trust equals "room to breathe."
+- Mobile-first: The website and social media content are primarily consumed on mobile devices.
 
 ---
 
 ## 2. Color Palette & Roles
 
-### Brand Core (з логотипу)
-| Роль | HEX | RGB | Застосування |
+### Brand Core (from the logo)
+| Role | HEX | RGB | Application |
 |---|---|---|---|
-| **Primary** — Фіолетовий | `#654EA3` | 101, 78, 163 | Заголовки дисплею, основні CTA, активні стани, фірмові поверхні |
-| **Secondary** — Жовтий | `#FFEC08` | 255, 236, 8 | Акцент «це важливо», бейдж переможця, хайлайти, CTA-підкреслення |
-| **Background** — Майже білий | `#FDFDFD` | 253, 253, 253 | Основний фон сторінок, карток |
-| **Text** — Графіт | `#1A1A1A` | 26, 26, 26 | Основний текст, числа, дані |
+| **Primary** — Purple | `#654EA3` | 101, 78, 163 | Display headings, primary CTAs, active states, brand surfaces |
+| **Secondary** — Yellow | `#FFEC08` | 255, 236, 8 | "This is important" accent, winner badge, highlights, CTA underlines |
+| **Background** — Off-white | `#FDFDFD` | 253, 253, 253 | Main page and card background |
+| **Text** — Graphite | `#1A1A1A` | 26, 26, 26 | Body text, numbers, data |
 
-### Primary Shades (фіолетовий)
-| Роль | HEX | Застосування |
+### Primary Shades (Purple)
+| Role | HEX | Application |
 |---|---|---|
-| Primary-900 (dark) | `#4E3C84` | Hover/active, натиснута кнопка, темні акценти |
-| Primary-500 (base) | `#654EA3` | Базовий primary (з брендбука) |
+| Primary-900 (dark) | `#4E3C84` | Hover/active, pressed button, dark accents |
+| Primary-500 (base) | `#654EA3` | Base primary (from brandbook) |
 | Primary-300 (tint) | `#7B66B8` | Secondary buttons, border emphasis |
-| Primary-200 (light) | `#9C8BCC` | Підкладки, disabled states |
-| Primary-100 (bg-tint) | `#EEEAF7` | Фонові картки секцій, hover-фон |
-| Primary-50 (surface) | `#F6F4FB` | Найлегший фіолетовий — smooth-секції |
+| Primary-200 (light) | `#9C8BCC` | Underlays, disabled states |
+| Primary-100 (bg-tint) | `#EEEAF7` | Section card backgrounds, hover backgrounds |
+| Primary-50 (surface) | `#F6F4FB` | Lightest purple — smooth sections |
 
-### Secondary Shades (жовтий)
-| Роль | HEX | Застосування |
+### Secondary Shades (Yellow)
+| Role | HEX | Application |
 |---|---|---|
-| Secondary-700 (dark) | `#E6D307` | Hover на жовтих CTA, темний акцент |
-| Secondary-500 (base) | `#FFEC08` | Базовий secondary (з брендбука) |
-| Secondary-300 (tint) | `#FFF266` | М'який акцент |
-| Secondary-100 (bg-tint) | `#FFF9B3` | Хайлайтер тексту, бейдж переможця фон |
+| Secondary-700 (dark) | `#E6D307` | Hover for yellow CTAs, dark accent |
+| Secondary-500 (base) | `#FFEC08` | Base secondary (from brandbook) |
+| Secondary-300 (tint) | `#FFF266` | Soft accent |
+| Secondary-100 (bg-tint) | `#FFF9B3` | Text highlighter, winner badge background |
 
-### Neutrals (10 ступенів)
-| Токен | HEX | Застосування |
+### Neutrals (10 steps)
+| Token | HEX | Application |
 |---|---|---|
 | neutral-0 | `#FDFDFD` | Background |
 | neutral-50 | `#F7F7F8` | Page subtle, striped rows |
-| neutral-100 | `#EFEFF1` | Dividers, borders light |
+| neutral-100 | `#EFEFF1` | Dividers, light borders |
 | neutral-200 | `#E2E2E6` | Borders, input-rest |
 | neutral-300 | `#CACAD1` | Disabled border, subtle emphasis |
 | neutral-400 | `#9FA0A9` | Placeholder, muted text |
@@ -66,93 +68,93 @@
 | neutral-950 | `#0D0D12` | Overlay, max-contrast display |
 
 ### Semantic
-| Роль | HEX | Застосування |
+| Role | HEX | Application |
 |---|---|---|
-| Success | `#2F8F4E` | «Реалізовано», позитивна дельта у статистиці |
-| Info | `#2563EB` | Інформаційні повідомлення, нейтральні стани |
-| Warning | `#D97706` | Попередження в адмінці, «увага до даних» |
-| Error | `#DC2626` | Помилки форм, «не реалізовано» (для відтінків — краще neutral) |
+| Success | `#2F8F4E` | "Implemented", positive delta in stats |
+| Info | `#2563EB` | Informational messages, neutral states |
+| Warning | `#D97706` | Admin warnings, "data attention" alerts |
+| Error | `#DC2626` | Form errors, "not implemented" (for nuances — neutral is preferred) |
 
-### Бейджі статусу (основні)
+### Status Badges (Core)
 
-Два універсальні бейджі, потрібні будь-якому споживачу системи — у тому числі автору-одинаку, що робить постер чи презентацію про свій переможний проєкт.
+Two universal badges needed by any user of the system — including an individual author designing a poster or presentation for their winning project.
 
-| Ярлик | Фон | Текст | Використання |
+| Label | Background | Text | Usage |
 |---|---|---|---|
-| Переможець року | `#FFEC08` (Secondary-500) | `#1A1A1A` | Проєкт-переможець голосування у своєму році |
-| Реалізовано | `#E8F3EC` (tint Success) | `#1E6B39` | Проєкт виконано після перемоги |
+| Переможець року (Winner) | `#FFEC08` (Secondary-500) | `#1A1A1A` | Winning project of the year's vote |
+| Реалізовано (Implemented) | `#E8F3EC` (tint Success) | `#1E6B39` | Project completed after winning |
 
-> Повний набір **7 реальних статусів** з даних БУ (Реалізований, На реалізації, Брав участь, Відхилений, Відхилений остаточно, Неможливо реалізувати, Видалений) — у майбутньому `design-data.md`, коли буде потрібно для аналітичних дашбордів. Тут тримаємо мінімум, бо ці два — єдині, що потрібні для промо-, пітч- і матеріалів-про-проєкти.
+> The full set of **7 real statuses** from the PB data (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Deleted) lives in `design-data.md` for when analytic dashboards are needed. We keep it minimal here because these two are the only ones required for promo, pitch, and project-specific materials.
 
-### Data-viz у ядрі
+### Core Data-viz
 
-Для більшості графіків достатньо бренд-кольорів:
-- **Primary shades** (6 відтінків фіолетового) — градація для 2-4 серій; вона ж працює як sequential-шкала для heatmap / choropleth (Primary-50 → Primary-900).
-- **Жовтий `#FFEC08`** — акцент на найважливішій точці/лінії/bar. На білому завжди з темним контуром `#1A1A1A` 1–1.5px.
-- **Нейтрали 100–500** — для допоміжних серій, порівняльних планок «план/факт».
+For most charts, the brand colors are sufficient:
+- **Primary shades** (6 shades of purple) — gradation for 2-4 series; also functions as a sequential scale for heatmaps / choropleths (Primary-50 → Primary-900).
+- **Yellow `#FFEC08`** — accent for the most critical data point/line/bar. On a white background, always pair with a dark `#1A1A1A` 1–1.5px outline.
+- **Neutrals 100–500** — for auxiliary series, comparative "plan/actual" bars.
 
-> Розширена категорійна палітра (7+ різних кольорів для donut або stacked-bar з багатьма сегментами) й повна мапа «архетип категорії → колір» на основі **реальних** категорій БУ 2016-2025 (Освіта, Благоустрій, Малі вулиці, Зелень, Культурна спадщина, Допомога ЗСУ, Доступність) — у майбутньому `design-data.md`. Створюватиметься при першому реальному аналітичному артефакті, а не наперед.
+> The extended categorical palette (7+ different colors for a donut or stacked bar with many segments) and the full "category → color" mapping based on **real** PB categories from 2016-2025 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility) — will reside in `design-data.md`. It will be created when the first real analytical artifact demands it, not upfront.
 
-### Контраст (WCAG AA)
-Перевірені пари:
-- `#1A1A1A` на `#FDFDFD` — 19.3:1 ✓ AAA
-- `#FDFDFD` на `#654EA3` — 6.7:1 ✓ AA
-- `#1A1A1A` на `#FFEC08` — 16.1:1 ✓ AAA
-- `#654EA3` на `#FDFDFD` — 7.0:1 ✓ AA
-- `#71737E` (neutral-500) на `#FDFDFD` — 4.7:1 ✓ AA (для muted text)
+### Contrast (WCAG AA)
+Verified pairs:
+- `#1A1A1A` on `#FDFDFD` — 19.3:1 ✓ AAA
+- `#FDFDFD` on `#654EA3` — 6.7:1 ✓ AA
+- `#1A1A1A` on `#FFEC08` — 16.1:1 ✓ AAA
+- `#654EA3` on `#FDFDFD` — 7.0:1 ✓ AA
+- `#71737E` (neutral-500) on `#FDFDFD` — 4.7:1 ✓ AA (for muted text)
 
-> **НЕ використовувати:** білий текст на жовтому, фіолетовий на жовтому (обидва провалюють AA).
+> **DO NOT use:** white text on yellow, or purple on yellow (both fail AA accessibility).
 
 ---
 
 ## 3. Typography Rules
 
 ### Font Families
-- **Display/Headings**: `Phenomena` (локальний, `/fonts/Phenomena/`), fallback: `'Phenomena Fallback', 'Inter Tight', system-ui, sans-serif`
-- **Body/UI**: `Proxima Nova` (локальний, `/fonts/Proxima Nova/`), fallback: `'Proxima Nova Fallback', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
-- **Numerics/Data**: `Proxima Nova` з `font-variant-numeric: tabular-nums` — обов'язково для таблиць, дашбордів, графіків
+- **Display/Headings**: `Phenomena` (local, `/fonts/Phenomena/`), fallback: `'Phenomena Fallback', 'Inter Tight', system-ui, sans-serif`
+- **Body/UI**: `Proxima Nova` (local, `/fonts/Proxima Nova/`), fallback: `'Proxima Nova Fallback', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+- **Numerics/Data**: `Proxima Nova` with `font-variant-numeric: tabular-nums` — mandatory for tables, dashboards, and charts.
 
 ### Available Weights
 - **Phenomena**: Thin (100), ExtraLight (200), Light (300), Regular (400), Bold (700), ExtraBold (800), Black (900)
-- **Proxima Nova**: Thin (100), Light (300), Regular (400), Semibold (600), Bold (700), Extrabold (800), Black (900) — усі з Italic
+- **Proxima Nova**: Thin (100), Light (300), Regular (400), Semibold (600), Bold (700), Extrabold (800), Black (900) — all with Italics.
 
 ### Hierarchy
 
 | Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
 |------|------|------|--------|-------------|----------------|-------|
-| Hero / Display | Phenomena | 72–96px | 900 (Black) | 1.00 | -1.5px до -2px | Числа-герої, заголовок лендингу, «10 років БУ» |
-| H1 / Page Title | Phenomena | 48–64px | 700 (Bold) | 1.05 | -0.8px | Головний заголовок екрану |
-| H2 / Section | Phenomena | 32–40px | 700 (Bold) | 1.15 | -0.4px | Секції сторінки |
-| H3 / Sub-section | Phenomena | 24–28px | 400 (Regular) | 1.25 | -0.2px | Підзаголовок секції |
-| Feature Title | Proxima Nova | 20–24px | 600 (Semibold) | 1.30 | normal | Назва картки проєкту, заголовок віджета |
-| Body Large | Proxima Nova | 18–20px | 400 (Regular) | 1.55 | normal | Вступні абзаци, описи |
-| Body Standard | Proxima Nova | 16px | 400 (Regular) | 1.55 | normal | Основний текст |
-| Body Small | Proxima Nova | 14px | 400 (Regular) | 1.50 | normal | Допоміжний текст, метадані |
-| Caption | Proxima Nova | 12–13px | 500 (Medium) | 1.40 | normal | Підписи під графіками/зображеннями |
-| Overline / Label | Proxima Nova | 11–12px | 600 (Semibold) | 1.20 | +1px (uppercase) | Ярлики секцій, теги |
-| Data Stat (велике число) | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | «14 832 голоси», «₴5.2 млн» |
-| Data Label (підпис даних) | Proxima Nova | 11–13px | 400 (Regular) | 1.30 | normal, tabular-nums | Осі графіків, значення тултипів |
+| Hero / Display | Phenomena | 72–96px | 900 (Black) | 1.00 | -1.5px to -2px | Hero numbers, landing title, "10 years of PB" |
+| H1 / Page Title | Phenomena | 48–64px | 700 (Bold) | 1.05 | -0.8px | Main screen heading |
+| H2 / Section | Phenomena | 32–40px | 700 (Bold) | 1.15 | -0.4px | Page sections |
+| H3 / Sub-section | Phenomena | 24–28px | 400 (Regular) | 1.25 | -0.2px | Section subheading |
+| Feature Title | Proxima Nova | 20–24px | 600 (Semibold) | 1.30 | normal | Project card name, widget title |
+| Body Large | Proxima Nova | 18–20px | 400 (Regular) | 1.55 | normal | Intro paragraphs, descriptions |
+| Body Standard | Proxima Nova | 16px | 400 (Regular) | 1.55 | normal | Main text |
+| Body Small | Proxima Nova | 14px | 400 (Regular) | 1.50 | normal | Auxiliary text, metadata |
+| Caption | Proxima Nova | 12–13px | 500 (Medium) | 1.40 | normal | Chart/image captions |
+| Overline / Label | Proxima Nova | 11–12px | 600 (Semibold) | 1.20 | +1px (uppercase) | Section labels, tags |
+| Data Stat (large num) | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | "14 832 голоси", "₴5.2 млн" |
+| Data Label | Proxima Nova | 11–13px | 400 (Regular) | 1.30 | normal, tabular-nums | Chart axes, tooltip values |
 
-### Принципи
-- **Phenomena — лише для заголовків і великих чисел.** Ніколи не використовуйте Phenomena для довгих абзаців — її широкий контур руйнує читабельність.
-- **Proxima Nova — для всього, що довше ніж 5 слів.** Весь UI, описи, списки, таблиці, дані.
-- **Tabular numerals обов'язкові** для всіх чисел у таблицях, дашбордах і графіках — щоб цифри вирівнювалися вертикально.
-- **Uppercase з letter-spacing +1px** — тільки для Overline/Label. Не робіть uppercase у заголовках H1–H3.
-- **Контраст ваг — важливий:** у великих числах використовуйте 900 Black для максимального ваги; у body — 400 Regular.
-- **Italic використовувати обережно:** тільки для цитат, виносок «прим.», назв сторонніх джерел.
+### Principles
+- **Phenomena — strictly for headings and large numbers.** Never use Phenomena for long paragraphs; its wide footprint ruins readability.
+- **Proxima Nova — for anything longer than 5 words.** All UI, descriptions, lists, tables, data.
+- **Tabular numerals are mandatory** for all numbers in tables, dashboards, and charts, ensuring digits align vertically.
+- **Uppercase with +1px letter-spacing** — strictly for Overlines/Labels. Do not use uppercase for H1–H3 headings.
+- **Weight contrast matters:** use 900 Black for maximum emphasis in large numbers; use 400 Regular for body text.
+- **Use Italics sparingly:** only for quotes, "note:" callouts, or external source titles.
 
 ### Number & Currency Formatting (UA locale)
 
-Усі числа форматуються за українським стандартом. Це **обов'язково** — англомовні агенти (Stitch, Lovable, v0) за замовчуванням ставлять англійські коми, і без цього розділу ваші «14 832 голоси» перетворяться на «14,832».
+All numbers must be formatted according to Ukrainian standards. This is **mandatory** — English-speaking agents (Stitch, Lovable, v0) default to using commas for thousands, and without this rule, "14 832 голоси" turns into "14,832".
 
-- **Розряди тисяч**: нерозривний пробіл (` `). `14 832`, `127 456`, `1 412`. НЕ `14,832`, НЕ `14.832`.
-- **Десятковий роздільник**: кома. `3,7%`, `5,2 млн`. НЕ `3.7%`.
-- **Валюта**: `₴` перед числом з нерозривним пробілом — `₴5,2 млн`. Для точних сум — постфіксом: `62 437 ₴`.
-- **Скорочення**: `тис.`, `млн`, `млрд` через нерозривний пробіл. `127 тис.`, `5,2 млн`.
-- **Відсотки**: тісно, без пробілу. `47,3%`.
-- **Діапазони років**: en-dash без пробілів. `2016–2025`, НЕ `2016-2025`, НЕ `2016 - 2025`.
-- **Роки**: повною цифрою. `2019`, НЕ `'19`.
-- `tabular-nums` — обов'язково на всіх числах у UI, таблицях і графіках (див. Hierarchy вище).
+- **Thousands separator**: non-breaking space (` `). `14 832`, `127 456`, `1 412`. NOT `14,832`, NOT `14.832`.
+- **Decimal separator**: comma. `3,7%`, `5,2 млн`. NOT `3.7%`.
+- **Currency**: `₴` before the number with a non-breaking space — `₴5,2 млн`. For exact sums — as a postfix: `62 437 ₴`.
+- **Abbreviations**: `тис.`, `млн`, `млрд` with a non-breaking space. `127 тис.`, `5,2 млн`.
+- **Percentages**: tight, no space. `47,3%`.
+- **Year ranges**: en-dash without spaces. `2016–2025`, NOT `2016-2025`, NOT `2016 - 2025`.
+- **Years**: full digits. `2019`, NOT `'19`.
+- `tabular-nums` — mandatory on all UI, table, and chart numbers (see Hierarchy above).
 
 ---
 
@@ -160,7 +162,7 @@
 
 ### Buttons
 
-**Primary (Фіолетова Solid)**
+**Primary (Solid Purple)**
 - Background: `#654EA3` (Primary-500)
 - Text: `#FDFDFD`
 - Padding: 12px 24px
@@ -173,7 +175,7 @@
 - Background: transparent
 - Text: `#654EA3`
 - Border: 1.5px solid `#654EA3`
-- Padding: 12px 24px (-1.5px на рамку)
+- Padding: 12px 24px (-1.5px for border)
 - Radius: 8px
 - Hover: Background `#EEEAF7` (Primary-100)
 
@@ -181,67 +183,67 @@
 - Background: transparent
 - Text: `#3F4049` (neutral-700)
 - Hover: Background `#EFEFF1` (neutral-100)
-- Для навігації, toolbar, link-кнопок
+- Use for navigation, toolbars, link-buttons
 
-**Accent (Жовтий CTA)**
+**Accent (Yellow CTA)**
 - Background: `#FFEC08` (Secondary-500)
 - Text: `#1A1A1A`
-- Border: 1px solid `#1A1A1A` *(обов'язково для контрасту на світлих поверхнях)*
+- Border: 1px solid `#1A1A1A` *(mandatory for contrast on light surfaces)*
 - Padding: 12px 24px
 - Radius: 8px
 - Hover: Background `#E6D307` (Secondary-700)
-- Застосування: виняткові CTA (наприклад «Дослідити 10 років БУ»)
+- Use case: exceptional CTAs (e.g., "Explore 10 years of PB")
 
 ### Cards & Containers
 
-**Проєкт-картка (історична)**
+**Project Card (historical)**
 - Background: `#FDFDFD`
 - Border: 1px solid `#EFEFF1` (neutral-100)
 - Radius: 12px
 - Padding: 20px
 - Shadow (hover): `0 4px 12px rgba(26, 26, 26, 0.06)`
-- Містить: фото (зверху, radius 8px), тег категорії (chip), назва проєкту (Proxima Nova 20px 600), автор (Proxima Nova 14px, neutral-500), статистика (голоси, бюджет — Phenomena 28px 700), бейдж статусу (переможець / реалізовано)
+- Contains: photo (top, radius 8px), category tag (chip), project title (Proxima Nova 20px 600), author (Proxima Nova 14px, neutral-500), stats (votes, budget — Phenomena 28px 700), status badge (winner / implemented)
 
-**Stat-card (велике число)**
-- Background: `#F6F4FB` (Primary-50) АБО `#FDFDFD` з 1px border
+**Stat-card (large number)**
+- Background: `#F6F4FB` (Primary-50) OR `#FDFDFD` with 1px border
 - Radius: 16px
 - Padding: 24px
-- Велике число: Phenomena 56px 900, tabular-nums
-- Підпис: Proxima Nova 14px 400, neutral-500, uppercase з letter-spacing +1px
+- Large number: Phenomena 56px 900, tabular-nums
+- Label: Proxima Nova 14px 400, neutral-500, uppercase with +1px letter-spacing
 
-### Tags / Chips (категорії БУ)
+### Tags / Chips (PB Categories)
 
-- Розмір: height 24–28px, padding 4px 10px
+- Size: height 24–28px, padding 4px 10px
 - Radius: 999px (pill)
 - Font: Proxima Nova 12px 600
-- Фон: відтінок Primary або нейтрального (з прозорістю 15–20%) + текст повного кольору того ж відтінку
-  - Приклад (Primary-тонований): bg `rgba(101, 78, 163, 0.15)`, text `#4E3C84`
-- Повна мапа «категорія → колір» (коли набір категорій відомий з реальних даних конкретного року) — у `design-data.md`. У ядрі не фіксуємо, бо категорії БУ змінюються рік-у-рік.
-- Всередині можна додати маленьку іконку (14px) зліва
+- Background: tint of Primary or Neutral (15–20% opacity) + full color text of the same hue
+  - Example (Primary-tinted): bg `rgba(101, 78, 163, 0.15)`, text `#4E3C84`
+- The full "category → color" map (once the exact category set is known from a specific year's data) resides in `design-data.md`. We don't hardcode it here because PB categories change year over year.
+- A small 14px icon can be added on the left.
 
-### Історичні бейджі (статусні)
+### Historical Badges (Status)
 
-- Розмір і геометрія як у чипів (pill, 24–28px)
-- Заповнені (не outline) для впізнаваності:
-  - Переможець року: bg `#FFEC08`, text `#1A1A1A`, опціонально іконка зірочки
-  - Реалізовано: bg `#E8F3EC`, text `#1E6B39`, опціонально галочка
+- Size and geometry mirror chips (pill, 24–28px)
+- Solid fill (not outline) for immediate recognition:
+  - Winner of the year: bg `#FFEC08`, text `#1A1A1A`, optional star icon
+  - Implemented: bg `#E8F3EC`, text `#1E6B39`, optional checkmark icon
 
-### Progress Bar (бюджет / голоси)
+### Progress Bar (Budget / Votes)
 
-- Висота: 8px (стандарт), 12px (герой на сторінці проєкту)
+- Height: 8px (standard), 12px (hero on project page)
 - Background: `#EFEFF1` (neutral-100)
-- Fill: `#654EA3` (Primary-500) для голосів; `#FFEC08` з темним контуром для «реалізація бюджету»
+- Fill: `#654EA3` (Primary-500) for votes; `#FFEC08` with a dark outline for "budget realization"
 - Radius: 999px (pill)
-- Опціонально: відмітки (marker) на 25/50/75/100% — тонкими `#CACAD1` (neutral-300) лініями
+- Optional: ticks (markers) at 25/50/75/100% using thin `#CACAD1` (neutral-300) lines
 
-### Filter Elements (для аналітичних екранів)
+### Filter Elements (for analytical screens)
 
 **Year Range Slider**
 - Track: 4px, `#EFEFF1`, active-range fill `#654EA3`
-- Handle: коло 16px, `#FDFDFD`, border 2px `#654EA3`, shadow підкреслено
+- Handle: 16px circle, `#FDFDFD`, border 2px `#654EA3`, subtle shadow
 - Labels: Proxima Nova 13px 500, tabular-nums
 
-**Dropdown (категорія, рік, тощо)**
+**Dropdown (category, year, etc.)**
 - Background: `#FDFDFD`
 - Border: 1px `#E2E2E6` (neutral-200)
 - Radius: 8px
@@ -251,13 +253,13 @@
 **Checkbox / Toggle**
 - Unchecked: border 1.5px `#CACAD1`, bg `#FDFDFD`
 - Checked: bg `#654EA3`, checkmark `#FDFDFD`
-- Toggle (для «тільки переможці»): track `#CACAD1`/`#654EA3`, thumb `#FDFDFD`
+- Toggle (e.g., "only winners"): track `#CACAD1`/`#654EA3`, thumb `#FDFDFD`
 
 ### Navigation
-- Horizontal nav, фон `#FDFDFD`, нижній border 1px `#EFEFF1`
+- Horizontal nav, bg `#FDFDFD`, bottom border 1px `#EFEFF1`
 - Links: Proxima Nova 16px 500, `#3F4049`, hover `#654EA3`
-- Активний: 2px підкреслення `#654EA3` знизу, текст `#1A1A1A`
-- Logo: 28–32px висота, зліва
+- Active state: 2px bottom underline `#654EA3`, text `#1A1A1A`
+- Logo: 28–32px height, aligned left
 
 ---
 
@@ -273,129 +275,129 @@
 - Gutter: 16px (mobile), 24px (tablet+)
 
 ### Whitespace Philosophy
-- **Муніципальна довіра = не тісно.** Секції розділяються 80–96px вертикального простору на desktop (48–64px mobile).
-- **Cards breathe:** padding усередині картки 20–24px, між картками у грідах — 24px.
-- **Дані мають повітря:** графіки й таблиці мають padding 24–32px від країв контейнера.
+- **Municipal trust = room to breathe.** Sections are separated by 80–96px of vertical space on desktop (48–64px on mobile).
+- **Cards breathe:** internal card padding is 20–24px, spacing between cards in grids is 24px.
+- **Data needs air:** charts and tables maintain 24–32px padding from container edges.
 
 ### Border Radius Scale
-- `4px` — маленькі елементи (chip-label усередині, progress ticks)
-- `8px` — кнопки, inputs, маленькі картки
-- `12px` — картки проєкту, стандартні блоки
-- `16px` — великі stat-картки, модалки
-- `24px` — великі hero-секції, featured-cards
-- `999px` (pill) — чіпи, бейджі, тонкі кнопки-tags
+- `4px` — tiny elements (internal chip labels, progress ticks)
+- `8px` — buttons, inputs, small cards
+- `12px` — project cards, standard blocks
+- `16px` — large stat-cards, modals
+- `24px` — large hero sections, featured cards
+- `999px` (pill) — chips, badges, thin tag-buttons
 
 ---
 
 ## 6. Depth & Elevation
 
-| Level | Shadow | Використання |
+| Level | Shadow | Usage |
 |---|---|---|
-| 0 (Flat) | none | Базові поверхні, текст, фон |
-| 1 (Subtle) | `0 1px 2px rgba(26, 26, 26, 0.04)` | Картки статичні на світлому фоні |
-| 2 (Raised) | `0 4px 12px rgba(26, 26, 26, 0.06)` | Hover на картках, підвищені елементи |
+| 0 (Flat) | none | Base surfaces, text, backgrounds |
+| 1 (Subtle) | `0 1px 2px rgba(26, 26, 26, 0.04)` | Static cards on a light background |
+| 2 (Raised) | `0 4px 12px rgba(26, 26, 26, 0.06)` | Card hovers, elevated elements |
 | 3 (Overlay) | `0 12px 32px rgba(26, 26, 26, 0.10)` | Dropdowns, tooltips, popovers |
-| 4 (Modal) | `0 24px 64px rgba(26, 26, 26, 0.14)` | Модальні вікна, lightbox |
+| 4 (Modal) | `0 24px 64px rgba(26, 26, 26, 0.14)` | Modals, lightboxes |
 
-**Філософія:** тіні завжди нейтрально-сірі (на основі `#1A1A1A` з прозорістю), ніколи не фіолетові. Офсет завжди вниз (y+), без бокового зміщення. Це створює спокійну дочасну ієрархію без «цифрового галасу».
+**Philosophy:** Shadows are always neutral gray (based on `#1A1A1A` with opacity), never purple. Offsets strictly run downwards (y+), with zero lateral shift. This establishes a calm, timeless hierarchy free from "digital noise."
 
 ---
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Використовуйте Phenomena лише для заголовків і великих чисел — саме в цьому її магія.
-- Використовуйте Proxima Nova для всього UI, тексту, даних і підписів.
-- Застосовуйте `tabular-nums` на всіх цифрах у таблицях і дашбордах.
-- Жовтий `#FFEC08` — це **акцент**, не фон. Використовуйте для позначення переможця, хайлайтів, винятково важливих CTA.
-- На графіках з жовтим завжди додавайте темний контур `#1A1A1A` 1–1.5px.
-- У ядрі data-viz — Primary shades + жовтий як акцент. Розширена категорійна палітра з'явиться в `design-data.md` за реальної потреби.
-- Для heatmap / choropleth використовуйте градацію одного кольору (sequential) — найприродніше Primary-50 → Primary-900.
-- Давайте секціям 80–96px вертикального простору.
-- Округлення кнопок — 8px, карток — 12px, pill для чипів/бейджів.
-- Перевіряйте контраст тексту/фону на WCAG AA (мін. 4.5:1 для body, 3:1 для великого тексту).
+- Use Phenomena exclusively for headings and large numbers — that's where its magic lies.
+- Use Proxima Nova for all UI components, body text, data, and captions.
+- Apply `tabular-nums` to all digits in tables and dashboards.
+- Treat yellow `#FFEC08` as an **accent**, not a background. Use it to mark winners, highlights, and exceptionally critical CTAs.
+- In charts involving yellow, always outline it with a dark `#1A1A1A` 1–1.5px stroke.
+- Core data-viz relies on Primary shades + yellow as an accent. The extended categorical palette belongs in `design-data.md` when truly needed.
+- For heatmaps / choropleths, rely on a single-color sequential gradation — naturally, Primary-50 → Primary-900.
+- Give sections 80–96px of vertical breathing room.
+- Stick to 8px radii for buttons, 12px for cards, and pill shapes for chips/badges.
+- Verify text/background contrast against WCAG AA standards (min. 4.5:1 for body text, 3:1 for large text).
 
 ### Don't
-- Не використовуйте Phenomena для body-тексту — читабельність провалиться.
-- Не використовуйте фіолетовий на жовтому або білий на жовтому — обидва провалюють AA.
-- Не робіть великі заливки жовтим — він стомлює око і створює ефект попередження.
-- Не використовуйте неонові або градієнтні кольори — бренд стриманий.
-- Не округлюйте великі цифри в офіційній статистиці — «14 832 голоси», не «~15 тис.».
-- Не плутайте ролі: «живі» статусні чипи типу «Триває голосування» — **забороняються**. Сайт — **аналітика минулого**, не поточний цикл БУ.
-- Не використовуйте бокові тіні (x-offset) — тільки вертикальні.
-- Не робіть dark-mode варіанти — муніципальна прозорість базується на світлому інтерфейсі; темна тема **поза scope** цієї системи.
-- Не робіть inline-редагування тексту шрифтом Phenomena 300 або тонше — його Thin/Light для дисплейного застосування тільки у великих розмірах (48px+).
+- Do not use Phenomena for body text — readability will collapse.
+- Do not put purple text on a yellow background, or white on yellow — both fail AA contrast.
+- Do not use large yellow fills — it causes eye fatigue and creates an unintended "warning" vibe.
+- Do not use neon or gradient colors — the brand is restrained.
+- Do not roughly round large numbers in official stats — "14 832 голоси", not "~15 тис.".
+- Do not confuse roles: "live" status chips like "Voting in progress" are **forbidden**. The site is a **historical analytics** platform, not an active PB voting cycle.
+- Do not use lateral shadows (x-offset) — stick strictly to vertical drops.
+- Do not design dark-mode variants — municipal transparency is rooted in a light interface; dark mode is **out of scope** for this system.
+- Do not attempt inline text editing with Phenomena 300 or thinner — its Thin/Light weights are strictly for display applications at large sizes (48px+).
 
 ---
 
 ## 8. Responsive Behavior
 
 ### Breakpoints
-| Ім'я | Ширина | Ключові зміни |
+| Name | Width | Key Changes |
 |---|---|---|
-| Mobile | 360–599px | 1 колонка, стек, hero-число 48px, padding 24px |
-| Tablet | 600–1023px | 2 колонки, hero-число 64px, padding 40px |
-| Desktop | 1024–1439px | 3–4 колонки, hero-число 80px, padding 64px |
-| Wide | 1440px+ | Максимальний контейнер 1280px, центроване |
+| Mobile | 360–599px | 1 column stack, hero number 48px, padding 24px |
+| Tablet | 600–1023px | 2 columns, hero number 64px, padding 40px |
+| Desktop | 1024–1439px | 3–4 columns, hero number 80px, padding 64px |
+| Wide | 1440px+ | Max container 1280px, center aligned |
 
 ### Collapsing Strategy
 - Hero display: 96px → 72px → 56px → 48px
 - H1: 64px → 48px → 36px
 - Section H2: 40px → 32px → 28px
-- Grid колонок: 12 → 8 → 4
-- Мапа: збирає фільтри в bottom-sheet на mobile
-- Таблиці 10-річних даних: конвертуються у горизонтальний скрол або stack-cards на mobile
-- Навігація: collapsed у burger-меню на mobile
+- Column Grid: 12 → 8 → 4
+- Map: Collapses filters into a bottom-sheet on mobile.
+- 10-year data tables: Convert into horizontal scroll or stacked-cards on mobile.
+- Navigation: Collapses into a burger menu on mobile.
 
 ### Mobile-first Priority
-Сайт 10 років БУ і всі інфографіки **дизайняться спершу під mobile** — бо більшість громадян споживає муніципальний контент з телефону. Карта, фільтри, статистика мають залишатися зручними на екрані 375px.
+The "10 Years of PB" site and all infographics are **designed for mobile first** — because the vast majority of citizens consume municipal content via phones. Maps, filters, and statistics must remain perfectly usable on a 375px screen.
 
 ---
 
 ## 9. Iconography
 
-### Набори
-- **Основний**: [Lucide](https://lucide.dev/) — тонкі, stroke-based, 1.5px товщина, rounded углы
-- **Запасний для заповнених**: [Phosphor Icons](https://phosphoricons.com/) — варіанти Regular/Fill
+### Sets
+- **Primary**: [Lucide](https://lucide.dev/) — thin, stroke-based, 1.5px weight, rounded corners.
+- **Fallback for filled icons**: [Phosphor Icons](https://phosphoricons.com/) — Regular/Fill variants.
 
-### Правила
-- Товщина ліній: **1.5px** (стандарт), **2px** (display-розміри 32px+)
-- Розміри: 16px (inline), 20px (buttons), 24px (сolumn nav), 32px+ (hero)
-- Колір: `currentColor` — іконка завжди успадковує колір тексту поруч
-- Rounded corners, ніяких гострих кутів
+### Rules
+- Stroke weight: **1.5px** (standard), **2px** (for display sizes 32px+).
+- Sizes: 16px (inline), 20px (buttons), 24px (column nav), 32px+ (hero).
+- Color: `currentColor` — icons always inherit the color of the adjacent text.
+- Rounded corners only, absolutely no sharp edges.
 
-### Іконки під категорії / мапи
+### Map & Category Icons
 
-> Фіксована таблиця «категорія → іконка → колір» і специфіка іконок для мап (маркери проєктів, кластери, зірочка переможця) — у майбутньому `design-data.md`. Тут тримаємо тільки загальні правила (товщина, розміри, `currentColor`), бо категорії БУ змінювалися рік-у-рік і прив'язувати іконки до конкретного набору в ядрі — створювати вигадку, яка не матч-ить реальні дані 2016-2025.
+> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), belongs in `design-data.md`. We only dictate general rules here (weight, size, `currentColor`) because PB categories morphed every year; hardcoding icons into the core creates a fiction that doesn't match the 2016-2025 reality.
 
 ---
 
-## 10. Voice & Tone (редакційний стиль)
+## 10. Voice & Tone (Editorial Style)
 
-### Принципи
-- **Формальний-але-теплий.** «Ви» — завжди. «Ти» — ніколи, навіть у соцмережах.
-- **Активні дієслова, конкретні результати.** «Мешканці Пасічної обрали 14 проєктів» — краще ніж «було проведено голосування». «Відремонтовано 12 дворів на 5.2 млн грн» — краще ніж «виконано низку заходів з благоустрою».
-- **Без канцеляризмів.** Забороняються: «вищезазначений», «в рамках», «з метою», «шляхом», «здійснення». Пишіть простіше.
-- **Числа — героїв не ховаємо.** Якщо за 10 років брало участь 127 тисяч людей — це має бути велике число, не абзац.
-- **Акцент на людях і результатах, не на процесі.** «Марія з Автовокзалу подала перший у місті проєкт велостанції» — краще ніж «Подання заявок відбувалося через електронний кабінет».
+### Principles
+- **Formal-yet-warm.** Always use the polite "Ви" (You). Never use the informal "Ти", not even on social media.
+- **Active verbs, concrete results.** "Residents of Pasichna chose 14 projects" is better than "Voting was conducted." "12 courtyards renovated for 5.2M UAH" is better than "A series of improvement measures were executed."
+- **No bureaucratic jargon.** Words like "вищезазначений" (aforementioned), "в рамках" (within the framework), "з метою" (with the aim of), or "шляхом" (by means of) are banned. Write simply.
+- **Don't hide hero numbers.** If 127 thousand people participated over 10 years, that should be a massive display number, not buried in a paragraph.
+- **Focus on people and results, not processes.** "Maria from the Bus Station area submitted the city's first bike station project" beats "Applications were submitted via the electronic cabinet."
 
-### Заголовки
-- Короткі, конкретні, з числом або іменем, якщо можливо.
-- ✓ «10 років, 1 412 проєктів, 8 переможців-легенд»
-- ✗ «Огляд реалізації проєктів бюджету участі за десятирічний період»
+### Headings
+- Short, specific, featuring a number or a name whenever possible.
+- ✓ "10 years, 1,412 projects, 8 legendary winners"
+- ✗ "Overview of participatory budgeting implementation over a ten-year period"
 
-### Підписи графіків
-- Пояснюйте **висновок**, не опис: «Освітні проєкти виграли 5 із 6 місць у 2018-му» — краще ніж «Розподіл переможців за категоріями у 2018 році».
+### Chart Captions
+- Explain the **insight**, don't just describe the chart: "Educational projects swept 5 out of 6 top spots in 2018" is superior to "Distribution of winning projects by category in 2018."
 
-### Соцмережі
-- Короткі факти з емоційним гачком: «У 2019 двір на Галицькій отримав більше голосів, ніж будь-який проєкт освіти за всі 10 років. Як так вийшло — дивіться в інсайтах ↓»
-- Завжди пропонуйте конкретну дію: посилання на сайт з фільтром.
+### Social Media
+- Brief facts with an emotional hook: "In 2019, a courtyard on Halytska gathered more votes than any educational project across all 10 years. See how it happened in the insights ↓"
+- Always offer a clear call to action: a link to the site with a pre-applied filter.
 
 ---
 
 ## 11. Agent Prompt Guide
 
-### Швидкий референс
+### Quick Reference
 ```
 BRAND CORE
   Primary (purple):    #654EA3
@@ -412,81 +414,82 @@ DATA-VIZ (in core)
   Primary shades + yellow as accent
   Sequential for heatmap/choropleth: Primary-50 → Primary-900
   Yellow in charts ALWAYS with dark outline #1A1A1A 1-1.5px
+  Data-viz palette goes in a fixed order. Yellow in charts - ALWAYS with a dark outline.
   Extended categorical palette → design-data.md (when real analytical artifact starts)
 
 RADII: 4, 8, 12, 16, 24, 999 (pill)
 SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 ```
 
-### Приклади промптів
+### Example Prompts
 
-**Hero-картка «10 років БУ»:**
+**"10 Years of PB" Hero Card:**
 > Create a hero card for "10 років Бюджету участі Івано-Франківська". Large display number "10" in Phenomena Black 96px, color #654EA3, tabular-nums. Subtitle "років змін" in Proxima Nova 20px 400, color #1A1A1A. Background #FDFDFD, padding 48px, border-radius 24px, subtle shadow level 2. Below: three stat chips (1 412 проєктів / 127К учасників / ₴62 млн) in Phenomena 28px 700.
 
-**Картка історичного проєкту:**
+**Historical Project Card:**
 > Build a project card: photo on top (radius 12px, aspect-ratio 3:2), then a pill-tag «Освіта» (bg rgba(101, 78, 163, 0.15), text #4E3C84, font Proxima Nova 12px 600). Title in Proxima Nova 20px 600, color #1A1A1A. Below: author name in Proxima Nova 14px 400, color #71737E. Stats row: "2 847 голосів" (Phenomena 24px 700) and "₴1,2 млн" (Phenomena 24px 700). Bottom: yellow badge "Переможець 2019" bg #FFEC08, text #1A1A1A, pill, Proxima Nova 12px 600.
 
-**Інфографіка для соцмереж (1:1):**
+**Social Media Infographic (1:1):**
 > Create a 1080×1080 infographic. Background #FDFDFD with subtle top-right corner detail in Primary-50 #F6F4FB. Big display number in center: "14 832" in Phenomena Black 180px, color #654EA3, tabular-nums. Below in Proxima Nova 28px 600: "голоси за двір на Галицькій, 2019". Footer: small yellow badge "переможець року" bg #FFEC08, dark border 1px. Logo bottom-left.
 
-> **Приклади для мап, heatmap та інших аналітичних артефактів** — у майбутньому `design-data.md`. Тут тримаємо тільки промо- і картково-типові приклади, які потрібні будь-якому споживачу ядра.
+> **Examples for maps, heatmaps, and other analytical artifacts** — belong in the future `design-data.md`. We only keep core promo/card examples here, which any consumer of the core system would need.
 
 ### Iteration Guide
-1. Завжди починайте з brand core (фіолетовий + жовтий + графіт на майже білому).
-2. Phenomena — лише для заголовків і великих чисел. Усе інше — Proxima Nova.
-3. `tabular-nums` — на всіх цифрах.
-4. Data-viz у ядрі — Primary shades + жовтий. Жовтий у графіках — завжди з темним контуром. Розширена палітра — `design-data.md` за потреби.
-5. Тіні тільки вертикальні, м'які, нейтрально-сірі.
-6. Ніяких статусних «живих» позначок — лише базові бейджі (Переможець року, Реалізовано). Повний набір 7 статусів — у `design-data.md`.
-7. Мобільний-перший. Перевірте дизайн на 375px перед тим як йти ширше.
+1. Always start with the brand core (purple + yellow + graphite on off-white).
+2. Phenomena — strictly for headings and huge numbers. Everything else is Proxima Nova.
+3. `tabular-nums` — on all digits.
+4. Data-viz palette runs in a fixed order. Yellow in charts ALWAYS gets a dark outline.
+5. Shadows are strictly vertical, soft, and neutral-gray.
+6. Absolutely no "live" status indicators — rely only on historical badges (Winner of the Year, Participant, Implemented, Not Implemented).
+7. Mobile-first. Stress-test the design at 375px before scaling wider.
 
 ---
 
 ## 12. Motion & Interaction
 
-Рух у цій системі служить **моментам акценту** — появі великих чисел, входу графіків, hover-станам. Базова позиція інтерфейсу — нерухомість. Цей розділ задає мінімальні правила, щоб агенти не вигадували довільних анімацій і щоб сигнатурний «namotування числа при скролі» відтворювалося консистентно.
+Motion in this system serves **moments of emphasis** — the arrival of hero numbers, chart entries, and hover states. The baseline state of the UI is stillness. This section sets rigid boundaries to prevent AI agents from hallucinating arbitrary animations and ensures our signature "number count-up on scroll" is executed consistently.
 
-### Базові правила
-- **`prefers-reduced-motion` — обов'язково.** Усі анімації мусять мати CSS-fallback, що показує фінальний стан без руху.
-- **Stillness is default.** Анімуємо лише в моментах: перша поява елемента у viewport, hover/focus, зміна стану (dropdown, таби, модалки).
-- **Рух служить даним.** Не анімуємо декоративно — тільки щоб звернути увагу на число або перехід між станами.
+### Core Rules
+- **`prefers-reduced-motion` is non-negotiable.** All animations must feature a CSS fallback revealing the final state instantly.
+- **Stillness is default.** Only animate during key moments: first appearance in the viewport, hover/focus, and state transitions (dropdowns, tabs, modals).
+- **Motion serves the data.** No decorative floating or bouncing — animate only to draw focus to a number or a state change.
 
 ### Durations & Easing
 
-| Контекст | Duration | Easing |
+| Context | Duration | Easing |
 |---|---|---|
-| Hover / focus (колір, shadow) | 150ms | `ease-out` |
+| Hover / focus (color, shadow) | 150ms | `ease-out` |
 | Tooltip, dropdown, tab switch | 200–250ms | `cubic-bezier(0.22, 1, 0.36, 1)` |
 | Card reveal on scroll | 400–500ms | `cubic-bezier(0.22, 1, 0.36, 1)` |
-| **Count-up для hero-чисел** | 900–1200ms | `cubic-bezier(0.25, 0.1, 0.25, 1)` |
-| Chart entry (бари ростуть, лінії малюються) | 800–1000ms | `cubic-bezier(0.22, 1, 0.36, 1)` |
+| **Count-up for hero numbers** | 900–1200ms | `cubic-bezier(0.25, 0.1, 0.25, 1)` |
+| Chart entry (bars grow, lines draw) | 800–1000ms | `cubic-bezier(0.22, 1, 0.36, 1)` |
 | Modal open | 200–250ms (fade + scale) | `ease-out` |
 
-### Count-up великих чисел (сигнатурна анімація)
+### Count-up for Hero Numbers (Signature Animation)
 
-Це підпис-момент системи. Коли hero-число (Phenomena Black 48px+) вперше потрапляє у viewport — воно намотується з `0` до цільового значення.
+This is the system's signature flair. When a hero number (Phenomena Black 48px+) enters the viewport for the first time, it counts up from `0` to the target value.
 
-- **Trigger**: `IntersectionObserver`, threshold 0.4 (коли 40% елемента вже видно)
-- **Duration**: 900–1200ms (довші числа — ближче до 1200)
-- **Easing**: natural deceleration — швидкий старт, гальмування в кінці
-- **Форматування проміжних значень**: також через нерозривний пробіл (`8 421` → `14 832`), не «14832» без пробілу
-- **Мінімум**: не застосовувати на числах `< 100` — виглядає дрібно
-- **Кілька stat-cards поруч**: стагер 80–120ms між картками, не одночасно
+- **Trigger**: `IntersectionObserver`, threshold 0.4 (when 40% of the element is visible).
+- **Duration**: 900–1200ms (larger numbers skew closer to 1200ms).
+- **Easing**: Natural deceleration — fast start, braking towards the end.
+- **Intermediate formatting**: Interstitial numbers must retain the non-breaking space formatting (`8 421` → `14 832`), not unformatted "14832".
+- **Minimum threshold**: Do not apply to numbers `< 100` — it looks erratic.
+- **Adjacent stat cards**: Apply an 80–120ms stagger between cards; they should not count up in perfect unison.
 
 ### Chart Entry Animations
 
-- **Bar**: бари ростуть знизу до фінальної висоти, 800ms, стагер 50ms між барами
-- **Line / Area**: лінія малюється зліва направо через `stroke-dashoffset`, 1000ms. Area-заповнення — fade-in після того, як лінія намалювалася
-- **Donut / Pie**: сегменти малюються від 12 години за годинниковою стрілкою, 800ms total
-- **Heatmap**: клітинки fade-in зліва-вгору → право-вниз, стагер 15ms між клітинками
-- **Trigger**: завжди при вході в viewport, не при перезавантаженні сторінки
+- **Bar**: Bars grow from the bottom to their final height, 800ms, with a 50ms stagger between bars.
+- **Line / Area**: Lines draw from left to right using `stroke-dashoffset`, 1000ms. Area fills fade in *after* the line finishes drawing.
+- **Donut / Pie**: Segments draw clockwise starting from 12 o'clock, 800ms total.
+- **Heatmap**: Cells fade in diagonally from top-left to bottom-right, with a 15ms stagger per cell.
+- **Trigger**: Exclusively upon entering the viewport, never merely on page load.
 
 ### Interactive States
 
-- **Hover на картці**: `translateY(-2px)` + shadow level 1 → level 2, 150ms
-- **Hover на bar/dot графіка**: заливка +10% світліша, tooltip fade-in 150ms
-- **Focus-ring**: `outline: 2px solid #654EA3; outline-offset: 2px` — **без анімації** (instant для accessibility)
-- **Клік на кнопку**: `scale(0.98)` на 100ms, потім повернення — легкий тактильний feedback
+- **Card hover**: `translateY(-2px)` + elevate shadow from level 1 to level 2, 150ms.
+- **Chart bar/dot hover**: Fill becomes 10% lighter, tooltip fades in over 150ms.
+- **Focus-ring**: `outline: 2px solid #654EA3; outline-offset: 2px` — **zero animation** (instant switch for accessibility).
+- **Button click**: `scale(0.98)` for 100ms, then revert — providing light tactile feedback.
 
 ### Reduced Motion
 
@@ -499,11 +502,11 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 }
 ```
 
-У цьому режимі: count-up показує **одразу фінальне число** без намотування, chart entry — фінальний стан без малювання.
+Under this preference: count-ups instantly display the **final number** with zero scrolling, and charts render in their final state immediately.
 
 ### Don't
 
-- Не анімуйте background colors (наприклад `white → purple` для «вжух-ефекту») — нервує.
-- Ні parallax-скрол, ні bounce / elastic easing — це тон ігрового сайту, не муніципального.
-- Count-up довший за 1.5s — користувач уже переключив увагу.
-- Typewriter-анімація заголовків (літери «друкуються» по черзі) — проблемна для дислексії.
+- Do not animate background colors (e.g., `white → purple` for a "swoosh" effect) — it's jarring.
+- No parallax scrolling, no bounce or elastic easings — that's the tone of a gaming site, not a municipal tool.
+- Do not let a count-up exceed 1.5s — the user has already moved on.
+- Typewriter animations for headings (letters typing out one by one) are forbidden due to dyslexia concerns.

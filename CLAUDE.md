@@ -19,7 +19,8 @@ This is **not a codebase**. There is no build, no tests, no runtime. The deliver
 ## Language
 
 - Respond to the user in **Ukrainian** — that is their working language.
-- Keep content *inside* `design.md` and `prompts/*.md` in Ukrainian (that is the brand voice).
+- Ensure the primary `design.md` file remains in **English** for maximum AI understanding.
+- Keep the localized copy `design.ua.md` in **Ukrainian**.
 - Meta-documentation for agents (this file) stays in English.
 
 ## Repo layout
