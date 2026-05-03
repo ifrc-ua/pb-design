@@ -4,41 +4,142 @@ name: Бюджет участі Івано-Франківської громад
 description: Дизайн-система для бюджету участі (громадського бюджету) Івано-Франківської громади. Оптимізована для AI-аналітики, генерації UI та муніципальної інфографіки.
 colors:
   primary: "#654EA3"
+  primary-900: "#4E3C84"
+  primary-500: "#654EA3"
+  primary-300: "#7B66B8"
+  primary-200: "#9C8BCC"
+  primary-100: "#EEEAF7"
+  primary-50: "#F6F4FB"
   secondary: "#FFEC08"
+  secondary-700: "#E6D307"
+  secondary-500: "#FFEC08"
+  secondary-300: "#FFF266"
+  secondary-100: "#FFF9B3"
   canvas: "#FDFDFD"
   ink: "#1A1A1A"
+  neutral-500: "#71737E"
+  neutral-300: "#CACAD1"
+  neutral-100: "#EFEFF1"
   success: "#2F8F4E"
+  success-tint: "#E8F3EC"
+  success-ink: "#1E6B39"
   info: "#2563EB"
   warning: "#D97706"
   error: "#DC2626"
 typography:
-  display: "Phenomena"
-  body: "Proxima Nova"
+  display-hero:
+    fontFamily: "Phenomena"
+    fontSize: 96px
+    fontWeight: 900
+    lineHeight: 1.0
+    letterSpacing: -2px
+  title-h1:
+    fontFamily: "Phenomena"
+    fontSize: 64px
+    fontWeight: 700
+    lineHeight: 1.05
+    letterSpacing: -0.8px
+  title-h2:
+    fontFamily: "Phenomena"
+    fontSize: 40px
+    fontWeight: 700
+    lineHeight: 1.15
+    letterSpacing: -0.4px
+  title-h3:
+    fontFamily: "Phenomena"
+    fontSize: 28px
+    fontWeight: 400
+    lineHeight: 1.25
+    letterSpacing: -0.2px
+  body-lg:
+    fontFamily: "Proxima Nova"
+    fontSize: 20px
+    fontWeight: 400
+    lineHeight: 1.55
+  body-md:
+    fontFamily: "Proxima Nova"
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.55
+  body-sm:
+    fontFamily: "Proxima Nova"
+    fontSize: 14px
+    fontWeight: 400
+    lineHeight: 1.5
+  label-bold:
+    fontFamily: "Proxima Nova"
+    fontSize: 12px
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: 1px
+  data-stat:
+    fontFamily: "Phenomena"
+    fontSize: 72px
+    fontWeight: 900
+    lineHeight: 1.0
 rounded:
-  xs: "4px"
-  sm: "8px"
-  md: "12px"
-  lg: "16px"
-  xl: "24px"
-  pill: "999px"
+  xs: 4px
+  sm: 8px
+  md: 12px
+  lg: 16px
+  xl: 24px
+  pill: 999px
 spacing:
-  xxs: "4px"
-  xs: "8px"
-  sm: "12px"
-  md: "16px"
-  lg: "24px"
-  xl: "32px"
-  xxl: "48px"
-  section: "96px"
+  xxs: 4px
+  xs: 8px
+  sm: 12px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  xxl: 48px
+  section: 96px
+components:
+  button-primary:
+    backgroundColor: "{colors.primary-500}"
+    textColor: "{colors.canvas}"
+    typography: "{typography.body-md}"
+    fontWeight: 600
+    rounded: "{rounded.sm}"
+    padding: 12px 24px
+  button-secondary:
+    backgroundColor: "transparent"
+    textColor: "{colors.primary-500}"
+    border: "1.5px solid {colors.primary-500}"
+    rounded: "{rounded.sm}"
+    padding: 12px 24px
+  button-accent:
+    backgroundColor: "{colors.secondary-500}"
+    textColor: "{colors.ink}"
+    border: "1px solid {colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: 12px 24px
+  card-project:
+    backgroundColor: "{colors.canvas}"
+    border: "1px solid {colors.neutral-100}"
+    rounded: "{rounded.md}"
+    padding: 20px
+  card-stat:
+    backgroundColor: "{colors.primary-50}"
+    rounded: "{rounded.lg}"
+    padding: 24px
+  badge-winner:
+    backgroundColor: "{colors.secondary-500}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: 4px 10px
+  progress-bar-fill:
+    backgroundColor: "{colors.primary-500}"
+    rounded: "{rounded.pill}"
+    height: 8px
 ---
 
-# Дизайн-система — Бюджет участі Івано-Франківської громади
+# Огляд дизайн-системи — Бюджет участі ІФ
 
 > *[🇬🇧 Read in English](design.md)*
 
-> Дизайн-система для бюджету участі (громадського бюджету) Івано-Франківської громади. Побудована за форматом [Google Stitch DESIGN.md](https://stitch.withgoogle.com/) / — плейн-маркдаун для AI-агентів, що генерують UI, інфографіку та аналітичні візуалізації в бренді бюджету участі (БУ)
+Цей документ визначає візуальні стандарти, токени та правила побудови інтерфейсів для екосистеми Бюджету участі Івано-Франківська. Система оптимізована для роботи з AI-агентами, створення аналітичної інфографіки та муніципальних звітів.
 
----
+
 
 ## 1. Візуальна тема і атмосфера
 
