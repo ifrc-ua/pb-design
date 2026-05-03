@@ -1,99 +1,105 @@
-<h1 align="center">Дизайн-система «Бюджет участі Івано-Франківської громади»</h1>
+<h1 align="center">Design System "Participatory Budget of Ivano-Frankivsk"</h1>
 <p align="center">
-  Універсальний стандарт для дизайн-рішень
+  A universal standard for design solutions
 </p>
 
 <p align="center">
   <a href="./prompts/"><img src="https://img.shields.io/badge/AI--Agent-Ready-2F8F4E" alt="AI Ready"></a>
-  <a href="./design.ua.md"><img src="https://img.shields.io/badge/Format-DESIGN.md-654EA3" alt="Format"></a>
-  <a href="./design.ua.md"><img src="https://img.shields.io/badge/Language-UA_/_EN-FFEC08?labelColor=1A1A1A" alt="Languages"></a>
+  <a href="./design.md"><img src="https://img.shields.io/badge/Format-DESIGN.md-654EA3" alt="Format"></a>
+  <a href="./design.md"><img src="https://img.shields.io/badge/Language-EN_/_UA-FFEC08?labelColor=1A1A1A" alt="Languages"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-FFEC08?labelColor=1A1A1A" alt="License"></a>
 </p>
 
+> *[🇺🇦 Читати українською (Read in Ukrainian)](README.ua.md)*
 
 ---
 
-Дизайн-система для бюджету участі (громадського бюджету) Івано-Франківської громади у форматі [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) — плейн-маркдаун, який читають AI-агенти (Claude, Stitch, Cursor, Lovable, v0) і генерують UI, інфографіку та аналітичні візуалізації в бренді БУ ІФ.
+A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municipality in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format — a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
 
-## Що тут є
+## What's inside
 
-- **[design.md](./design.md)** — головний документ дизайн-системи: кольори, шрифти, компоненти, правила.
-- **Шрифти:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (заголовки, безкоштовний) і Proxima Nova (текст/UI, комерційний) — файли не включені до репозиторію.
-- **[prompts/](./prompts/)** — готові промпти для типових задач:
-  - `infographics.md` — аналітична інфографіка (heatmaps, діаграми голосів, мапи, рейтинги)
-  - `social-media.md` — пости для соцмереж (1:1, 4:5, stories 9:16)
-  - `presentations.md` — слайди для презентацій мерії/громади
+- **[design.md](./design.md)** — the main design system document: colors, fonts, components, rules.
+- **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings, free) and Proxima Nova (text/UI, commercial) — font files are not included in the repository.
+- **[prompts/](./prompts/)** — ready-made prompts for typical tasks:
+  - `infographics.md` — analytical infographics (heatmaps, voting charts, maps, rankings)
+  - `social-media.md` — social media posts (1:1, 4:5, 9:16 stories)
+  - `presentations.md` — slides for municipality/community presentations
 
-## Як цим користуватися з AI
+## How to use this with AI
 
-### Спосіб 1 — дати посилання на raw-файл
-Відкрийте чат з Claude (claude.ai, Claude Code, Cursor) і напишіть:
+### Method 1 — provide a raw file link
+Open a chat with Claude (claude.ai, Claude Code, Cursor) and write:
 
-> Використай дизайн-систему з цього документа: https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
+> Use the design system from this document: https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
 >
-> Створи [що саме — інфографіку/картку/слайд].
+> Create [what you need — infographic/card/slide].
 
-Агент завантажить `design.md` і буде дотримуватися усіх правил — шрифтів, палітри, геометрії.
+The agent will download `design.md` and strictly follow all the rules — fonts, palette, geometry.
 
-### Спосіб 2 — скопіювати у свій проєкт
-Склонуйте цей репозиторій або скопіюйте `design.md` у корінь вашого проєкту. Агенти (Cursor, Claude Code), які працюють із вашою папкою, автоматично побачать цей файл.
+### Method 2 — copy to your project
+Clone this repository or copy `design.md` into the root of your project. Agents (Cursor, Claude Code) working within your folder will automatically detect this file.
 
-### Спосіб 3 — вставити вміст у чат
-Відкрийте `design.md`, скопіюйте весь вміст, вставте в чат з інструкцією:
+### Method 3 — paste the content into the chat
+Open `design.md`, copy its entire content, and paste it into the chat with the instruction:
 
-> Ось дизайн-система проєкту. Нижче йде завдання.
+> Here is the project design system. The task follows below.
 >
-> [вставити вміст design.md]
+> [paste design.md content]
 >
-> Завдання: [ваше завдання]
+> Task: [your task]
 
-## Швидкий приклад промпту
+## Quick Prompt Example
 
-> Використай дизайн-систему з https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
+> Use the design system from https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
 >
-> Створи інфографіку 1080×1080 для Instagram: топ-5 категорій БУ Івано-Франківська за 10 років, з кількістю проєктів-переможців у кожній. Стиль: стриманий, дані у центрі уваги, фіолетовий фон-акцент у куті.
+> Create a 1080×1080 infographic for Instagram: top-5 PB Ivano-Frankivsk categories over 10 years, with the number of winning projects in each. Style: restrained, data in focus, purple accent background in the corner.
 
-## Структура файлів
+## File Structure
 
-```
+```text
 pb-design/
-├── README.md           ← цей файл
-├── design.md           ← головна дизайн-система
+├── README.md           ← this file (English)
+├── README.ua.md        ← human-facing intro (Ukrainian)
+├── design.md           ← main design system (English)
+├── design.ua.md        ← design system (Ukrainian)
 └── prompts/
     ├── infographics.md
     ├── social-media.md
     └── presentations.md
 ```
 
-## Бренд у двох словах
+## The Brand in a Nutshell
 
-- **Кольори:** фіолетовий ![](https://img.shields.io/badge/-%23654EA3-654EA3?labelColor=654EA3) + жовтий ![](https://img.shields.io/badge/-%23FFEC08-FFEC08?labelColor=FFEC08) на майже-білому ![](https://img.shields.io/badge/-%23FDFDFD-FDFDFD?labelColor=FDFDFD), текст ![](https://img.shields.io/badge/-%231A1A1A-1A1A1A?labelColor=1A1A1A).
-- **Шрифти:** Phenomena — заголовки й великі числа; Proxima Nova — усе інше.
-- **Характер:** муніципальна довіра + енергія громади. Стриманість, ясність, великі числа, багато повітря.
-- **Контекст:** аналітика **10 років БУ** Івано-Франківська (2016–2025). Не поточний цикл.
+- **Colors:** purple ![](https://img.shields.io/badge/-%23654EA3-654EA3?labelColor=654EA3) + yellow ![](https://img.shields.io/badge/-%23FFEC08-FFEC08?labelColor=FFEC08) on near-white ![](https://img.shields.io/badge/-%23FDFDFD-FDFDFD?labelColor=FDFDFD), text ![](https://img.shields.io/badge/-%231A1A1A-1A1A1A?labelColor=1A1A1A).
+- **Fonts:** Phenomena — headings and large numbers; Proxima Nova — everything else.
+- **Vibe:** municipal trust + community energy. Restraint, clarity, large numbers, plenty of whitespace.
+- **Context:** analytics for **10 years of PB** Ivano-Frankivsk (2016–2025). Not the active voting cycle.
 
-## Ліцензія та шрифти
+## License and Fonts
 
-Дизайн-система поширюється за ліцензією [MIT](https://opensource.org/licenses/MIT).
+This design system is distributed under the [MIT](https://opensource.org/licenses/MIT) license.
 
-Шрифти **не включені до цього репозиторію** — завантажуйте самостійно:
+Fonts are **not included in this repository** — download them separately:
 
-- **Phenomena** — безкоштовно на [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (7 накреслень, Thin → Black)
-- **Proxima Nova** — комерційна ліцензія на [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova)
+- **Phenomena** — free at [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (7 weights, Thin → Black)
+- **Proxima Nova** — commercial license at [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova)
 
-Якщо Proxima Nova недоступна, як безкоштовну заміну можна використати з Google Fonts (ліцензія OFL, вільне комерційне використання):
-- [Inter](https://fonts.google.com/specimen/Inter) — найближчий аналог за геометрією і читабельністю, рекомендований для UI і тексту
-- [Nunito](https://fonts.google.com/specimen/Nunito) — м'якший варіант, добре підходить для описів і карток проєктів
+If the original fonts are unavailable, use the following free alternatives from Google Fonts (OFL license):
+- For **Phenomena** (headings): [Inter Tight](https://fonts.google.com/specimen/Inter+Tight) (900 Black weight).
+- For **Proxima Nova** (UI and text): [Inter](https://fonts.google.com/specimen/Inter) (with mandatory `tabular-nums` for digits).
+- *Secondary fallback:* Geist Sans / Geist Mono.
+
+See `design.md` for detailed instructions on correcting letter spacing and line height when using fallback fonts.
 
 
-## Внесення змін
+## Contributing
 
-1. Внесіть правки у відповідний файл.
-2. `git add . && git commit -m "коротко що змінили"`
+1. Make edits to the relevant file.
+2. `git add . && git commit -m "brief description of change"`
 3. `git push`
 
-Зміни одразу підхопляться агентами, що посилаються на raw-URL.
+Changes will immediately be picked up by agents referencing the raw URL.
 
 ---
 
-*Створено на базі шаблону [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) від VoltAgent.*
+*Created based on the [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) template by VoltAgent.*

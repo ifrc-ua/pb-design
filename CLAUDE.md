@@ -27,7 +27,9 @@ This is **not a codebase**. There is no build, no tests, no runtime. The deliver
 
 ```
 design.md           ← main design system (do not restructure lightly)
-README.md           ← human-facing intro
+design-data.md      ← future/optional: created when real data viz is needed
+README.md           ← human-facing intro (English)
+README.ua.md        ← human-facing intro (Ukrainian)
 prompts/            ← ready-made prompts for typical tasks
   infographics.md
   social-media.md
@@ -38,7 +40,7 @@ fonts/              ← licensed commercial fonts — do not modify or redistrib
 ## Conventions
 
 - **New prompts** go in `prompts/` as a new `.md` file, following the structure of existing ones.
-- **Do not create** new top-level docs (extra READMEs, CHANGELOG, CONTRIBUTING, etc.) unless the user asks.
+- **Do not create** new top-level docs (extra READMEs, CHANGELOG, CONTRIBUTING, etc.) unless the user asks, **with one exception**: you may create `design-data.md` when an analytical artifact demands extended categorical palettes or map data. Leave a `<!-- TODO: design-data.md needs X -->` comment if encountering a gap in the core design.
 - **Do not touch `fonts/`** — files there are licensed (Proxima Nova, Phenomena) and governed by an org-level agreement.
 - **Brand colors are fixed**: purple `#654EA3` + yellow `#FFEC08` on near-white `#FDFDFD` with graphite `#1A1A1A` text. Shades and semantic tokens are defined in `design.md` §2 — reuse them, don't invent new ones.
 

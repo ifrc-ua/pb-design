@@ -77,6 +77,21 @@ typography:
     fontSize: 72px
     fontWeight: 900
     lineHeight: 1.0
+  title-feature:
+    fontFamily: "Proxima Nova"
+    fontSize: 20px
+    fontWeight: 600
+    lineHeight: 1.30
+  caption:
+    fontFamily: "Proxima Nova"
+    fontSize: 12px
+    fontWeight: 500
+    lineHeight: 1.40
+  data-label:
+    fontFamily: "Proxima Nova"
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.30
 rounded:
   xs: 4px
   sm: 8px
@@ -131,6 +146,31 @@ components:
     backgroundColor: "{colors.primary-500}"
     rounded: "{rounded.pill}"
     height: 8px
+  dropdown-filter:
+    backgroundColor: "{colors.canvas}"
+    border: "1px solid {colors.neutral-200}"
+    rounded: "{rounded.sm}"
+    padding: 10px 14px
+  year-slider:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-sm}"
+  top-nav:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body-md}"
+  badge-implemented:
+    backgroundColor: "{colors.success-tint}"
+    textColor: "{colors.success-ink}"
+    rounded: "{rounded.pill}"
+    padding: 4px 10px
+  section-standard:
+    backgroundColor: "{colors.canvas}"
+    padding: "{spacing.section}"
+  section-hero:
+    backgroundColor: "{colors.primary-50}"
+    padding: "{spacing.section}"
+    rounded: "{rounded.xl}"
 ---
 
 # Design System Overview — Participatory Budgeting IF
@@ -145,17 +185,17 @@ This document defines the visual standards, tokens, and interface guidelines for
 
 Participatory Budgeting is a municipal tool that exists at the intersection of two energies: **civic trust** (calmness, transparency, order) and **active participation** (movement, voice, choice). The design system is built around this duality. Phenomena — a condensed, broad, almost architectural sans-serif — acts as the hero voice: used in display headings, sections, and record-breaking numbers. Its geometric nature and clean outlines evoke public spaces, feeling official yet approachable. Proxima Nova — a versatile workhorse typeface — handles dense interface layers, analytical labels, long project descriptions, and data tables.
 
-The palette relies on two core logo colors: **Purple `#654EA3`** (seriousness, authority, creativity) and **Yellow `#FFEC08`** (energy, voice, visibility). Purple acts as the document's ink, while yellow serves as a highlighter for what's most important. The background is an off-white (`#FDFDFD`), and text is deep graphite (`#1A1A1A`) — pairing perfectly for maximum readability and data focus. We practice strict color discipline: the core relies only on the two brand colors plus neutral grays. An extended data-viz palette (for charts needing 5+ categories) lives in a separate `design-data.md` file, which is created only when genuinely needed.
+The palette relies on two core logo colors: **Purple `{colors.primary-500}`** (`#654EA3` - seriousness, authority, creativity) and **Yellow `{colors.secondary-500}`** (`#FFEC08` - energy, voice, visibility). Purple acts as the document's ink, while yellow serves as a highlighter for what's most important. The background is an off-white (`{colors.canvas}`), and text is deep graphite (`{colors.ink}`) — pairing perfectly for maximum readability and data focus. We practice strict color discipline: the core relies only on the two brand colors plus neutral grays. An extended data-viz palette (for charts needing 5+ categories) lives in a separate `design-data.md` file, which is created only when genuinely needed.
 
 The aesthetic is restrained infographics: abundant white space, clear grids, large numbers acting as composition heroes, crisp 1.5px icons, soft (8–12px) border radii on cards, and barely visible shadows. No neon gradients, no decorative animations — everything serves data readability and trust.
 
 **Key Characteristics:**
-- Two typefaces: Phenomena (display + headings) & Proxima Nova (UI, text, data).
-- Two-color brand identity: Purple `#654EA3` & Yellow `#FFEC08`.
+- Two typefaces: Phenomena (`{typography.display-hero}`) for display/headings & Proxima Nova (`{typography.body-md}`) for UI, text, data.
+- Two-color brand identity: Purple `{colors.primary-500}` & Yellow `{colors.secondary-500}`.
 - Core Data-viz: Primary shades + yellow; an extended palette for analytics is maintained in `design-data.md` (created as needed).
 - Historical, analytical focus: The system is designed to visualize **10 years** of PB data, not to run the current voting cycle.
-- Yellow is always a marker of IMPORTANCE (winner, accent, CTA), never a background for large areas.
-- Subtle shadows, 8px grid, wide gutters — municipal trust equals "room to breathe."
+- Yellow `{colors.secondary-500}` is always a marker of IMPORTANCE (winner `{components.badge-winner}`, accent, CTA), never a background for large areas.
+- Subtle shadows, `{spacing.xs}` (8px) grid, wide gutters — municipal trust equals "room to breathe."
 - Mobile-first: The website and social media content are primarily consumed on mobile devices.
 
 ---
@@ -249,26 +289,39 @@ Verified pairs:
 - **Body/UI**: `Proxima Nova` (commercial license, not bundled), fallback: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
 - **Numerics/Data**: `Proxima Nova` with `font-variant-numeric: tabular-nums` — mandatory for tables, dashboards, and charts.
 
+### Font Substitutes (when commercial fonts are unavailable)
+
+External AI tools (Lovable, v0, Stitch, Canva) and third-party presentations do not bundle Phenomena or Proxima Nova. Use these substitutes — and apply the listed corrections, otherwise the typographic rhythm collapses.
+
+| Original | Substitute | Correction |
+|---|---|---|
+| Phenomena (display, headings) | `Inter Tight` 900 | Inter Tight has slightly wider counters; reduce letter-spacing by an additional `-0.5px` at sizes 64px+. |
+| Proxima Nova (UI, body) | `Inter` (regular/semibold/bold) | Inter line-height runs 2–3% taller; tighten `body-md` line-height from 1.55 → 1.50, `body-lg` from 1.55 → 1.45. |
+| Proxima Nova `tabular-nums` | `Inter` with `font-variant-numeric: tabular-nums` | Mandatory — Inter's default proportional digits will misalign tables. |
+
+> Geist Sans/Geist Mono are acceptable secondary fallbacks if Inter is also unavailable.
+> Never substitute Phenomena with a serif, slab, or display script — the system loses its architectural calm.
+
 ### Available Weights
 - **Phenomena**: Thin (100), ExtraLight (200), Light (300), Regular (400), Bold (700), ExtraBold (800), Black (900)
 - **Proxima Nova**: Thin (100), Light (300), Regular (400), Semibold (600), Bold (700), Extrabold (800), Black (900) — all with Italics.
 
 ### Hierarchy
 
-| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|------|------|--------|-------------|----------------|-------|
-| Hero / Display | Phenomena | 72–96px | 900 (Black) | 1.00 | -1.5px to -2px | Hero numbers, landing title, "10 years of PB" |
-| H1 / Page Title | Phenomena | 48–64px | 700 (Bold) | 1.05 | -0.8px | Main screen heading |
-| H2 / Section | Phenomena | 32–40px | 700 (Bold) | 1.15 | -0.4px | Page sections |
-| H3 / Sub-section | Phenomena | 24–28px | 400 (Regular) | 1.25 | -0.2px | Section subheading |
-| Feature Title | Proxima Nova | 20–24px | 600 (Semibold) | 1.30 | normal | Project card name, widget title |
-| Body Large | Proxima Nova | 18–20px | 400 (Regular) | 1.55 | normal | Intro paragraphs, descriptions |
-| Body Standard | Proxima Nova | 16px | 400 (Regular) | 1.55 | normal | Main text |
-| Body Small | Proxima Nova | 14px | 400 (Regular) | 1.50 | normal | Auxiliary text, metadata |
-| Caption | Proxima Nova | 12–13px | 500 (Medium) | 1.40 | normal | Chart/image captions |
-| Overline / Label | Proxima Nova | 11–12px | 600 (Semibold) | 1.20 | +1px (uppercase) | Section labels, tags |
-| Data Stat (large num) | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | "14 832 голоси", "₴5.2 млн" |
-| Data Label | Proxima Nova | 11–13px | 400 (Regular) | 1.30 | normal, tabular-nums | Chart axes, tooltip values |
+| Token | Font | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|---|
+| `{typography.display-hero}` | Phenomena | 72–96px | 900 (Black) | 1.00 | -1.5px to -2px | Hero numbers, landing title, "10 years of PB" |
+| `{typography.title-h1}` | Phenomena | 48–64px | 700 (Bold) | 1.05 | -0.8px | Main screen heading |
+| `{typography.title-h2}` | Phenomena | 32–40px | 700 (Bold) | 1.15 | -0.4px | Page sections |
+| `{typography.title-h3}` | Phenomena | 24–28px | 400 (Regular) | 1.25 | -0.2px | Section subheading |
+| `{typography.title-feature}` | Proxima Nova | 20–24px | 600 (Semibold) | 1.30 | normal | Project card name, widget title |
+| `{typography.body-lg}` | Proxima Nova | 18–20px | 400 (Regular) | 1.55 | normal | Intro paragraphs, descriptions |
+| `{typography.body-md}` | Proxima Nova | 16px | 400 (Regular) | 1.55 | normal | Main text |
+| `{typography.body-sm}` | Proxima Nova | 14px | 400 (Regular) | 1.50 | normal | Auxiliary text, metadata |
+| `{typography.caption}` | Proxima Nova | 12–13px | 500 (Medium) | 1.40 | normal | Chart/image captions |
+| `{typography.label-bold}` | Proxima Nova | 11–12px | 600 (Semibold) | 1.20 | +1px (uppercase) | Section labels, tags |
+| `{typography.data-stat}` | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | "14 832 голоси", "₴5.2 млн" |
+| `{typography.data-label}` | Proxima Nova | 11–13px | 400 (Regular) | 1.30 | normal, tabular-nums | Chart axes, tooltip values |
 
 ### Principles
 - **Phenomena — strictly for headings and large numbers.** Never use Phenomena for long paragraphs; its wide footprint ruins readability.
@@ -410,9 +463,28 @@ All numbers must be formatted according to Ukrainian standards. This is **mandat
 - Gutter: 16px (mobile), 24px (tablet+)
 
 ### Whitespace Philosophy
-- **Municipal trust = room to breathe.** Sections are separated by 80–96px of vertical space on desktop (48–64px on mobile).
-- **Cards breathe:** internal card padding is 20–24px, spacing between cards in grids is 24px.
+- **Municipal trust = room to breathe.** Sections are separated by `{spacing.section}` (96px) of vertical space on desktop (`{spacing.xxl}` on mobile). Allow the page to return to `{colors.canvas}` between every two sections so each block reads as deliberate.
+- **Cards breathe:** internal card padding is `{spacing.lg}` (24px), spacing between cards in grids is `{spacing.lg}`.
 - **Data needs air:** charts and tables maintain 24–32px padding from container edges.
+
+### Section Surface Pattern (Color Blocks)
+
+Long-form pages ("10 Years of PB", project deep-dives) need a vertical rhythm. The system uses surface alternation, not decoration, to break sections.
+
+**Allowed surfaces:**
+- `{colors.canvas}` (#FDFDFD) — default; the page returns here between every two color blocks.
+- `{colors.primary-50}` (#F6F4FB) — calm purple block for stat sections, narrative recap, "the big picture" framings.
+- `{colors.primary-100}` (#EEEAF7) — slightly stronger purple for emphasis blocks (e.g., "Top winner of the decade").
+- `{colors.secondary-100}` (#FFF9B3) — yellow block, used **at most once per page**, reserved for the single most important moment (a hero stat, a CTA strip).
+
+**Rules:**
+- **One color block per visible viewport.** If two color blocks would appear simultaneously on a 1080px-tall screen, insert a canvas section between them.
+- **Canvas always returns.** Never chain two non-canvas sections in a row.
+- **Color blocks span full bleed** on mobile (no side margins, no rounded corners). On desktop they render as `rounded-xl` containers with `{spacing.section}` (96px) interior padding (component: `section-hero`).
+- **Type stays the same.** Surface change does not allow new fonts or new color tokens — only the background varies.
+- **Yellow blocks demand restraint.** A yellow section forces a dark border (`1px solid {colors.ink}`) on any contained `button-primary` to maintain contrast.
+
+> This pattern is the system's pacing tool. A 6-section page should read roughly as: canvas → primary-50 → canvas → primary-100 → canvas → secondary-100 (closing CTA). Never: primary-50 → primary-100 → primary-50 in a row.
 
 ### Border Radius Scale
 - `4px` — tiny elements (internal chip labels, progress ticks)
@@ -421,6 +493,20 @@ All numbers must be formatted according to Ukrainian standards. This is **mandat
 - `16px` — large stat-cards, modals
 - `24px` — large hero sections, featured cards
 - `999px` (pill) — chips, badges, thin tag-buttons
+
+### Image & Photo Geometry
+
+Real PB project photos vary wildly in quality — the system masks this with a uniform geometric frame.
+
+- **Aspect ratio**: 3:2 in cards, 16:9 in heroes, 1:1 only for social media tiles. Never freeform.
+- **Corner radius**: `{rounded.sm}` (8px) when nested inside a `card-project` (12px outer); `{rounded.md}` (12px) for stand-alone hero images; `{rounded.lg}` (16px) for full-bleed hero photos in `section-hero`.
+- **No drop shadows on photos.** Photos sit flat on the card surface.
+- **No rotation, no parallax.** Photos are static rectangles — this is municipal reportage, not editorial design.
+- **No avatars.** Authors are referenced by name + neighborhood (Proxima Nova 14px, neutral-500), never by photo, to protect resident privacy.
+- **Lazy-loading mandatory** for any image below the first viewport — `loading="lazy"` on every `<img>` outside the hero.
+- **Object-fit: cover** with `object-position: center` is the default. Manual cropping is allowed only when a face or critical detail anchors the frame.
+- **Placeholder when photo is missing**: `{colors.primary-50}` background with a 32px Lucide camera-off icon in `{colors.neutral-400}`, centered. Never use stock photography as a fallback.
+- **Alt text mandatory** — describe the project subject ("courtyard with new playground on Halytska St."), not the photo composition.
 
 ---
 
@@ -474,6 +560,25 @@ All numbers must be formatted according to Ukrainian standards. This is **mandat
 | Tablet | 600–1023px | 2 columns, hero number 64px, padding 40px |
 | Desktop | 1024–1439px | 3–4 columns, hero number 80px, padding 64px |
 | Wide | 1440px+ | Max container 1280px, center aligned |
+
+### Touch Targets
+
+Mobile-first means real fingers on real phones in real Marshrutkas. Every interactive element must satisfy these minimums.
+
+| Element | Mobile (touch) | Desktop (mouse) |
+|---|---|---|
+| Pill buttons (primary, secondary, accent) | min height **44px** | 40px acceptable |
+| Form inputs (dropdown, text, select) | min height **48px** | 40px acceptable |
+| Checkbox / toggle hit area | **44×44px** (visual can be 20px, hit area larger via padding) | 24×24 acceptable |
+| Year-range slider handle | **24px diameter** (visible) with **44×44px hit area** | 16px diameter, 32×32 hit area |
+| Icon-only button (e.g., filter chip close, map zoom) | **44×44px** | 32×32px |
+| Inline link (within paragraph) | line-height ≥ 1.55 + 8px vertical padding on tap | n/a |
+| Map markers | **32×32px** minimum tap target (visual icon can be 20px) | 20×20px |
+
+**Spacing between adjacent targets**: ≥ 8px gutter to prevent thumb mis-taps.
+**Bottom-sheet filter handles**: full-width tap zones, ≥ 56px tall.
+
+> Test at 375px width with a fingertip overlay (44px circle) before declaring any screen mobile-ready.
 
 ### Collapsing Strategy
 - Hero display: 96px → 72px → 56px → 48px
@@ -577,6 +682,27 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 5. Shadows are strictly vertical, soft, and neutral-gray.
 6. Absolutely no "live" status indicators — rely only on historical badges (Winner of the Year, Participant, Implemented, Not Implemented).
 7. Mobile-first. Stress-test the design at 375px before scaling wider.
+
+### Known Gaps
+
+This system is intentionally minimal. The following areas are **out of scope** for the core `design.md`. If you need them, do not invent — defer or escalate.
+
+**Deferred to `design-data.md`** (created when the first real analytical artifact demands it):
+- Extended categorical palette (7+ colors for stacked charts, donuts with many segments)
+- Category → color mapping based on real PB categories from 2016–2025 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility)
+- Category → icon mapping
+- Full set of 7 real project statuses (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Deleted) — only the 2 promotional badges (Winner, Implemented) live in core
+- Map specifics: project markers, clusters, winner stars, choropleth scales
+
+**Out of scope entirely** (do not design or generate):
+- Dark mode — municipal transparency is rooted in a light interface
+- Live voting states ("Voting in progress", "Submission open") — this is a historical analytics platform, not an active PB cycle
+- Form error states & validation copy — current PB site does not collect submissions through this design system
+- Admin / CMS UI — the system covers public-facing artifacts only
+- Email templates, push notifications — different medium, different rules
+- Multi-language switcher beyond UA/EN — system is bilingual, not multilingual
+
+**If an agent encounters a gap**: leave a `<!-- TODO: design-data.md needs X -->` HTML comment in the generated artifact, never fabricate a token or color outside the documented set.
 
 ---
 
