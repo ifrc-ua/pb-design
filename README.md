@@ -1,11 +1,27 @@
-# Дизайн-система «Бюджет участі Івано-Франківськ»
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ifrc-ua/pb-design/main/Design/assets/banner.png" width="100%" alt="Бюджет участі Івано-Франківськ — Дизайн-система">
+</p>
 
-Дизайн-система для проєкту громадського бюджету м. Івано-Франківська у форматі [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) — плейн-маркдаун, який читають AI-агенти (Claude, Stitch, Cursor, Lovable, v0) і генерують UI, інфографіку та аналітичні візуалізації в бренді БУ ІФ.
+<p align="center">
+  <b>Дизайн-система «Бюджет участі Івано-Франківської громади»</b><br>
+  Універсальний стандарт для дизайн-рішень
+</p>
+
+<p align="center">
+  <a href="./prompts/"><img src="https://img.shields.io/badge/AI--Agent-Ready-2F8F4E?style=for-the-badge" alt="AI Ready"></a>
+  <a href="./design.ua.md"><img src="https://img.shields.io/badge/Format-DESIGN.md-654EA3?style=for-the-badge" alt="Format"></a>
+  <a href="./design.ua.md"><img src="https://img.shields.io/badge/Language-UA_/_EN-FFEC08?style=for-the-badge&labelColor=1A1A1A" alt="Languages"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-FFEC08?style=for-the-badge&labelColor=1A1A1A" alt="License"></a>
+</p>
+
+---
+
+Дизайн-система для бюджету участі Івано-Франківської громади у форматі [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) — плейн-маркдаун, який читають AI-агенти (Claude, Stitch, Cursor, Lovable, v0) і генерують UI, інфографіку та аналітичні візуалізації в бренді БУ ІФ.
 
 ## Що тут є
 
 - **[design.md](./design.md)** — головний документ дизайн-системи: кольори, шрифти, компоненти, правила.
-- **[fonts/](./fonts/)** — локальні шрифти: **Phenomena** (заголовки) і **Proxima Nova** (текст/UI).
+- **Шрифти:** Phenomena (заголовки) і Proxima Nova (текст/UI) — комерційні ліцензії, файли не включені до репозиторію.
 - **[prompts/](./prompts/)** — готові промпти для типових задач:
   - `infographics.md` — аналітична інфографіка (heatmaps, діаграми голосів, мапи, рейтинги)
   - `social-media.md` — пости для соцмереж (1:1, 4:5, stories 9:16)
@@ -46,9 +62,6 @@
 pb-design/
 ├── README.md           ← цей файл
 ├── design.md           ← головна дизайн-система
-├── fonts/
-│   ├── Phenomena/      ← 7 накреслень (Thin → Black)
-│   └── Proxima Nova/   ← 11 накреслень з італіками
 └── prompts/
     ├── infographics.md
     ├── social-media.md
@@ -64,7 +77,9 @@ pb-design/
 
 ## Ліцензія та шрифти
 
-Шрифти в папці `fonts/` є ліцензованими комерційними продуктами (Proxima Nova — Mark Simonson Studio, Phenomena — авторський шрифт). Використовуються в межах ліцензії організації `ifrc-ua`. **Не розповсюджувати поза межами цього проєкту.**
+Дизайн-система поширюється за ліцензією MIT.
+
+Шрифти **Phenomena** і **Proxima Nova** є комерційними продуктами і **не включені до цього репозиторію**. Для використання необхідно придбати власну ліцензію: Proxima Nova — [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova), Phenomena — у відповідного дистриб'ютора шрифтів.
 
 ## Внесення змін
 

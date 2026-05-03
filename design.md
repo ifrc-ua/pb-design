@@ -110,8 +110,8 @@ Verified pairs:
 ## 3. Typography Rules
 
 ### Font Families
-- **Display/Headings**: `Phenomena` (local, `/fonts/Phenomena/`), fallback: `'Phenomena Fallback', 'Inter Tight', system-ui, sans-serif`
-- **Body/UI**: `Proxima Nova` (local, `/fonts/Proxima Nova/`), fallback: `'Proxima Nova Fallback', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+- **Display/Headings**: `Phenomena` (commercial license, not bundled), fallback: `'Inter Tight', system-ui, sans-serif`
+- **Body/UI**: `Proxima Nova` (commercial license, not bundled), fallback: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
 - **Numerics/Data**: `Proxima Nova` with `font-variant-numeric: tabular-nums` — mandatory for tables, dashboards, and charts.
 
 ### Available Weights

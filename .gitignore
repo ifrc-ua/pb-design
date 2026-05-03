@@ -1,44 +1,6 @@
-# OS
-.DS_Store
-Thumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-*.lnk
-
-# Editors / IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.cursor/
-
-# Claude / AI agents
-.claude/
-
-# Node (на випадок майбутнього дев-середовища)
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnp.*
-.pnpm-debug.log
-
-# Build artifacts
-dist/
-build/
-.next/
-out/
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# Temporary
-*.tmp
-*.bak
-*.old
-.temp/
-.cache/
-~$*
+# Licensed fonts — do not commit
+fonts/
+*.otf
+*.ttf
+*.woff
+*.woff2
