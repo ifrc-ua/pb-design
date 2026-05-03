@@ -1,3 +1,37 @@
+---
+version: 1.0.0
+name: Participatory Budgeting Ivano-Frankivsk
+description: Design system for the Participatory Budget (PB) of Ivano-Frankivsk. Optimized for AI-driven analytics, UI generation, and municipal infographics.
+colors:
+  primary: "#654EA3"
+  secondary: "#FFEC08"
+  canvas: "#FDFDFD"
+  ink: "#1A1A1A"
+  success: "#2F8F4E"
+  info: "#2563EB"
+  warning: "#D97706"
+  error: "#DC2626"
+typography:
+  display: "Phenomena"
+  body: "Proxima Nova"
+rounded:
+  xs: "4px"
+  sm: "8px"
+  md: "12px"
+  lg: "16px"
+  xl: "24px"
+  pill: "999px"
+spacing:
+  xxs: "4px"
+  xs: "8px"
+  sm: "12px"
+  md: "16px"
+  lg: "24px"
+  xl: "32px"
+  xxl: "48px"
+  section: "96px"
+---
+
 # Design System — Participatory Budgeting Ivano-Frankivsk
 
 > *[🇺🇦 Читати українською (Read in Ukrainian)](design.ua.md)*
