@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/pb_photo.png" alt="Participatory Budget Cover" width="800">
+</p>
+
 <h1 align="center">Design System "Participatory Budget of Ivano-Frankivsk"</h1>
 <p align="center">
   A universal standard for design solutions
