@@ -14,9 +14,9 @@
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-FFEC08?labelColor=1A1A1A" alt="License"></a>
 </p>
 
-> *[🇺🇦 Читати українською (Read in Ukrainian)](README.ua.md)*
-
----
+<p align="center">
+  <a href="README.ua.md">🇺🇦 Читати українською (Read in Ukrainian)</a>
+</p>
 
 A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municipality in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format — a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
 

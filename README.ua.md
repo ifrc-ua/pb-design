@@ -14,9 +14,9 @@
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-FFEC08?labelColor=1A1A1A" alt="License"></a>
 </p>
 
-> *[🇬🇧 Read in English](README.md)*
-
----
+<p align="center">
+  <a href="README.md">🇬🇧 Read in English</a>
+</p>
 
 Дизайн-система для бюджету участі (громадського бюджету) Івано-Франківської громади у форматі [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) — плейн-маркдаун, який читають AI-агенти (Claude, Stitch, Cursor, Lovable, v0) і генерують UI, інфографіку та аналітичні візуалізації в бренді БУ ІФ.
 
