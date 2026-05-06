@@ -78,7 +78,7 @@ Optional: thin yellow underline (4px, width 200px) between giant number and subt
 Create a 1920×1080 slide with a chart and takeaway.
 
 Left column (50%, x=160–960):
-- Title "Динаміка бюджету БУ, 2016–2025" Phenomena 44px 700 at y=200
+- Title "Динаміка бюджету БУ, 2016–2026" Phenomena 44px 700 at y=200
 - Chart 720×480: grouped bars per year, primary bars #654EA3, highlighted year 2023 #FFEC08 with dark stroke
 - X-axis Proxima Nova 14px 600 uppercase, Y-axis values above each bar in Phenomena 18px 700 tabular-nums
 
@@ -108,7 +108,7 @@ Right 65% (x=720–1840):
 - District labels in Proxima Nova 14px 600 color #1A1A1A, drop-shadow 2px white for legibility
 - Top 3 districts marked with yellow star markers (#FFEC08 16px with dark border)
 
-Title overlay on map top-right: "Активність 2016–2025" small pill Proxima Nova 14px 600 uppercase on white #FDFDFD semi-opaque bg.
+Title overlay on map top-right: "Активність 2016–2026" small pill Proxima Nova 14px 600 uppercase on white #FDFDFD semi-opaque bg.
 ```
 
 ---
@@ -116,12 +116,12 @@ Title overlay on map top-right: "Активність 2016–2025" small pill Pr
 ## 6. Comparison slide (порівняння)
 
 ```
-Create a 1920×1080 comparison slide "2016 vs 2025".
+Create a 1920×1080 comparison slide "2016 vs 2026".
 
 Two columns split 50/50 with 2px vertical divider #EFEFF1 at x=960.
 
 Each column structure:
-- Year header Phenomena Black 200px tabular-nums (left column color Primary-900 #4E3C84 for 2016, right column Primary-500 #654EA3 for 2025), centered horizontally in column
+- Year header Phenomena Black 200px tabular-nums (left column color Primary-900 #4E3C84 for 2016, right column Primary-500 #654EA3 for 2026), centered horizontally in column
 - Below: 3 stat rows, each:
   - Label Proxima Nova 18px 600 uppercase letter-spacing +1px color #71737E
   - Value Phenomena 56px 900 color #1A1A1A tabular-nums
@@ -146,7 +146,7 @@ Title top: "10 років — 10 моментів" Phenomena 56px 700 color #1A1
 
 Timeline at y=500 (vertical center):
 - Horizontal line 3px #EFEFF1 from x=160 to x=1760
-- 10 dots evenly spaced (16px, filled #654EA3), one per year 2016–2025
+- 10 dots evenly spaced (16px, filled #654EA3), one per year of PB across 2016–2026 (skip 2022 — no PB held that year, so 10 dots span an 11-year axis with a visual gap)
 - Year labels below each dot: Proxima Nova 16px 600 tabular-nums color #71737E
 
 Above the line (alternating for labels), callouts for 4–5 key moments:
@@ -232,13 +232,13 @@ Structure:
 2. Agenda — 4-item list, Proxima Nova 28px, numbered with Phenomena 48px 700 purple
 3. Section divider "Контекст" (#2)
 4. Big number: "1 412 проєктів" (#3)
-5. Chart: budget dynamics 2016–2025 (#4)
+5. Chart: budget dynamics 2016–2026 (#4)
 6. Section divider "Географія"
 7. Map slide with district activity (#5)
 8. Big number: "127 400 учасників" (#3 variant)
 9. Section divider "Люди"
 10. Quote slide (#8)
-11. Comparison 2016 vs 2025 (#6)
+11. Comparison 2016 vs 2026 (#6)
 12. Timeline 10 років (#7)
 13. Section divider "Інсайти"
 14. Takeaways (#9)

@@ -38,7 +38,7 @@ Top section (400px):
 - Left margin 80px
 
 Middle section (550px):
-- A mini streamgraph or 2-bar comparison, title above ("2016 vs 2025"):
+- A mini streamgraph or 2-bar comparison, title above ("2016 vs 2026"):
   - Two grouped bars per year (exemplifying two categories)
   - Colored per data-viz palette
   - Y-axis removed; values shown directly above/inside bars in Phenomena 28px 700 tabular-nums
@@ -70,9 +70,10 @@ Middle (centered):
 
 Answer reveal block (bottom, ~400px above bottom safe zone):
 - Split bar: 2 horizontal bars, one per district
-  - District 1: bar width proportional, fill #654EA3, label Phenomena 36px 700 with count
-  - District 2: fill #8B9A2B, same style
+  - District 1: bar width proportional, fill `{colors.primary-500}`, label Phenomena 36px 700 with count
+  - District 2: fill `{colors.primary-300}`, same style
 - Winner district gets a small yellow star icon next to name
+<!-- TODO: design-data.md may define a canonical district palette; until then, derive contrast from primary shades (primary-500 vs primary-300) — never invent district HEX values. -->
 
 Footer (last 200px):
 - "Дивись усі райони →" CTA — Proxima Nova 24px 600 color #654EA3 with arrow

@@ -56,7 +56,7 @@ Create a heatmap 1200×640 showing how citizen interest shifted across 7 categor
 
 Grid:
 - Rows (7): Освіта, Екологія, Безпека, Спорт, Транспорт, Культура, Благоустрій
-- Columns (10): 2016, 2017, ..., 2025
+- Columns (10): 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026 (skip 2022 — no PB held that year)
 
 Cell styling:
 - Size: 104×56px, gap 2px
@@ -68,7 +68,7 @@ Axes:
 - Row labels (left): Proxima Nova 13px 600, color #3F4049, with 16px category icon before text
 - Column labels (bottom): Proxima Nova 12px 600 uppercase letter-spacing +1px, color #71737E
 
-Title above (H2 style): "Як змінювалися інтереси мешканців, 2016–2025" in Phenomena 32px 700, color #1A1A1A.
+Title above (H2 style): "Як змінювалися інтереси мешканців, 2016–2026" in Phenomena 32px 700, color #1A1A1A.
 
 Subtitle: "Кількість проєктів-переможців у кожній категорії за рік" in Proxima Nova 15px 400, color #71737E.
 
@@ -86,7 +86,7 @@ Design a donut chart 520×520 showing vote share across 7 categories for year {2
 
 Donut:
 - Outer radius 240, inner 140
-- Segments colored with data-viz palette in fixed order (Освіта #654EA3, Екологія #17A2A2, Безпека #E85D5D, Спорт #8B9A2B, Транспорт #3A9BD9, Культура #D46BA6, Благоустрій #FFEC08 with 1.5px dark outline #1A1A1A)
+- Segments colored with categorical data-viz palette in a fixed order, one color per category. Yellow segments must carry a 1.5px dark outline `#1A1A1A`. <!-- TODO: design-data.md needs the canonical 7-category categorical palette (Освіта, Екологія, Безпека, Спорт, Транспорт, Культура, Благоустрій). Until that file exists, the agent must derive a palette from {colors.primary-500}, {colors.primary-300}, {colors.primary-100}, {colors.secondary-500}, and neutrals — and never invent categorical HEX values. -->
 - Gaps between segments: 2px
 - Hover: segment pushes out 8px, darkens by 10%
 
@@ -112,7 +112,7 @@ Desktop (1440×900):
 - Right: map with controls top-right
 
 Sidebar filters:
-1. Year range slider 2016–2025 (track #EFEFF1, active #654EA3, handle 16px with dark purple border)
+1. Year range slider 2016–2026, skipping 2022 (track #EFEFF1, active #654EA3, handle 16px with dark purple border; mark 2022 as disabled tick — no PB that year)
 2. District multi-select dropdown
 3. Category checkboxes with color swatches (8px squares matching data-viz palette)
 4. Toggle "Тільки переможці" (track #CACAD1 / #654EA3 active)
@@ -141,7 +141,7 @@ Mobile (375×812):
 ```
 Create a streamgraph 1200×400 showing distribution of total PB budget across 7 categories over 10 years.
 
-X-axis: years 2016–2025 (Proxima Nova 12px 600 uppercase, color #71737E)
+X-axis: years 2016–2026, skipping 2022 (Proxima Nova 12px 600 uppercase, color #71737E)
 Y-axis: hidden; streamgraph is symmetric around center
 Layers (7, in data-viz palette order, no outlines except yellow which gets #1A1A1A 1px stroke)
 Curves: smooth (monotone), no sharp corners.
@@ -201,7 +201,7 @@ Structure:
 1. Hero number at top-left: "47%" in Phenomena Black 160px, color #654EA3, tabular-nums
    Right: headline "Проєктів переможців 2020 — про екологію" in Phenomena 40px 700 on 2 lines
 2. Lede paragraph: "У ковідний рік мешканці ІФ проголосували за проєкти озеленення і парків майже удвічі активніше..." Proxima Nova 20px 400 line-height 1.55, max-width 760px
-3. Supporting chart: a small comparison bar chart 2018 vs 2020 vs 2022 for "екологія" category — 3 bars with Teal color #17A2A2, 2020 highlighted with yellow outline
+3. Supporting chart: a small comparison bar chart 2018 vs 2020 vs 2024 for "екологія" category — 3 bars in the canonical category color, 2020 highlighted with yellow outline. <!-- TODO: design-data.md needs the "екологія" category color. Until then, fall back to {colors.primary-500} for the bars and {colors.secondary-500} with dark outline for the highlighted year. -->
 4. Pullquote: "Зелень стала важливішою за асфальт." in Phenomena 32px 400 italic, color #654EA3, left border 4px #FFEC08, padding-left 24px, max-width 700px
 5. Second chart: streamgraph mini (same style as prompt #6 but compact 800×240)
 6. Callout box bottom: Light Primary-50 bg, radius 16px, padding 32px — "Дослідити всі інсайти →" CTA link in #654EA3 Proxima Nova 18px 600 + arrow
@@ -214,7 +214,7 @@ Overall: bg #FDFDFD, generous vertical spacing (64–96px between blocks), max-w
 ## 9. Порівняння двох років side-by-side
 
 ```
-Create a split-screen comparison 1200×600: left "2016" vs right "2025".
+Create a split-screen comparison 1200×600: left "2016" vs right "2026".
 
 Each side:
 - Year label top: Phenomena 72px 900, color #654EA3 (or Primary-900 for 2016, to differentiate)

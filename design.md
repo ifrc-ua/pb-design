@@ -3,23 +3,33 @@ version: 1.0.0
 name: Participatory Budgeting Ivano-Frankivsk
 description: Design system for the Participatory Budget (PB) of Ivano-Frankivsk. Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
-  primary: "#654EA3"
+  # Brand — purple
   primary-900: "#4E3C84"
   primary-500: "#654EA3"
   primary-300: "#7B66B8"
   primary-200: "#9C8BCC"
   primary-100: "#EEEAF7"
   primary-50: "#F6F4FB"
-  secondary: "#FFEC08"
+  # Brand — yellow
   secondary-700: "#E6D307"
   secondary-500: "#FFEC08"
   secondary-300: "#FFF266"
   secondary-100: "#FFF9B3"
+  # Surface aliases (canvas == neutral-0; ink == neutral-900 — kept for semantic clarity)
   canvas: "#FDFDFD"
   ink: "#1A1A1A"
-  neutral-500: "#71737E"
-  neutral-300: "#CACAD1"
+  # Neutrals — 10-step scale
+  neutral-0: "#FDFDFD"
+  neutral-50: "#F7F7F8"
   neutral-100: "#EFEFF1"
+  neutral-200: "#E2E2E6"
+  neutral-300: "#CACAD1"
+  neutral-400: "#9FA0A9"
+  neutral-500: "#71737E"
+  neutral-700: "#3F4049"
+  neutral-900: "#1A1A1A"
+  neutral-950: "#0D0D12"
+  # Semantic
   success: "#2F8F4E"
   success-tint: "#E8F3EC"
   success-ink: "#1E6B39"
@@ -128,6 +138,28 @@ components:
     border: "1px solid {colors.ink}"
     rounded: "{rounded.sm}"
     padding: 12px 24px
+  button-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.neutral-700}"
+    typography: "{typography.body-md}"
+    fontWeight: 500
+    rounded: "{rounded.sm}"
+    padding: 12px 24px
+    hoverBackgroundColor: "{colors.neutral-100}"
+  checkbox:
+    backgroundColorUnchecked: "{colors.canvas}"
+    backgroundColorChecked: "{colors.primary-500}"
+    border: "1.5px solid {colors.neutral-300}"
+    checkmarkColor: "{colors.canvas}"
+    rounded: "{rounded.xs}"
+  toggle:
+    trackInactive: "{colors.neutral-300}"
+    trackActive: "{colors.primary-500}"
+    thumb: "{colors.canvas}"
+    rounded: "{rounded.pill}"
+  focus-ring:
+    outline: "2px solid {colors.primary-500}"
+    outlineOffset: 2px
   card-project:
     backgroundColor: "{colors.canvas}"
     border: "1px solid {colors.neutral-100}"
@@ -171,6 +203,12 @@ components:
     backgroundColor: "{colors.primary-50}"
     padding: "{spacing.section}"
     rounded: "{rounded.xl}"
+shadows:
+  level-0: "none"
+  level-1: "0 1px 2px rgba(26, 26, 26, 0.04)"
+  level-2: "0 4px 12px rgba(26, 26, 26, 0.06)"
+  level-3: "0 12px 32px rgba(26, 26, 26, 0.10)"
+  level-4: "0 24px 64px rgba(26, 26, 26, 0.14)"
 ---
 
 # Design System Overview — Participatory Budgeting IF
@@ -193,7 +231,7 @@ The aesthetic is restrained infographics: abundant white space, clear grids, lar
 - Two typefaces: Phenomena (`{typography.display-hero}`) for display/headings & Proxima Nova (`{typography.body-md}`) for UI, text, data.
 - Two-color brand identity: Purple `{colors.primary-500}` & Yellow `{colors.secondary-500}`.
 - Core Data-viz: Primary shades + yellow; an extended palette for analytics is maintained in `design-data.md` (created as needed).
-- Historical, analytical focus: The system is designed to visualize **10 years** of PB data, not to run the current voting cycle.
+- Historical, analytical focus: The system is designed to visualize **10 years of PB data across the 2016–2026 timeframe** (PB was not held in 2022), not to run the current voting cycle.
 - Yellow `{colors.secondary-500}` is always a marker of IMPORTANCE (winner `{components.badge-winner}`, accent, CTA), never a background for large areas.
 - Subtle shadows, `{spacing.xs}` (8px) grid, wide gutters — municipal trust equals "room to breathe."
 - Mobile-first: The website and social media content are primarily consumed on mobile devices.
@@ -268,7 +306,7 @@ For most charts, the brand colors are sufficient:
 - **Yellow `#FFEC08`** — accent for the most critical data point/line/bar. On a white background, always pair with a dark `#1A1A1A` 1–1.5px outline.
 - **Neutrals 100–500** — for auxiliary series, comparative "plan/actual" bars.
 
-> The extended categorical palette (7+ different colors for a donut or stacked bar with many segments) and the full "category → color" mapping based on **real** PB categories from 2016-2025 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility) — will reside in `design-data.md`. It will be created when the first real analytical artifact demands it, not upfront.
+> The extended categorical palette (7+ different colors for a donut or stacked bar with many segments) and the full "category → color" mapping based on **real** PB categories from 2016–2026 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility) — will reside in `design-data.md`. It will be created when the first real analytical artifact demands it, not upfront.
 
 ### Contrast (WCAG AA)
 Verified pairs:
@@ -340,7 +378,7 @@ All numbers must be formatted according to Ukrainian standards. This is **mandat
 - **Currency**: `₴` before the number with a non-breaking space — `₴5,2 млн`. For exact sums — as a postfix: `62 437 ₴`.
 - **Abbreviations**: `тис.`, `млн`, `млрд` with a non-breaking space. `127 тис.`, `5,2 млн`.
 - **Percentages**: tight, no space. `47,3%`.
-- **Year ranges**: en-dash without spaces. `2016–2025`, NOT `2016-2025`, NOT `2016 - 2025`.
+- **Year ranges**: en-dash without spaces. `2016–2026`, NOT `2016-2026`, NOT `2016 - 2026`.
 - **Years**: full digits. `2019`, NOT `'19`.
 - `tabular-nums` — mandatory on all UI, table, and chart numbers (see Hierarchy above).
 
@@ -608,7 +646,7 @@ The "10 Years of PB" site and all infographics are **designed for mobile first**
 
 ### Map & Category Icons
 
-> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), belongs in `design-data.md`. We only dictate general rules here (weight, size, `currentColor`) because PB categories morphed every year; hardcoding icons into the core creates a fiction that doesn't match the 2016-2025 reality.
+> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), belongs in `design-data.md`. We only dictate general rules here (weight, size, `currentColor`) because PB categories morphed every year; hardcoding icons into the core creates a fiction that doesn't match the 2016–2026 reality.
 
 ---
 
@@ -689,7 +727,7 @@ This system is intentionally minimal. The following areas are **out of scope** f
 
 **Deferred to `design-data.md`** (created when the first real analytical artifact demands it):
 - Extended categorical palette (7+ colors for stacked charts, donuts with many segments)
-- Category → color mapping based on real PB categories from 2016–2025 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility)
+- Category → color mapping based on real PB categories from 2016–2026 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility)
 - Category → icon mapping
 - Full set of 7 real project statuses (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Deleted) — only the 2 promotional badges (Winner, Implemented) live in core
 - Map specifics: project markers, clusters, winner stars, choropleth scales

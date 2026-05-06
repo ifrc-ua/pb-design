@@ -26,7 +26,7 @@ A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municip
 ## What's inside
 
 - **[design.md](./design.md)** — the main design system document: colors, fonts, components, rules.
-- **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings, free) and Proxima Nova (text/UI, commercial) — font files are not included in the repository.
+- **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings, free for use but redistribution forbidden) and Proxima Nova (text/UI, commercial) — font files are not included in the repository and must not be committed.
 - **[prompts/](./prompts/)** — ready-made prompts for typical tasks:
   - `infographics.md` — analytical infographics (heatmaps, voting charts, maps, rankings)
   - `social-media.md` — social media posts (1:1, 4:5, 9:16 stories)
@@ -59,7 +59,7 @@ Open `design.md`, copy its entire content, and paste it into the chat with the i
 
 > Use the design system from https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
 >
-> Create a 1080×1080 infographic for Instagram: top-5 PB Ivano-Frankivsk categories over 10 years, with the number of winning projects in each. Style: restrained, data in focus, purple accent background in the corner.
+> Create a 1080×1080 infographic for Instagram: top-5 PB Ivano-Frankivsk categories over 10 years (2016–2026, no PB in 2022), with the number of winning projects in each. Style: restrained, data in focus, purple accent background in the corner.
 
 ## File Structure
 
@@ -80,16 +80,16 @@ pb-design/
 - **Colors:** purple ![](https://img.shields.io/badge/-%23654EA3-654EA3?labelColor=654EA3) + yellow ![](https://img.shields.io/badge/-%23FFEC08-FFEC08?labelColor=FFEC08) on near-white ![](https://img.shields.io/badge/-%23FDFDFD-FDFDFD?labelColor=FDFDFD), text ![](https://img.shields.io/badge/-%231A1A1A-1A1A1A?labelColor=1A1A1A).
 - **Fonts:** Phenomena — headings and large numbers; Proxima Nova — everything else.
 - **Vibe:** municipal trust + community energy. Restraint, clarity, large numbers, plenty of whitespace.
-- **Context:** analytics for **10 years of PB** Ivano-Frankivsk (2016–2025). Not the active voting cycle.
+- **Context:** analytics for **10 years of PB** Ivano-Frankivsk across the 2016–2026 timeframe (no PB held in 2022). Not the active voting cycle.
 
 ## License and Fonts
 
 This design system is distributed under the [MIT](https://opensource.org/licenses/MIT) license.
 
-Fonts are **not included in this repository** — download them separately:
+Fonts are **not included in this repository** — and must not be committed to it. Download them separately for local use:
 
-- **Phenomena** — free at [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (7 weights, Thin → Black)
-- **Proxima Nova** — commercial license at [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova)
+- **Phenomena** — free for personal and commercial use at [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (email-gated download, 7 weights, Thin → Black). The Fontfabric Free Fonts EULA **forbids redistribution** of the font files — do not upload `.otf` / `.ttf` to public repositories. `@font-face` embedding on your own website is allowed.
+- **Proxima Nova** — commercial license at [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova). No free tier; redistribution forbidden.
 
 If the original fonts are unavailable, use the following free alternatives from Google Fonts (OFL license):
 - For **Phenomena** (headings): [Inter Tight](https://fonts.google.com/specimen/Inter+Tight) (900 Black weight).

@@ -46,4 +46,4 @@ fonts/              ← licensed commercial fonts — do not modify or redistrib
 
 ## Scope
 
-The system is built for **analytics of 10 years of PB Ivano-Frankivsk (2016–2025)** — historical aggregation, not the current voting cycle. When in doubt about tone, favor: restraint, whitespace, big numbers as heroes, muted data-viz palette.
+The system is built for **analytics of 10 years of PB Ivano-Frankivsk across the 2016–2026 timeframe** (PB was not held in 2022, hence 10 cycles within an 11-year span) — historical aggregation, not the current voting cycle. When in doubt about tone, favor: restraint, whitespace, big numbers as heroes, muted data-viz palette.
