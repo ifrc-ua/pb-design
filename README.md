@@ -2,9 +2,8 @@
   <img src="assets/pb_photo.png" alt="Participatory Budget Cover" width="800">
 </p>
 
-<h1 align="center">Design System "Participatory Budget of Ivano-Frankivsk"</h1>
 <p align="center">
-  A universal standard for design solutions
+  <b>A universal standard for design solutions</b>
 </p>
 
 <p align="center">
@@ -17,6 +16,10 @@
 <p align="center">
   <a href="README.ua.md">Читати українською (Read in Ukrainian)</a>
 </p>
+
+# Design System "Participatory Budget of Ivano-Frankivsk"
+
+---
 
 A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municipality in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format — a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
 
