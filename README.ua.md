@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/pb_photo.png" alt="Обкладинка Бюджету участі" width="800">
+  <img src="assets/pb_photo_ua.png" alt="Обкладинка Бюджету участі" width="800">
 </p>
 
 <h1 align="center">Дизайн-система «Бюджет участі Івано-Франківської громади»</h1>
