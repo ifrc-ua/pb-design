@@ -44,7 +44,13 @@ Open a chat with Claude (claude.ai, Claude Code, Cursor) and write:
 The agent will download `design.md` and strictly follow all the rules — fonts, palette, geometry.
 
 ### Method 2 — copy to your project
-Clone this repository or copy `design.md` into the root of your project. Agents (Cursor, Claude Code) working within your folder will automatically detect this file.
+Clone this repository (or copy `design.md` into the root of your project) and tell your AI tooling where to find it:
+
+- **Claude Code**: create a `CLAUDE.md` next to `design.md` with one line — `Reference the design system in design.md for all UI work.` Claude Code reads `CLAUDE.md` automatically on every session.
+- **Cursor**: create `.cursorrules` next to `design.md` with the same line. Cursor injects `.cursorrules` into every prompt.
+- **Other agents**: most accept a system-prompt or "rules" file — point it at `design.md` once.
+
+Just dropping `design.md` into the folder is **not enough** on its own — the agent has to be told to look at it.
 
 ### Method 3 — paste the content into the chat
 Open `design.md`, copy its entire content, and paste it into the chat with the instruction:
@@ -67,12 +73,15 @@ Open `design.md`, copy its entire content, and paste it into the chat with the i
 pb-design/
 ├── README.md           ← this file (English)
 ├── README.ua.md        ← human-facing intro (Ukrainian)
-├── design.md           ← main design system (English)
+├── CLAUDE.md           ← guidance for AI agents working in this repo
+├── design.md           ← main design system (English) — single source of truth
 ├── design.ua.md        ← design system (Ukrainian)
-└── prompts/
-    ├── infographics.md
-    ├── social-media.md
-    └── presentations.md
+├── prompts/            ← ready-made prompts for typical tasks
+│   ├── infographics.md
+│   ├── social-media.md
+│   └── presentations.md
+├── assets/             ← cover images for README
+└── .gitignore          ← excludes licensed font files (.otf/.ttf) from commits
 ```
 
 ## The Brand in a Nutshell
@@ -81,6 +90,16 @@ pb-design/
 - **Fonts:** Phenomena — headings and large numbers; Proxima Nova — everything else.
 - **Vibe:** municipal trust + community energy. Restraint, clarity, large numbers, plenty of whitespace.
 - **Context:** analytics for **10 years of PB** Ivano-Frankivsk across the 2016–2026 timeframe (no PB held in 2022). Not the active voting cycle.
+
+## Design Principles in a Nutshell
+
+- **Accessibility-first** — every color pair in `design.md` is verified against WCAG AA (≥4.5:1 for body text). No exceptions.
+- **Restraint over decoration** — no gradients, no neon, no parallax. The data is the hero; the interface gets out of the way.
+- **AI-parseable + human-readable** — YAML frontmatter for machines, prose for the *why* behind each rule. Both stay in sync; YAML wins on conflicts.
+- **Mobile-first** — designed at 375px width first; 44×44px touch targets; bottom-sheets over hover-only interactions.
+- **Static stillness with one signature flourish** — no animation by default; the only choreographed moment is the count-up of hero numbers when they enter the viewport. Always honors `prefers-reduced-motion`.
+- **Numbers obey UA locale** — non-breaking space for thousands (`14 832`), comma for decimals (`3,7%`), `tabular-nums` everywhere. AI agents that default to `14,832` are corrected by the spec.
+- **Explicit "out of scope"** — dark mode, live voting, admin UI, and submission forms are deliberately not designed. AI agents leave a `<!-- TODO: design-data.md -->` marker rather than fabricate.
 
 ## License and Fonts
 

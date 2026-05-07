@@ -37,6 +37,8 @@ colors:
   warning: "#D97706"
   error: "#DC2626"
 typography:
+  # fontSize values below are DESKTOP defaults (1024px+).
+  # For mobile/tablet scaling, see §3 "Responsive Type Scale" — never apply 96px hero on a 375px screen.
   display-hero:
     fontFamily: "Phenomena"
     fontSize: 96px
@@ -215,6 +217,20 @@ shadows:
 
 > *[🇺🇦 Читати українською (Read in Ukrainian)](design.ua.md)*
 
+## TL;DR (for AI agents and impatient readers)
+
+- **Brand colors**: purple `#654EA3` + yellow `#FFEC08` on near-white `#FDFDFD`, text `#1A1A1A`.
+- **Fonts**: `Phenomena` for display/headings/big numbers; `Proxima Nova` for everything else. Fallbacks (when commercial fonts unavailable): `Inter Tight` + `Inter` via Google Fonts CDN.
+- **Numbers**: always use `tabular-nums`; thousands separator is a non-breaking space (`14 832`, never `14,832`); decimal separator is comma (`3,7%`).
+- **Yellow rule**: yellow is an accent, never a large fill. In charts, yellow segments always carry a `#1A1A1A` 1.5px outline.
+- **Layout**: mobile-first (test at 375px first); `8/12px` radii for buttons/cards; `96px` between sections; `tabular-nums` everywhere there are digits.
+- **Scope**: 10 years of historical PB data across the 2016–2026 timeframe (no PB held in 2022). Not active voting cycles, no dark mode, no admin UI, no submission forms.
+- **YAML > prose**: when YAML frontmatter and prose disagree, YAML is the source of truth.
+
+The full document below explains the *why* behind each rule — read it once, then come back for reference.
+
+---
+
 This document defines the visual standards, tokens, and interface guidelines for the Participatory Budgeting ecosystem of Ivano-Frankivsk. The system is optimized for AI agents, analytical infographics, and municipal reporting.
 
 ---
@@ -360,6 +376,31 @@ External AI tools (Lovable, v0, Stitch, Canva) and third-party presentations do 
 | `{typography.label-bold}` | Proxima Nova | 11–12px | 600 (Semibold) | 1.20 | +1px (uppercase) | Section labels, tags |
 | `{typography.data-stat}` | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | "14 832 голоси", "₴5.2 млн" |
 | `{typography.data-label}` | Proxima Nova | 11–13px | 400 (Regular) | 1.30 | normal, tabular-nums | Chart axes, tooltip values |
+
+### Responsive Type Scale
+
+Values in the YAML frontmatter are **desktop defaults**. AI agents must scale them down on smaller breakpoints — otherwise headings break the viewport on mobile (a 96px hero on a 375px screen wraps mid-letter).
+
+| Token | Mobile (≤599px) | Tablet (600–1023px) | Desktop (1024–1439px) | Wide (1440px+) |
+|---|---|---|---|---|
+| `display-hero` | 56px | 72px | 96px | 96px |
+| `data-stat` | 48px | 56px | 64px | 72px |
+| `title-h1` | 36px | 48px | 56px | 64px |
+| `title-h2` | 28px | 32px | 36px | 40px |
+| `title-h3` | 22px | 24px | 26px | 28px |
+| `title-feature` | 18px | 20px | 20px | 22px |
+| `body-lg` | 17px | 18px | 19px | 20px |
+| `body-md` | 16px | 16px | 16px | 16px |
+| `body-sm` | 14px | 14px | 14px | 14px |
+| `caption` | 12px | 12px | 13px | 13px |
+| `label-bold` | 11px | 11px | 12px | 12px |
+| `data-label` | 12px | 12px | 13px | 13px |
+
+**Rules:**
+- Body text (`body-md`/`body-sm`) does not scale — readability is the same on every device.
+- Letter-spacing scales with size: at mobile (≤599px), reduce display/title `letter-spacing` toward 0 (e.g. `display-hero` -2px → -1.2px on mobile) — tight tracking looks awful on small text.
+- Line-height stays as defined in YAML across all breakpoints.
+- For arbitrary widths between breakpoints, use `clamp()` rather than fixed steps: `font-size: clamp(56px, 8vw, 96px)` for hero.
 
 ### Principles
 - **Phenomena — strictly for headings and large numbers.** Never use Phenomena for long paragraphs; its wide footprint ruins readability.
