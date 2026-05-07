@@ -2,7 +2,7 @@
 
 Готові промпти для створення постів у Facebook, Instagram, Threads про історичні дані БУ Івано-Франківська. Формати: **1:1** (1080×1080), **4:5** (1080×1350), **9:16 Stories** (1080×1920).
 
-Усі промпти передбачають, що агент має доступ до [design.md](../design.md).
+Усі промпти передбачають, що агент має доступ до [design.md](../design.md) (система) та [design-data.md](../design-data.md) (реальні категорії й мап-токени).
 
 ---
 
@@ -40,7 +40,7 @@ Top section (400px):
 Middle section (550px):
 - A mini streamgraph or 2-bar comparison, title above ("2016 vs 2026"):
   - Two grouped bars per year (exemplifying two categories)
-  - Colored per data-viz palette
+  - Colored from {data.canonical-categories.<key>.color} in design-data.md §4 — pick the canonical key matching the chart's narrative
   - Y-axis removed; values shown directly above/inside bars in Phenomena 28px 700 tabular-nums
 - Max chart height 440px
 
@@ -73,7 +73,7 @@ Answer reveal block (bottom, ~400px above bottom safe zone):
   - District 1: bar width proportional, fill `{colors.primary-500}`, label Phenomena 36px 700 with count
   - District 2: fill `{colors.primary-300}`, same style
 - Winner district gets a small yellow star icon next to name
-<!-- TODO: design-data.md may define a canonical district palette; until then, derive contrast from primary shades (primary-500 vs primary-300) — never invent district HEX values. -->
+- For 2-way head-to-head district comparison, use the rule from design-data.md §9.3: District A → {colors.primary-500}, District B → {colors.primary-300}. Pull district names and canonical UA spelling from the 19-entity list in design-data.md §9.1 — never invent or transliterate ad hoc.
 
 Footer (last 200px):
 - "Дивись усі райони →" CTA — Proxima Nova 24px 600 color #654EA3 with arrow
@@ -105,7 +105,7 @@ SLIDE 2 (key stat):
 
 SLIDE 3 (category breakdown):
 - Title: "Куди йшли голоси" Phenomena 48px 700
-- Donut chart 600×600 centered (style per infographics.md #4)
+- Donut chart 600×600 centered (style per «Діаграма розподілу голосів (donut)» in infographics.md). Use the canonical category set for the year being shown — pull colors from {data.canonical-categories.<key>.color} (design-data.md §4) in fixed display order.
 - Legend below in 2 rows
 
 SLIDE 4 (winner):

@@ -76,6 +76,8 @@ pb-design/
 ├── CLAUDE.md           ← guidance for AI agents working in this repo
 ├── design.md           ← main design system (English) — single source of truth
 ├── design.ua.md        ← design system (Ukrainian)
+├── design-data.md      ← real PB categories/statuses/map tokens (English)
+├── design-data.ua.md   ← real PB categories/statuses/map tokens (Ukrainian)
 ├── prompts/            ← ready-made prompts for typical tasks
 │   ├── infographics.md
 │   ├── social-media.md
@@ -99,7 +101,7 @@ pb-design/
 - **Mobile-first** — designed at 375px width first; 44×44px touch targets; bottom-sheets over hover-only interactions.
 - **Static stillness with one signature flourish** — no animation by default; the only choreographed moment is the count-up of hero numbers when they enter the viewport. Always honors `prefers-reduced-motion`.
 - **Numbers obey UA locale** — non-breaking space for thousands (`14 832`), comma for decimals (`3,7%`), `tabular-nums` everywhere. AI agents that default to `14,832` are corrected by the spec.
-- **Explicit "out of scope"** — dark mode, live voting, admin UI, and submission forms are deliberately not designed. AI agents leave a `<!-- TODO: design-data.md -->` marker rather than fabricate.
+- **Explicit "out of scope"** — dark mode, live voting, admin UI, and submission forms are deliberately not designed. Real PB data (categories, statuses, map tokens) is split into `design-data.md`; agents leave `<!-- TODO: design-data.md needs X -->` markers rather than fabricate.
 
 ## License and Fonts
 

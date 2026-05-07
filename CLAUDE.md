@@ -8,11 +8,15 @@ A design system for **Participatory Budget of Ivano-Frankivsk** (Бюджет у
 
 This is **not a codebase**. There is no build, no tests, no runtime. The deliverables are markdown files that other agents consume.
 
-## Primary artifact
+## Primary artifacts
 
-**[design.md](./design.md)** is the single source of truth for the design system (colors, typography, components, rules). External projects reference it via raw GitHub URL, so:
+**[design.md](./design.md)** — single source of truth for the design **system** (colors, typography, components, rules).
 
-- Do not rename or move `design.md`.
+**[design-data.md](./design-data.md)** — single source of truth for the **data layer** (real PB categories per year 2016–2026, canonical category palette, project statuses, map tokens).
+
+External projects reference both via raw GitHub URL. Both files have a Ukrainian counterpart (`design.ua.md`, `design-data.ua.md`) which must be kept in lockstep.
+
+- Do not rename or move these files.
 - Preserve heading anchors when editing — external prompts may link to specific sections.
 - Structural rewrites need explicit user approval. Small edits (values, wording, new rows in tables) are fine.
 
@@ -27,32 +31,35 @@ This is **not a codebase**. There is no build, no tests, no runtime. The deliver
 
 ```
 design.md           ← main design system (do not restructure lightly)
-design-data.md      ← future/optional: created when real data viz is needed
+design.ua.md        ← Ukrainian copy of design.md (keep in lockstep)
+design-data.md      ← real PB categories/statuses/map tokens (data layer)
+design-data.ua.md   ← Ukrainian copy of design-data.md (keep in lockstep)
 README.md           ← human-facing intro (English)
 README.ua.md        ← human-facing intro (Ukrainian)
 prompts/            ← ready-made prompts for typical tasks
   infographics.md
   social-media.md
   presentations.md
-fonts/              ← licensed commercial fonts — do not modify or redistribute
+fonts/              ← licensed commercial fonts — do not modify or redistribute (gitignored)
+assets/             ← reference imagery (logos, photos)
 ```
 
 ## Conventions
 
 - **New prompts** go in `prompts/` as a new `.md` file, following the structure of existing ones.
-- **Do not create** new top-level docs (extra READMEs, CHANGELOG, CONTRIBUTING, etc.) unless the user asks, **with one exception**: you may create `design-data.md` when an analytical artifact demands extended categorical palettes or map data. Leave a `<!-- TODO: design-data.md needs X -->` comment if encountering a gap in the core design.
+- **Do not create** new top-level docs (extra READMEs, CHANGELOG, CONTRIBUTING, etc.) unless the user asks. If `design-data.md` lacks a needed category/status/map token, extend that file (and its `.ua.md` twin) rather than fabricating values; leave a `<!-- TODO: design-data.md needs X -->` comment in any artifact when a gap remains.
 - **Do not touch `fonts/`** — files there are licensed (Proxima Nova, Phenomena) and governed by an org-level agreement.
 - **Brand colors are fixed**: purple `#654EA3` + yellow `#FFEC08` on near-white `#FDFDFD` with graphite `#1A1A1A` text. Shades and semantic tokens are defined in `design.md` §2 — reuse them, don't invent new ones.
 
-## Versioning (`design.md` YAML frontmatter)
+## Versioning (YAML frontmatter)
 
-The `version: X.Y.Z` field at the top of `design.md` follows semver. Bump it whenever `design.md` or `design.ua.md` changes — git log alone is too noisy for downstream consumers.
+Both `design.md` and `design-data.md` carry a `version: X.Y.Z` field that follows semver. Bump it whenever the file (or its `.ua.md` twin) changes — git log alone is too noisy for downstream consumers.
 
-- **MAJOR** (`1.0.0` → `2.0.0`) — token removed or renamed; component contract changed; breaking rule reversed (e.g. yellow now allowed as large fill). Anything that *breaks* an existing artifact downstream.
-- **MINOR** (`1.0.0` → `1.1.0`) — new token added; new component; new rule; new prompt file; new responsive breakpoint. Additive, non-breaking.
+- **MAJOR** (`1.0.0` → `2.0.0`) — token removed or renamed; component contract changed; canonical category color/icon changed; breaking rule reversed. Anything that *breaks* an existing artifact downstream.
+- **MINOR** (`1.0.0` → `1.1.0`) — new token; new component; new rule; new prompt file; new responsive breakpoint; new canonical category or status; new map token. Additive, non-breaking.
 - **PATCH** (`1.0.0` → `1.0.1`) — wording, comments, typos, clarifications, table cell edits that do not change values. Pure cosmetics.
 
-Bump `version` in **both** `design.md` and `design.ua.md` in the same commit. The two files must always carry the same version number.
+Each file's English and Ukrainian copies (e.g. `design.md` ↔ `design.ua.md`) must always carry the same version number, bumped in the same commit. `design.md` and `design-data.md` version independently of each other.
 
 ## Scope
 

@@ -1,5 +1,5 @@
 ---
-version: 1.1.0
+version: 1.2.0
 name: Participatory Budgeting Ivano-Frankivsk
 description: Design system for the Participatory Budget (PB) of Ivano-Frankivsk. Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
@@ -246,7 +246,7 @@ The aesthetic is restrained infographics: abundant white space, clear grids, lar
 **Key Characteristics:**
 - Two typefaces: Phenomena (`{typography.display-hero}`) for display/headings & Proxima Nova (`{typography.body-md}`) for UI, text, data.
 - Two-color brand identity: Purple `{colors.primary-500}` & Yellow `{colors.secondary-500}`.
-- Core Data-viz: Primary shades + yellow; an extended palette for analytics is maintained in `design-data.md` (created as needed).
+- Core Data-viz: Primary shades + yellow. The full categorical palette (11 canonical categories) lives in [design-data.md](./design-data.md).
 - Historical, analytical focus: The system is designed to visualize **10 years of PB data across the 2016–2026 timeframe** (PB was not held in 2022), not to run the current voting cycle.
 - Yellow `{colors.secondary-500}` is always a marker of IMPORTANCE (winner `{components.badge-winner}`, accent, CTA), never a background for large areas.
 - Subtle shadows, `{spacing.xs}` (8px) grid, wide gutters — municipal trust equals "room to breathe."
@@ -313,7 +313,7 @@ Two universal badges needed by any user of the system — including an individua
 | Переможець року (Winner) | `#FFEC08` (Secondary-500) | `#1A1A1A` | Winning project of the year's vote |
 | Реалізовано (Implemented) | `#E8F3EC` (tint Success) | `#1E6B39` | Project completed after winning |
 
-> The full set of **7 real statuses** from the PB data (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Deleted) lives in `design-data.md` for when analytic dashboards are needed. We keep it minimal here because these two are the only ones required for promo, pitch, and project-specific materials.
+> The full set of **6 real statuses** from the PB data (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement) lives in [design-data.md](./design-data.md) §6 for analytic dashboards. We keep this section minimal because these two badges are the only ones needed for promo, pitch, and project-specific materials.
 
 ### Core Data-viz
 
@@ -322,7 +322,7 @@ For most charts, the brand colors are sufficient:
 - **Yellow `#FFEC08`** — accent for the most critical data point/line/bar. On a white background, always pair with a dark `#1A1A1A` 1–1.5px outline.
 - **Neutrals 100–500** — for auxiliary series, comparative "plan/actual" bars.
 
-> The extended categorical palette (7+ different colors for a donut or stacked bar with many segments) and the full "category → color" mapping based on **real** PB categories from 2016–2026 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility) — will reside in `design-data.md`. It will be created when the first real analytical artifact demands it, not upfront.
+> The full categorical palette (11 canonical categories with stable colors and Lucide icons) and the year-by-year mapping of real PB categories 2016–2026 — live in [design-data.md](./design-data.md) §4 and §3. Pull category fills from `{data.canonical-categories.<key>.color}` rather than inventing HEX values.
 
 ### Contrast (WCAG AA)
 Verified pairs:
@@ -485,7 +485,7 @@ All numbers must be formatted according to Ukrainian standards. This is **mandat
 - Font: Proxima Nova 12px 600
 - Background: tint of Primary or Neutral (15–20% opacity) + full color text of the same hue
   - Example (Primary-tinted): bg `rgba(101, 78, 163, 0.15)`, text `#4E3C84`
-- The full "category → color" map (once the exact category set is known from a specific year's data) resides in `design-data.md`. We don't hardcode it here because PB categories change year over year.
+- The full "category → color" map lives in [design-data.md](./design-data.md) §4 — 11 canonical categories with stable colors across all years they appear.
 - A small 14px icon can be added on the left.
 
 ### Historical Badges (Status)
@@ -611,7 +611,7 @@ Real PB project photos vary wildly in quality — the system masks this with a u
 - Apply `tabular-nums` to all digits in tables and dashboards.
 - Treat yellow `#FFEC08` as an **accent**, not a background. Use it to mark winners, highlights, and exceptionally critical CTAs.
 - In charts involving yellow, always outline it with a dark `#1A1A1A` 1–1.5px stroke.
-- Core data-viz relies on Primary shades + yellow as an accent. The extended categorical palette belongs in `design-data.md` when truly needed.
+- Core data-viz relies on Primary shades + yellow as an accent. The categorical palette for multi-segment charts (donuts, stacked bars, streamgraphs) lives in [design-data.md](./design-data.md) §4.
 - For heatmaps / choropleths, rely on a single-color sequential gradation — naturally, Primary-50 → Primary-900.
 - Give sections 80–96px of vertical breathing room.
 - Stick to 8px radii for buttons, 12px for cards, and pill shapes for chips/badges.
@@ -687,7 +687,7 @@ The "10 Years of PB" site and all infographics are **designed for mobile first**
 
 ### Map & Category Icons
 
-> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), belongs in `design-data.md`. We only dictate general rules here (weight, size, `currentColor`) because PB categories morphed every year; hardcoding icons into the core creates a fiction that doesn't match the 2016–2026 reality.
+> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), lives in [design-data.md](./design-data.md) §4 and §7. We only dictate general icon rules here (weight, size, `currentColor`) because the category set shifts year to year.
 
 ---
 
@@ -734,7 +734,7 @@ DATA-VIZ (in core)
   Sequential for heatmap/choropleth: Primary-50 → Primary-900
   Yellow in charts ALWAYS with dark outline #1A1A1A 1-1.5px
   Data-viz palette goes in a fixed order. Yellow in charts - ALWAYS with a dark outline.
-  Extended categorical palette → design-data.md (when real analytical artifact starts)
+  Extended categorical palette + map tokens → design-data.md (§4, §7)
 
 RADII: 4, 8, 12, 16, 24, 999 (pill)
 SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
@@ -751,7 +751,7 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 **Social Media Infographic (1:1):**
 > Create a 1080×1080 infographic. Background #FDFDFD with subtle top-right corner detail in Primary-50 #F6F4FB. Big display number in center: "14 832" in Phenomena Black 180px, color #654EA3, tabular-nums. Below in Proxima Nova 28px 600: "голоси за двір на Галицькій, 2019". Footer: small yellow badge "переможець року" bg #FFEC08, dark border 1px. Logo bottom-left.
 
-> **Examples for maps, heatmaps, and other analytical artifacts** — belong in the future `design-data.md`. We only keep core promo/card examples here, which any consumer of the core system would need.
+> **Examples for maps, heatmaps, and other analytical artifacts** — see [design-data.md](./design-data.md) §7 (map tokens) and §8 (visualization patterns). We only keep core promo/card examples here, which any consumer of the core system would need.
 
 ### Iteration Guide
 1. Always start with the brand core (purple + yellow + graphite on off-white).
@@ -766,12 +766,12 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 
 This system is intentionally minimal. The following areas are **out of scope** for the core `design.md`. If you need them, do not invent — defer or escalate.
 
-**Deferred to `design-data.md`** (created when the first real analytical artifact demands it):
-- Extended categorical palette (7+ colors for stacked charts, donuts with many segments)
-- Category → color mapping based on real PB categories from 2016–2026 (Education, Improvement, Small Streets, Greenery, Cultural Heritage, AFU Support, Accessibility)
-- Category → icon mapping
-- Full set of 7 real project statuses (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Deleted) — only the 2 promotional badges (Winner, Implemented) live in core
-- Map specifics: project markers, clusters, winner stars, choropleth scales
+**Provided by [design-data.md](./design-data.md)** (the data layer):
+- Canonical categorical palette (11 categories, stable colors, Lucide icons) — §4
+- Year-by-year category mapping with renamings/splits/merges — §2 and §3
+- 6 real project statuses (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement) — §6. Only the 2 promotional badges (Winner, Implemented) live in core.
+- Map tokens: project markers, clusters, winner stars, choropleth scale — §7
+- Project size axis (Малий / Середній / Великий / Маленький) — §5
 
 **Out of scope entirely** (do not design or generate):
 - Dark mode — municipal transparency is rooted in a light interface
