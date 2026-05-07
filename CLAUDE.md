@@ -44,6 +44,16 @@ fonts/              ← licensed commercial fonts — do not modify or redistrib
 - **Do not touch `fonts/`** — files there are licensed (Proxima Nova, Phenomena) and governed by an org-level agreement.
 - **Brand colors are fixed**: purple `#654EA3` + yellow `#FFEC08` on near-white `#FDFDFD` with graphite `#1A1A1A` text. Shades and semantic tokens are defined in `design.md` §2 — reuse them, don't invent new ones.
 
+## Versioning (`design.md` YAML frontmatter)
+
+The `version: X.Y.Z` field at the top of `design.md` follows semver. Bump it whenever `design.md` or `design.ua.md` changes — git log alone is too noisy for downstream consumers.
+
+- **MAJOR** (`1.0.0` → `2.0.0`) — token removed or renamed; component contract changed; breaking rule reversed (e.g. yellow now allowed as large fill). Anything that *breaks* an existing artifact downstream.
+- **MINOR** (`1.0.0` → `1.1.0`) — new token added; new component; new rule; new prompt file; new responsive breakpoint. Additive, non-breaking.
+- **PATCH** (`1.0.0` → `1.0.1`) — wording, comments, typos, clarifications, table cell edits that do not change values. Pure cosmetics.
+
+Bump `version` in **both** `design.md` and `design.ua.md` in the same commit. The two files must always carry the same version number.
+
 ## Scope
 
 The system is built for **analytics of 10 years of PB Ivano-Frankivsk across the 2016–2026 timeframe** (PB was not held in 2022, hence 10 cycles within an 11-year span) — historical aggregation, not the current voting cycle. When in doubt about tone, favor: restraint, whitespace, big numbers as heroes, muted data-viz palette.

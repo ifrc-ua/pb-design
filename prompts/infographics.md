@@ -203,7 +203,7 @@ Structure:
 2. Lede paragraph: "У ковідний рік мешканці ІФ проголосували за проєкти озеленення і парків майже удвічі активніше..." Proxima Nova 20px 400 line-height 1.55, max-width 760px
 3. Supporting chart: a small comparison bar chart 2018 vs 2020 vs 2024 for "екологія" category — 3 bars in the canonical category color, 2020 highlighted with yellow outline. <!-- TODO: design-data.md needs the "екологія" category color. Until then, fall back to {colors.primary-500} for the bars and {colors.secondary-500} with dark outline for the highlighted year. -->
 4. Pullquote: "Зелень стала важливішою за асфальт." in Phenomena 32px 400 italic, color #654EA3, left border 4px #FFEC08, padding-left 24px, max-width 700px
-5. Second chart: streamgraph mini (same style as prompt #6 but compact 800×240)
+5. Second chart: streamgraph mini — same style as the `Streamgraph — еволюція бюджету` template above, but compact 800×240
 6. Callout box bottom: Light Primary-50 bg, radius 16px, padding 32px — "Дослідити всі інсайти →" CTA link in #654EA3 Proxima Nova 18px 600 + arrow
 
 Overall: bg #FDFDFD, generous vertical spacing (64–96px between blocks), max-width 880px centered for text blocks, charts can go full 1200px.

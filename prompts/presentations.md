@@ -227,22 +227,22 @@ Centered vertically:
 ```
 Create a 15-slide deck in 1920×1080 using the PB IF design system.
 
-Structure:
-1. Cover slide (prompt #1)
+Structure (each item references a template above by its title — see headings `## N. <Name>`):
+1. Cover slide — use the `Cover slide` template
 2. Agenda — 4-item list, Proxima Nova 28px, numbered with Phenomena 48px 700 purple
-3. Section divider "Контекст" (#2)
-4. Big number: "1 412 проєктів" (#3)
-5. Chart: budget dynamics 2016–2026 (#4)
-6. Section divider "Географія"
-7. Map slide with district activity (#5)
-8. Big number: "127 400 учасників" (#3 variant)
-9. Section divider "Люди"
-10. Quote slide (#8)
-11. Comparison 2016 vs 2026 (#6)
-12. Timeline 10 років (#7)
-13. Section divider "Інсайти"
-14. Takeaways (#9)
-15. Thank-you (#10)
+3. Section divider "Контекст" — use the `Section divider` template
+4. Big number: "1 412 проєктів" — use the `Big Number slide` template
+5. Chart: budget dynamics 2016–2026 — use the `Chart slide` template
+6. Section divider "Географія" — use the `Section divider` template
+7. Map slide with district activity — use the `Map slide` template
+8. Big number: "127 400 учасників" — `Big Number slide` template variant
+9. Section divider "Люди" — use the `Section divider` template
+10. Quote slide — use the `Quote slide` template
+11. Comparison 2016 vs 2026 — use the `Comparison slide` template
+12. Timeline 10 років — use the `Timeline slide` template
+13. Section divider "Інсайти" — use the `Section divider` template
+14. Takeaways — use the `Takeaway / closing slide` template
+15. Thank-you — use the `Thank-you slide` template
 
 Use consistent footer (slide number + project name + logo), consistent 4px yellow top-detail line on non-divider slides, consistent color palette, consistent fonts.
 ```
