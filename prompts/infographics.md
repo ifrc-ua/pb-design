@@ -238,7 +238,7 @@ Each side:
   - Голосів подано: {N}
   - Бюджет: ₴{N}
 - At bottom: stacked horizontal bar chart showing the categories share for that side. Left side (2016) has only one segment «Без категоризації» in {colors.neutral-300} (no thematic split existed pre-2019). Right side (2026) splits across the 11 canonical categories from design-data.md §4 in fixed display order, each segment using {data.canonical-categories.<key>.color}. Each bar 32px tall, gap 2px.
-- Small faces/portraits grid (optional): top 3 authors with name labels
+- Top-3 authors strip (optional): names + район only, no portraits (per design.md §5). Format: "Марія К. · Пасічна · 5 переможних" each line, Proxima Nova 14px 500
 
 Separator: 2px vertical line #EFEFF1, center
 
@@ -252,13 +252,14 @@ Below both: synthesis paragraph "За 10 років бюджет БУ зріс �
 ```
 Design an author profile card 320×420 for "{Марія Коваленко — 5 переможних проєктів за 10 років}".
 
+Per design.md §5 — no avatars or portraits, ever (resident-privacy rule). The hero is the count, not the face.
+
 Layout:
-- Top: circular avatar 120px centered, 2px border #654EA3
-- Name: Phenomena 24px 700 centered, color #1A1A1A
+- Top hero block (centered): tiny overline "ПЕРЕМОЖНИХ ПРОЄКТІВ" Proxima Nova 11px 600 uppercase letter-spacing +1px color #71737E, then giant number "5" Phenomena Black 120px color #654EA3 tabular-nums, line-height 1.0
+- Name: Phenomena 24px 700 centered, color #1A1A1A — "{Марія Коваленко}"
 - Subtitle: "{Район Пасічна}" in Proxima Nova 14px 500 #71737E
 - Divider: 1px #EFEFF1, width 80px, centered
-- 4 mini-stats in 2×2 grid:
-  - "5" / "переможних проєктів"
+- 3 mini-stats in horizontal row (the "5 переможних" stat already lives at the top as hero):
   - "12" / "поданих заявок"
   - "₴4.8М" / "реалізовано"
   - "2016–2024" / "активна"

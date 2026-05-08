@@ -72,15 +72,21 @@ pb-design/
 ├── README.md           ← human-facing intro (English)
 ├── README.ua.md        ← цей файл (українською)
 ├── CLAUDE.md           ← інструкції для AI-агентів, що працюють у цьому репо
+├── LICENSE             ← MIT
 ├── design.md           ← головна дизайн-система (English) — джерело правди
 ├── design.ua.md        ← дизайн-система (українською)
 ├── design-data.md      ← реальні категорії/статуси/мап-токени БУ (English)
 ├── design-data.ua.md   ← реальні категорії/статуси/мап-токени БУ (українською)
 ├── prompts/            ← готові промпти для типових задач
-│   ├── infographics.md
-│   ├── social-media.md
-│   └── presentations.md
-├── assets/             ← обкладинки для README
+│   ├── infographics.md       ← аналітична інфографіка, графіки, мапи
+│   ├── social-media.md       ← пости Instagram/Facebook, stories, каруселі
+│   ├── presentations.md      ← слайди 16:9 для виступів у мерії
+│   └── render-examples.md    ← self-contained промпти для порівняння AI-інструментів
+├── assets/             ← обкладинки для README + референс-рендери з AI
+│   ├── pb_photo.png / pb_photo_ua.png   ← обкладинки README
+│   ├── Claude-opus-4.7/      ← референс-рендери (у кожній папці є власний README)
+│   ├── Gemini-3.1-pro/
+│   └── v0-max/
 └── .gitignore          ← виключає файли ліцензованих шрифтів (.otf/.ttf) з комітів
 ```
 

@@ -166,15 +166,19 @@ Footer: "Повний таймлайн у додатку" Proxima Nova 18px 500 
 Create a 1920×1080 quote/testimonial slide.
 
 Background #F6F4FB (Primary-50).
+Per design.md §5 — no portraits or avatars (resident-privacy rule). The quote is the hero; the speaker is identified by name + район.
 
-Left side (40%, x=160):
-- Portrait photo circular 400×400, border 4px #FFEC08
+Left side (40%, x=160, vertically centered):
+- Giant "«" in Phenomena 480px color #654EA3 opacity 0.55, single glyph
+- Below the quote-mark, 32px gap: pill "ПРОЄКТ-ПЕРЕМОЖЕЦЬ 2019" bg #FFEC08 text #1A1A1A border 1px #1A1A1A, height 36px padding 8px 16px, Proxima Nova 16px 700 uppercase letter-spacing +1px
 
 Right side (60%, x=720):
-- Large quotation mark "«" in Phenomena 200px color #654EA3 opacity 0.4 at top
-- Quote text Phenomena 40px 400 italic color #1A1A1A line-height 1.3, max-width 960px, 4–5 lines
+- Quote text Phenomena 44px 400 italic color #1A1A1A line-height 1.3, max-width 960px, 4–5 lines
   Example: "Коли мій двір переміг у голосуванні, я вперше відчула, що моя думка важить у цьому місті."
-- Attribution below: "— Марія К., Пасічна · проєкт-переможець 2019" Proxima Nova 20px 600 color #71737E
+- 32px gap
+- Attribution: "— Марія К., Пасічна" Proxima Nova 22px 600 color #1A1A1A
+- 4px gap
+- Project meta: "{Двір на Галицькій · 2 847 голосів · реалізовано 2020}" Proxima Nova 18px 500 color #71737E
 ```
 
 ---

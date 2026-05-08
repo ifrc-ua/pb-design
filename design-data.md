@@ -703,5 +703,5 @@ PROJECT STATUSES (6)
 YEARS COVERED: 2016–2026 (10 cycles, 2022 skipped)
 
 DISTRICTS: 19 (1 city + 18 villages, since 2020)
-  Color policy: rules-by-scenario (§10.3), no fixed-color-per-district
+  Color policy: rules-by-scenario (§9.3), no fixed-color-per-district
 ```

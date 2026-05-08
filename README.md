@@ -72,15 +72,21 @@ pb-design/
 ├── README.md           ← this file (English)
 ├── README.ua.md        ← human-facing intro (Ukrainian)
 ├── CLAUDE.md           ← guidance for AI agents working in this repo
+├── LICENSE             ← MIT
 ├── design.md           ← main design system (English) — single source of truth
 ├── design.ua.md        ← design system (Ukrainian)
 ├── design-data.md      ← real PB categories/statuses/map tokens (English)
 ├── design-data.ua.md   ← real PB categories/statuses/map tokens (Ukrainian)
 ├── prompts/            ← ready-made prompts for typical tasks
-│   ├── infographics.md
-│   ├── social-media.md
-│   └── presentations.md
-├── assets/             ← cover images for README
+│   ├── infographics.md       ← analytical infographics, charts, maps
+│   ├── social-media.md       ← Instagram/Facebook posts, stories, carousels
+│   ├── presentations.md      ← 16:9 deck slides for municipality talks
+│   └── render-examples.md    ← self-contained prompts for AI tool comparison
+├── assets/             ← cover images + AI-generated reference renders
+│   ├── pb_photo.png / pb_photo_ua.png   ← README covers
+│   ├── Claude-opus-4.7/      ← reference renders (each folder has its own README)
+│   ├── Gemini-3.1-pro/
+│   └── v0-max/
 └── .gitignore          ← excludes licensed font files (.otf/.ttf) from commits
 ```
 

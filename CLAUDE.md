@@ -36,12 +36,18 @@ design-data.md      ← real PB categories/statuses/map tokens (data layer)
 design-data.ua.md   ← Ukrainian copy of design-data.md (keep in lockstep)
 README.md           ← human-facing intro (English)
 README.ua.md        ← human-facing intro (Ukrainian)
+LICENSE             ← MIT
 prompts/            ← ready-made prompts for typical tasks
-  infographics.md
-  social-media.md
-  presentations.md
-fonts/              ← licensed commercial fonts — do not modify or redistribute (gitignored)
-assets/             ← reference imagery (logos, photos)
+  infographics.md       ← analytical infographics, charts, maps
+  social-media.md       ← Instagram/Facebook posts, stories, carousels
+  presentations.md      ← 16:9 deck slides
+  render-examples.md    ← self-contained prompts for AI tool comparison
+assets/             ← cover images + AI-generated reference renders
+  pb_photo.png / pb_photo_ua.png  ← README covers
+  Claude-opus-4.7/  ← reference renders + per-folder README
+  Gemini-3.1-pro/
+  v0-max/
+fonts/              ← (NOT in repo — gitignored) licensed fonts for local use; download per README
 ```
 
 ## Conventions
