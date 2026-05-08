@@ -67,7 +67,7 @@ Grid rows — use the canonical-category list from design-data.md, only those wi
 10. Доступність (accessibility)
 11. Інші проєкти (other)
 
-Columns: 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026 (2022 is rendered as a disabled tick — БУ не проводився).
+Columns: 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026 — 10 columns total. Do NOT add a 2022 column (no slot, no disabled tick — simply absent). The subtitle «у 2022 БУ не проводився» in the chart subtitle is sufficient context.
 
 Cell styling:
 - Size: 104×56px, gap 2px
@@ -79,7 +79,6 @@ Cell styling:
 Axes:
 - Row labels (left): Proxima Nova 13px 600, color #3F4049, with 16px category icon (see design-data.md §4) before text in the canonical category color
 - Column labels (bottom): Proxima Nova 12px 600 uppercase letter-spacing +1px, color #71737E
-- 2022 column header: same style but color {colors.neutral-300} with subtitle «БУ не проводився» in 10px
 
 Title above (H2 style): "Як змінювалися інтереси мешканців, 2016–2026" in Phenomena 32px 700, color #1A1A1A.
 
@@ -127,7 +126,7 @@ Desktop (1440×900):
 - Right: map with controls top-right
 
 Sidebar filters:
-1. Year range slider 2016–2026, skipping 2022 (track #EFEFF1, active #654EA3, handle 16px with dark purple border; mark 2022 as disabled tick — no PB that year)
+1. Year range slider with 10 discrete stops — one per actual PB cycle: 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026. The slider jumps from 2021 directly to 2023 — no 2022 stop. Styling: track #EFEFF1, active range #654EA3, handle 16px circle white/purple-border.
 2. District multi-select dropdown
 3. Category checkboxes with color swatches (8px squares — pull each color from {data.canonical-categories.<key>.color} in design-data.md §4; only show categories whose active-years overlap the selected year range)
 4. Toggle "Тільки переможці" (track #CACAD1 / #654EA3 active)
@@ -156,7 +155,7 @@ Mobile (375×812):
 ```
 Create a streamgraph 1200×400 showing distribution of total PB budget across canonical categories over 10 cycles (2016–2026, skip 2022).
 
-X-axis: years 2016–2026, skipping 2022 (Proxima Nova 12px 600 uppercase, color #71737E)
+X-axis: 10 years in order — 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026. Do NOT add a 2022 slot. Axis jumps from 2021 to 2023. (Proxima Nova 12px 600 uppercase, color #71737E)
 Y-axis: hidden; streamgraph is symmetric around center
 Layers — use canonical categories from design-data.md §4 in the fixed display order. For each layer, fill = {data.canonical-categories.<key>.color}. Years where a category did not yet exist are 0-height for that layer (the layer only appears when its active-years begin). Pre-2019 years are merged into a single «Без категоризації» band in {colors.neutral-300} since no thematic split existed.
 No outlines on category fills. Yellow {colors.secondary-500} is NOT used as a category color — only for highlighting a specific data point on top, in which case it carries a 1px {colors.ink} stroke.

@@ -403,7 +403,7 @@ How categories evolved — important for any chart that crosses year boundaries.
 | 2018 → 2019 | First thematic split: «Освітні» vs «Інші»; geographic scope added | Education becomes trackable from 2019 forward. |
 | 2019 → 2020 | «Вулиці» appears as a funding track | Maps onto canonical `improvement-streets`. |
 | 2020 → 2021 | Size × theme matrix: Малий/Великий × Освітній/Інше; heritage track added | When charting 2021, you may either flatten to thematic categories (Освіта / Інше / Малі вулиці / Спадщина) or keep the matrix — depending on the artifact. |
-| 2022 | **PB not held** | Always show as a gap (disabled tick, dashed column, «у 2022 БУ не проводився» note). Never interpolate. |
+| 2022 | **PB not held** | **Omit 2022 entirely from chart axes.** The 10-point sequence is 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026 — no 2022 slot. A subtitle/caption note «у 2022 БУ не проводився» is sufficient context. Never allocate axis space to a year with no data. |
 | 2022 → 2023 | Size split dropped entirely; pure thematic categories; «Зелені проєкти» appears | Major rebrand. From 2023 onward, charts can use the canonical 11-category palette directly. |
 | 2023 → 2024 | Education splits 1 → 3 (Шкільні / Дошкільні / Позашкільні); «Інший благоустрій» renamed → «Благоустрій»; «Зелені проєкти» absent | Multi-year education charts: choose either roll-up (`education-general`) or fan-out (3 subcategories). |
 | 2024 → 2025 | Adds «Допомога ЗСУ»; adds «Доступність»; «Зелені проєкти» returns | War-context categories. Color choices for ЗСУ are deliberately solemn graphite, not red/yellow/green. |
@@ -565,11 +565,13 @@ District polygon outline: 1.5px solid `#CACAD1` (`neutral-300`).
 
 For a diverging scale (e.g., budget delta vs. previous year), pair `primary` (positive) with `error` tints (`#FCE9E9` → `#DC2626`), neutral midpoint `#FDFDFD`.
 
-### 2022 gap on maps
+### 2022 — omitted entirely
 
-When animating across years, 2022 must visually skip:
-- Year selector: 2022 tick disabled, color `#CACAD1`, label «БУ не проводився»
-- Animation timeline: pause/dim frame at 2022, do not interpolate
+2022 is not a PB cycle and receives **no visual space** in any chart, slider, or animation.
+
+- **Chart axes (heatmap, bar, streamgraph, timeline):** 10 discrete data points — 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026. The axis jumps directly from 2021 to 2023.
+- **Year-range slider:** 10 discrete stops (one per actual cycle). No 2022 position.
+- **Context note:** mention «у 2022 БУ не проводився» once in the chart subtitle or caption — never as an axis element.
 
 ---
 
@@ -596,7 +598,7 @@ If an agent encounters a gap (a real category not yet listed here), leave a `<!-
 
 - **Heatmap (categories × years)** — rows: canonical categories that existed at least once across the chosen window; cells use a sequential primary scale. Cells for years where the category did not exist: render as `neutral-100` with a diagonal hatch or leave blank with «—».
 - **Donut for one year** — segments use the canonical color for each category present that year, in fixed display order (§4).
-- **Streamgraph 2016–2026** — pre-2019 years collapse into a single «Без категоризації» band in `neutral-300`; 2022 is a 0-width gap; from 2024 the education band optionally splits into 3 ribbons.
+- **Streamgraph 2016–2026** — pre-2019 years collapse into a single «Без категоризації» band in `neutral-300`; 2022 is completely absent from the X-axis (axis goes 2021 → 2023 directly); from 2024 the education band optionally splits into 3 ribbons.
 - **Comparison 2016 vs 2026** — left side has only size-based bars; right side has the full canonical breakdown. Make the asymmetry the story («від одного типу до 11 категорій»).
 
 ---

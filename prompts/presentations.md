@@ -146,7 +146,7 @@ Title top: "10 років — 10 моментів" Phenomena 56px 700 color #1A1
 
 Timeline at y=500 (vertical center):
 - Horizontal line 3px #EFEFF1 from x=160 to x=1760
-- 10 dots evenly spaced (16px, filled #654EA3), one per year of PB across 2016–2026 (skip 2022 — no PB held that year, so 10 dots span an 11-year axis with a visual gap)
+- 10 dots evenly spaced (16px, filled #654EA3), one per actual PB year: 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026. Exactly 10 positions — no slot for 2022, axis goes 2021 → 2023 directly.
 - Year labels below each dot: Proxima Nova 16px 600 tabular-nums color #71737E
 
 Above the line (alternating for labels), callouts for 4–5 key moments:

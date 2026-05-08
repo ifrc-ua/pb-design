@@ -291,7 +291,7 @@ Fonts:
 GRID:
 - 11 rows (categories) × 11 columns (years 2016-2026)
 - Cell size: 70×34, gap 2px, radius 4px
-- 2022 column is disabled (PB was not held)
+- 2022 does NOT appear in the grid — 10 columns only (2021 → 2023 directly)
 
 ROWS (in this exact order, with category color dot 8px before label; row label = Inter 13px 600 #3F4049 right-aligned with 12px gap to grid):
 1. Освіта                       (#654EA3)
@@ -306,24 +306,25 @@ ROWS (in this exact order, with category color dot 8px before label; row label =
 10. Доступність                 (#0E7C8C)
 11. Інші проєкти                (#71737E)
 
-COLUMNS (year labels under grid, Inter 12px 600 uppercase letter-spacing +1px #71737E, tabular-nums):
-2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026
-For 2022: text color #CACAD1, add tiny subtitle below in 9px italic #CACAD1 "БУ не проводився".
+COLUMNS — exactly 10, NO 2022 COLUMN AT ALL. Axis goes from 2021 directly to 2023:
+2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2023 | 2024 | 2025 | 2026
+(Year labels: Inter 12px 600 uppercase letter-spacing +1px #71737E, tabular-nums)
+Do NOT add any disabled/greyed 2022 slot. Mention "у 2022 БУ не проводився" only in the chart subtitle.
 
 CELL VALUES — use this matrix exactly (rows in same order as above; "—" means inactive — render as #EFEFF1 with diagonal hatch in #CACAD1, no number):
 
-| Cat \\ Year     | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 |
-| Освіта         |  —   |  —   |  —   |  7   |  5   |  —   |  —   |  4   |  —   |  —   |  —   |
-| Шкільні        |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  9   |  11  |  8   |
-| Дошкільні      |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  4   |  5   |  6   |
-| Позашкільні    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  4   |  5   |
-| Благоустрій    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  6   |  8   |  10  |  12  |
-| Малі вулиці    |  —   |  —   |  —   |  —   |  4   |  5   |  —   |  6   |  7   |  8   |  9   |
-| Спадщина       |  —   |  —   |  —   |  —   |  —   |  2   |  —   |  —   |  —   |  —   |  1   |
-| Зелені         |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  —   |  5   |  7   |
-| ЗСУ            |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  4   |  5   |
-| Доступність    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  2   |  3   |
-| Інші проєкти   |  —   |  —   |  —   |  8   |  10  |  —   |  —   |  5   |  4   |  4   |  3   |
+| Cat \\ Year     | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2023 | 2024 | 2025 | 2026 |
+| Освіта         |  —   |  —   |  —   |  7   |  5   |  —   |  4   |  —   |  —   |  —   |
+| Шкільні        |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  9   |  11  |  8   |
+| Дошкільні      |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  4   |  5   |  6   |
+| Позашкільні    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  4   |  5   |
+| Благоустрій    |  —   |  —   |  —   |  —   |  —   |  —   |  6   |  8   |  10  |  12  |
+| Малі вулиці    |  —   |  —   |  —   |  —   |  4   |  5   |  6   |  7   |  8   |  9   |
+| Спадщина       |  —   |  —   |  —   |  —   |  —   |  2   |  —   |  —   |  —   |  1   |
+| Зелені         |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  —   |  5   |  7   |
+| ЗСУ            |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  4   |  5   |
+| Доступність    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  2   |  3   |
+| Інші проєкти   |  —   |  —   |  —   |  8   |  10  |  —   |  5   |  4   |  4   |  3   |
 
 CELL FILL by value (sequential primary scale):
 - 1-2: #EEEAF7 (text color #1A1A1A)
