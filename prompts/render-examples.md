@@ -1,12 +1,14 @@
-# Render examples — promptи для генерації картинок у `examples/`
+# Render examples — promptи для генерації картинок у `assets/{ai-model}/`
 
-> Для одноразового використання: 5 self-contained промптів, кожен працює без потреби бачити `design.md`/`design-data.md` — всі токени вшиті всередину. Згенеруйте картинки в різних AI, складіть результати у папку `examples/` з підписом «згенеровано {AI}».
+> Для одноразового використання: 5 self-contained промптів, кожен працює без потреби бачити `design.md`/`design-data.md` — всі токени вшиті всередину. Згенеруйте картинки в різних AI, складіть результати у папку `assets/{ai-model}/` (наприклад `assets/Claude-opus-4.7/`) з підписом «згенеровано {AI}» в README цієї папки.
+
+> ⚠️ **Числа в усіх 5 промптах нижче — для дизайн-цілей, не для аналітики.** Значення на кшталт «1 412 проєктів», «127К учасників», «₴62 млн», «24% Шкільні», «2 847 голосів», матриця heatmap — це орієнтовні placeholder'и для перевірки візуального стилю, токенів і композиції. Реальні цифри підставлятимуться з analytics-джерела при production-використанні. У README кожної AI-папки повторити це застереження.
 
 ## Як цим користуватися
 
 1. Виберіть промпт нижче.
 2. Вставте у чат AI-інструмента (рекомендації для кожного нижче).
-3. Збережіть картинку як PNG у папку `examples/` з ім'ям типу `hero-card-claude.png` / `mobile-stats-v0.png` тощо.
+3. Збережіть картинку як PNG у відповідну папку `assets/{ai-model}/` (наприклад `assets/Claude-opus-4.7/`) з описовим іменем: `hero-card.png`, `mobile-stats.png`, `donut-2025.png`, `project-card.png`, `heatmap.png`. AI-суфікс не потрібен — він уже у назві батьківської папки.
 4. Якщо результат не сподобався — попросіть «refine: tighten spacing» / «сильніше вирівняй» / запустіть в іншому інструменті.
 
 ### Які AI пробувати
@@ -199,11 +201,14 @@ Donut chart centered at (540, 580):
   - "187" Inter Tight 900 64px #1A1A1A tabular-nums
   - 8px below: "проєктів-переможців 2025" Inter 16px 500 #71737E
 
-Legend at bottom (y ≈ 880-1000):
-- 3 columns × 3 rows grid
-- Each item: 14×14 colored square (radius 2px) using the segment color, then text "{name} {percentage}%"
-- Text: Inter 14px 500 #1A1A1A for name, Inter 14px 700 same color for percentage
-- Gap between items: 16px horizontal, 12px vertical
+Leader-line callouts around the donut (NOT a bottom legend grid):
+- For each segment, place a label OUTSIDE the ring at the segment's mid-angle
+- Label format: "{Name} {percentage}%" on a single line — Inter 14px 500 #1A1A1A for the name, Inter 14px 700 #1A1A1A for the percentage (slightly bolder)
+- Connector: 1.5px dot at the segment outer edge in the segment color, then a 1px #71737E polyline that travels radially outward ~28px, then bends 90° horizontally toward the label
+- Labels on the LEFT half of the donut: right-aligned, baseline aligned with the horizontal line endpoint, ~12px horizontal padding from line to text
+- Labels on the RIGHT half: left-aligned, mirror of above
+- For small adjacent segments (<5% each), stack labels vertically on the same side with 16px line-height between them; offset the horizontal bend angles so polylines don't overlap
+- Center label and footer remain unchanged. Do NOT render any bottom legend grid — labels live entirely on the perimeter.
 
 Footer (y ≈ 1010-1050):
 - Left: "Бюджет участі ІФ" Inter 14px 600 #654EA3
@@ -356,4 +361,4 @@ Background #FDFDFD. Render at exactly 1200×640.
 4. **Якщо результат у Claude Artifacts** — натисніть «Open in browser», зробіть screenshot з DevTools у точному розмірі (Ctrl+Shift+M → Custom dimensions).
 5. **Для v0** — після генерації в'ю, експортуйте у Figma або зробіть screenshot Chrome DevTools у device mode.
 
-Після того, як зберете 4–5 картинок у `examples/`, створимо `examples/README.md` з підписами.
+Після того, як зберете 4–5 картинок у відповідну папку `assets/{ai-model}/`, створимо там `README.md` з підписами (див. існуючі приклади: [`assets/Claude-opus-4.7/README.md`](../assets/Claude-opus-4.7/README.md), [`assets/Gemini-3.1-pro/README.md`](../assets/Gemini-3.1-pro/README.md), [`assets/v0-max/README.md`](../assets/v0-max/README.md)).
