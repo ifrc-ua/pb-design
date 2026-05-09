@@ -215,7 +215,7 @@ shadows:
 
 # Design System Overview — Participatory Budgeting IF
 
-> *[🇺🇦 Читати українською (Read in Ukrainian)](design.ua.md)*
+[🇺🇦 Читати українською (Read in Ukrainian)](design.ua.md)
 
 ## TL;DR (for AI agents and impatient readers)
 

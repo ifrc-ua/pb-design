@@ -215,7 +215,7 @@ shadows:
 
 # Огляд дизайн-системи — Бюджет участі ІФ
 
-> *[🇬🇧 Read in English](design.md)*
+[🇬🇧 Read in English](design.md)
 
 ## TL;DR (для AI-агентів і нетерплячих читачів)
 
