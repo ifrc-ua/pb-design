@@ -1,5 +1,5 @@
 ---
-version: 0.2.0
+version: 0.2.1
 name: PB Ivano-Frankivsk — Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens. Companion to design.md.
 parent: design.md

@@ -23,7 +23,8 @@ A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municip
 
 ## What's inside
 
-- **[design.md](./design.md)** — the main design system document: colors, fonts, components, rules.
+- **[design.md](./design.md)** — the design **system**: colors, typography, components, rules.
+- **[design-data.md](./design-data.md)** *(beta)* — the **data layer**: real PB categories per year (2016–2026), canonical category palette, project statuses, map tokens. Subject to change pending municipal review.
 - **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings, free for use but redistribution forbidden) and Proxima Nova (text/UI, commercial) — font files are not included in the repository and must not be committed.
 - **[prompts/](./prompts/)** — ready-made prompts for typical tasks:
   - `infographics.md` — analytical infographics (heatmaps, voting charts, maps, rankings)
@@ -40,6 +41,8 @@ Open a chat with Claude (claude.ai, Claude Code, Cursor) and write:
 > Create [what you need — infographic/card/slide].
 
 The agent will download `design.md` and strictly follow all the rules — fonts, palette, geometry.
+
+> **For production use, pin to a tagged version** instead of `main` — e.g. `https://raw.githubusercontent.com/ifrc-ua/pb-design/design-v1.2.0/design.md`. The `main` branch is a moving target; tagged versions are frozen and protect you from breaking changes. See [Releases](https://github.com/ifrc-ua/pb-design/releases) for available versions.
 
 ### Method 2 — copy to your project
 Clone this repository (or copy `design.md` into the root of your project) and tell your AI tooling where to find it:
