@@ -68,6 +68,16 @@ Open `design.md`, copy its entire content, and paste it into the chat with the i
 >
 > Create a 1080×1080 infographic for Instagram: top-5 PB Ivano-Frankivsk categories over 10 years (2016–2026, no PB in 2022), with the number of winning projects in each. Style: restrained, data in focus, purple accent background in the corner.
 
+## Visual Examples (AI Renders)
+
+This design system allows AI agents to generate complex interfaces and infographics that look cohesive. Here are a few examples of what can be created with a single prompt:
+
+| Project Card (v0) | Analytical Heatmap (Claude) | Category Chart (Gemini) |
+| :--- | :--- | :--- |
+| ![Project Card](assets/v0-max/project-card.png) | ![Heatmap](assets/Claude-opus-4.7/heatmap.png) | ![Donut Chart](assets/Gemini-3.1-pro/donut-2025.png) |
+
+> Find more examples and detailed prompt descriptions in the **[assets/](./assets/)** folder.
+
 ## File Structure
 
 ```text
