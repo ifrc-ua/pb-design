@@ -76,6 +76,8 @@ This design system allows AI agents to generate complex interfaces and infograph
 | :--- | :--- | :--- |
 | ![Project Card](assets/v0-max/project-card.png) | ![Heatmap](assets/Claude-opus-4.7/heatmap.png) | ![Donut Chart](assets/Gemini-3.1-pro/donut-2025.png) |
 
+<sub>*Data in examples is for design purposes only, not for analytics. All numbers in renders are placeholder values for style and composition testing, not a source of statistics.*</sub>
+
 > Find more examples and detailed prompt descriptions in the **[assets/](./assets/)** folder.
 
 ## File Structure
