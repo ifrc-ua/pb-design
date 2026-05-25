@@ -57,6 +57,10 @@ fonts/              ← (NOT in repo — gitignored) licensed fonts for local us
 - **Do not touch `fonts/`** — files there are licensed (Proxima Nova, Phenomena) and governed by an org-level agreement.
 - **Brand colors are fixed**: purple `#654EA3` + yellow `#FFEC08` on near-white `#FDFDFD` with graphite `#1A1A1A` text. Shades and semantic tokens are defined in `design.md` §2 — reuse them, don't invent new ones.
 
+## Local fonts (use them when rendering)
+
+The real brand fonts are on disk at `fonts/Phenomena/` (7 weights) and `fonts/Proxima-Nova/` (13 weights incl. italics) — **use these whenever you render anything locally** (HTML/CSS `@font-face` via relative path, matplotlib `font_manager.fontManager.addfont()`, Pillow/Cairo `ImageFont.truetype("fonts/Phenomena/Phenomena-Black.otf", size)`, Playwright/Puppeteer, Inkscape, etc.). Prefer them over the Inter Tight / Inter fallbacks documented in `design.md` §3 — those fallbacks exist only for external tools (Lovable, v0, Stitch, Canva, GitHub raw-URL flow) that cannot reach this filesystem. The folder is gitignored; never commit `.otf`/`.ttf` files.
+
 ## Versioning (YAML frontmatter)
 
 Both `design.md` and `design-data.md` carry a `version: X.Y.Z` field that follows semver. Bump it whenever the file (or its `.ua.md` twin) changes — git log alone is too noisy for downstream consumers.

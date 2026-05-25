@@ -132,7 +132,7 @@ Sidebar filters:
 4. Toggle "Тільки переможці" (track #CACAD1 / #654EA3 active)
 5. Applied filters chips: removable pills with × icon
 
-Map styling — strictly per design-data.md §7:
+Map styling — strictly per design-data.md §8:
 - Base: MapLibre Positron or custom light style, muted neutrals
 - Project markers: map-pin 24px, fill = {data.canonical-categories.<project-category-key>.color}, 2px white stroke
 - Winners: same pin + 10px yellow star ({colors.secondary-500}, 1px dark stroke {colors.ink}) overlaid on top-right of pin
@@ -187,7 +187,7 @@ Columns (desktop):
 6. Year (Proxima Nova 14px 500, tabular-nums)
 7. Votes (Phenomena 20px 700, tabular-nums, right-aligned)
 8. Budget (Phenomena 20px 700, tabular-nums, right-aligned)
-9. Status badge — pull from design-data.md §6 (one of: Реалізований, На реалізації, Брав участь, Відхилений, Відхилений остаточно, Неможливо реалізувати)
+9. Status badge — pull from design-data.md §7 (one of: Реалізований, На реалізації, Брав участь, Відхилений, Відхилений остаточно, Неможливо реалізувати, Видалений)
 
 Row:
 - Height 72px

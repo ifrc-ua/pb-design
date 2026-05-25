@@ -73,7 +73,7 @@ Answer reveal block (bottom, ~400px above bottom safe zone):
   - District 1: bar width proportional, fill `{colors.primary-500}`, label Phenomena 36px 700 with count
   - District 2: fill `{colors.primary-300}`, same style
 - Winner district gets a small yellow star icon next to name
-- For 2-way head-to-head district comparison, use the rule from design-data.md §9.3: District A → {colors.primary-500}, District B → {colors.primary-300}. Pull district names and canonical UA spelling from the 19-entity list in design-data.md §9.1 — never invent or transliterate ad hoc.
+- For 2-way head-to-head district comparison, use the rule from design-data.md §10.3: District A → {colors.primary-500}, District B → {colors.primary-300}. Pull district names and canonical UA spelling from the 19-entity list in design-data.md §10.1 — never invent or transliterate ad hoc.
 
 Footer (last 200px):
 - "Дивись усі райони →" CTA — Proxima Nova 24px 600 color #654EA3 with arrow

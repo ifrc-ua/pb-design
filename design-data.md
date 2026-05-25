@@ -1,9 +1,9 @@
 ---
-version: 0.2.1
+version: 0.3.0
 name: PB Ivano-Frankivsk — Real Data Reference
-description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens. Companion to design.md.
+description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-gender axis. Companion to design.md.
 parent: design.md
-updated: 2026-05-07
+updated: 2026-05-25
 status: beta
 canonical-categories:
   # Education group (purple family — semantically grouped)
@@ -158,6 +158,38 @@ project-statuses:
     text: "#1A1A1A"
     icon: triangle-alert
     finality: terminal-factual
+  removed:
+    label-en: "Removed"
+    label-uk: "Видалений"
+    color: "#9FA0A9"             # = colors.neutral-400
+    bg-tint: "#F7F7F8"           # = colors.neutral-50
+    text: "#71737E"              # = colors.neutral-500
+    icon: trash-2
+    finality: terminal-administrative
+    note: "Administrative removal by moderator. Distinct from `rejected` (failed review on merits) and `impossible` (factual unfeasibility)."
+author-gender:
+  # Orthogonal axis: author gender. Two purples for clear light-vs-deep contrast, neutral grey for unknown.
+  # Display order: female → male → unknown (light to dark; female is historical majority).
+  female:
+    label-en: "Women"
+    label-uk: "Жінки"
+    color: "#9C8BCC"             # = colors.primary-200 in design.md
+    color-token: "primary-200"
+    available-years: [2016, 2017, 2018, 2019]
+    note: "Source: column `authorSex` in 2016–2019 dataset. 2020+ data to be backfilled."
+  male:
+    label-en: "Men"
+    label-uk: "Чоловіки"
+    color: "#4E3C84"             # = colors.primary-900 in design.md
+    color-token: "primary-900"
+    available-years: [2016, 2017, 2018, 2019]
+  unknown:
+    label-en: "Unknown"
+    label-uk: "Невідомо"
+    color: "#CACAD1"             # = colors.neutral-300 in design.md
+    color-token: "neutral-300"
+    available-years: [2016]
+    note: "Only 2016 has `n/a` entries (29 of 80 projects)."
 map-tokens:
   marker:
     type: map-pin
@@ -278,9 +310,9 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 
 - **10 cycles across 2016–2026** (PB was not held in 2022).
 - **Categorization changed every year** — 2016–2017 had no thematic split (size only); 2024 split education into 3 sub-categories; 2025 added Defense (ЗСУ) and Accessibility; 2026 introduced size sub-tiers within education.
-- **Two orthogonal axes**: thematic category (color + icon) and project size (Малий / Середній / Великий / Маленький — badge modifier, not a separate color).
+- **Three orthogonal axes**: thematic category (color + icon), project size (Малий / Середній / Великий / Маленький — badge modifier), and author gender (Жінки / Чоловіки / Невідомо — two-purple palette).
 - **11 canonical categories** unify all year-specific labels into a stable color + icon set.
-- **6 real project statuses**, mapped to the design-system semantic palette (success / info / warning / error / neutral / graphite).
+- **7 real project statuses**, mapped to the design-system semantic palette (success / info / warning / error / neutral / graphite / muted-grey).
 - **Map tokens** (markers, clusters, winner stars, choropleth scale) live here, not in `design.md`.
 
 ---
@@ -298,7 +330,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 
 ### When to use this file
 - Generating any multi-category chart with 5+ segments — pull from `canonical-categories`.
-- Generating a status badge for analytical dashboards — use the 6 statuses below, not the 2 promotional badges in `design.md` §2.
+- Generating a status badge for analytical dashboards — use the 7 statuses below, not the 2 promotional badges in `design.md` §2.
 - Generating a city map with project markers — use `map-tokens` here.
 - Cross-year comparison — consult §3 «Year-over-year notes» for renamings.
 
@@ -371,7 +403,7 @@ This is the historical truth, **not generalized**. Each year used its own labels
   - Позашкільні, профтехосвіта
   - Благоустрій
   - Благоустрій малих вулиць
-  - Зелені проєкти
+  - Зелені проєкти *(category was available but received 0 submissions in 2025)*
   - Доступність
   - Інші проєкти
 
@@ -407,7 +439,7 @@ How categories evolved — important for any chart that crosses year boundaries.
 | 2022 → 2023 | Size split dropped entirely; pure thematic categories; «Зелені проєкти» appears | Major rebrand. From 2023 onward, charts can use the canonical 11-category palette directly. |
 | 2023 → 2024 | Education splits 1 → 3 (Шкільні / Дошкільні / Позашкільні); «Інший благоустрій» renamed → «Благоустрій»; «Зелені проєкти» absent | Multi-year education charts: choose either roll-up (`education-general`) or fan-out (3 subcategories). |
 | 2024 → 2025 | Adds «Допомога ЗСУ»; adds «Доступність»; «Зелені проєкти» returns | War-context categories. Color choices for ЗСУ are deliberately solemn graphite, not red/yellow/green. |
-| 2025 → 2026 | «Об'єкти культурної спадщини» (last seen 2021) returns as «Архітектурна спадщина»; size sub-tiers reappear inside Шкільні/Дошкільні | Same canonical key `heritage` — just a label change. Size sub-tiers are visualized as badge modifiers, not separate colors (see §6). |
+| 2025 → 2026 | «Об'єкти культурної спадщини» (last seen 2021) returns as «Архітектурна спадщина»; size sub-tiers reappear inside Шкільні/Дошкільні | Same canonical key `heritage` — just a label change. Size sub-tiers are visualized as badge modifiers, not separate colors (see §5). |
 
 ### Canonical mapping table
 
@@ -492,9 +524,49 @@ Size badges are subordinate to category color — a project card always primaril
 
 ---
 
-## 6. Project statuses
+## 6. Author gender (orthogonal axis)
 
-Six real project statuses from PB administrative data. Use these for analytical dashboards. The two promotional badges in `design.md` §2 («Переможець року», «Реалізовано») remain available for promo/pitch material — they are not duplicated here.
+Author gender is a third orthogonal axis, alongside category (§4) and size (§5). It is **not** a category — never use it as the main color of a project card; use it only for dedicated gender-distribution visualizations (donuts, bar charts, stacked bars per year).
+
+### Palette
+
+| Key | UA label | EN label | HEX | Source/role |
+|---|---|---|---|---|
+| `female` | Жінки | Women | `#9C8BCC` | `colors.primary-200` from design.md (lighter purple) |
+| `male` | Чоловіки | Men | `#4E3C84` | `colors.primary-900` from design.md (deeper purple) |
+| `unknown` | Невідомо | Unknown | `#CACAD1` | `colors.neutral-300` from design.md (muted grey) |
+
+### Rules
+
+- **Fixed display order:** `female` → `male` → `unknown`. Light-to-dark in legends; reflects that women are the historical majority of PB authors (e.g. 2019: 79 women vs 51 men).
+- **No icons.** Gender is communicated by color + label only. Lucide `mars`/`venus` would feel overcoded for a municipal analytics tool; `user`/`users` is too generic.
+- **Contrast between female and male:** `#9C8BCC` vs `#4E3C84` differs by ~29% lightness (~3.2:1 ratio) — passes WCAG 2.1 SC 1.4.11 for non-text graphical objects (≥ 3:1).
+- **`unknown` only appears for 2016** (29 of 80 projects had `authorSex = n/a`). For 2017+ the segment should not be drawn at all unless data adds it.
+- **Yellow is forbidden** for either gender — yellow stays a non-gendered importance accent (winners, hero stats), per `design.md` §2 yellow rule.
+
+### Data availability
+
+| Year | Source | Female | Male | Unknown |
+|---|---|---:|---:|---:|
+| 2016 | `authorSex` column | 27 | 24 | 29 |
+| 2017 | `authorSex` column | 28 | 24 | — |
+| 2018 | `authorSex` column | 81 | 58 | — |
+| 2019 | `authorSex` column | 79 | 51 | — |
+| 2020–2026 | derivable from `ПІБ автора` or to be backfilled | TBD | TBD | TBD |
+
+When a chart spans years with mixed availability, label the gap explicitly («гендер за 2020–2026 — у роботі») rather than silently dropping bars.
+
+### Display examples
+
+- **Donut «гендер авторів за 10 років»** — two segments (`female`, `male`); `unknown` only if non-zero across the window.
+- **Stacked bar «жінки/чоловіки серед переможців, за роком»** — one bar per year, two stacks (female bottom, male top, following the fixed order); 2022 omitted from the axis per `years-without-pb`.
+- **Two-up KPI cards** — «жінки 65%» (#9C8BCC fill) next to «чоловіки 35%» (#4E3C84 fill), Phenomena 56px 900 numbers, captions in Proxima Nova.
+
+---
+
+## 7. Project statuses
+
+Seven real project statuses from PB administrative data. Use these for analytical dashboards. The two promotional badges in `design.md` §2 («Переможець року», «Реалізовано») remain available for promo/pitch material — they are not duplicated here.
 
 | Status | UA label | Fill color | Bg tint | Text | Icon (Lucide) | Finality |
 |---|---|---|---|---|---|---|
@@ -504,6 +576,7 @@ Six real project statuses from PB administrative data. Use these for analytical 
 | `rejected` | Відхилений | `#D97706` (warning) | `#FEF3E2` | `#A05905` | `circle-x` | recoverable |
 | `rejected-permanent` | Відхилений остаточно | `#DC2626` (error) | `#FCE9E9` | `#A01818` | `ban` | terminal-negative |
 | `impossible` | Неможливо реалізувати | `#3F4049` (neutral-700) | `#E2E2E6` (neutral-200) | `#1A1A1A` | `triangle-alert` | terminal-factual |
+| `removed` | Видалений | `#9FA0A9` (neutral-400) | `#F7F7F8` (neutral-50) | `#71737E` (neutral-500) | `trash-2` | terminal-administrative |
 
 ### Reading the statuses
 
@@ -513,6 +586,7 @@ Six real project statuses from PB administrative data. Use these for analytical 
 - **`rejected` (Відхилений)** — failed administrative review for this cycle. Author may revise and resubmit.
 - **`rejected-permanent` (Відхилений остаточно)** — failed final review with no path forward. Terminal negative.
 - **`impossible` (Неможливо реалізувати)** — administrative verdict that physical/legal/financial implementation is not feasible. Graphite (not red) — communicates fact, not blame.
+- **`removed` (Видалений)** — administrative removal by a moderator (not a verdict on the project's merits). Muted neutral grey, deliberately quieter than `rejected` or `impossible` — signals «no longer in the dataset for this cycle», not failure. Appears in every cycle 2020–2026 (between 2 and 12 entries per year).
 
 ### Badge geometry
 
@@ -523,7 +597,7 @@ Match the chip geometry in `design.md` §4:
 
 ---
 
-## 7. Map tokens
+## 8. Map tokens
 
 The full set of map-specific tokens. `design.md` §9 only states general icon rules; this section is the source of truth for everything map-related.
 
@@ -575,13 +649,13 @@ For a diverging scale (e.g., budget delta vs. previous year), pair `primary` (po
 
 ---
 
-## 8. Usage by AI agents
+## 9. Usage by AI agents
 
 ### How to reference this file
 
 In a prompt, point the agent to **both** `design.md` (system) and `design-data.md` (data):
 
-> Use `design.md` for typography, spacing, brand colors, components. Use `design-data.md` for category palette, status badges, map tokens. Do not invent categories or colors.
+> Use `design.md` for typography, spacing, brand colors, components. Use `design-data.md` for category palette, status badges, map tokens, gender axis. Do not invent categories or colors.
 
 ### Token reference syntax in prompts
 
@@ -590,6 +664,9 @@ When prompts need a category color, write `{data.canonical-categories.<key>.colo
 - `{data.canonical-categories.education-school.color}` → `#4A2D87`
 - `{data.canonical-categories.greenery.icon}` → `tree-deciduous`
 - `{data.project-statuses.realized.bg-tint}` → `#E8F3EC`
+- `{data.project-statuses.removed.color}` → `#9FA0A9`
+- `{data.author-gender.female.color}` → `#9C8BCC`
+- `{data.author-gender.male.color}` → `#4E3C84`
 - `{data.map-tokens.cluster.border}` → `2px solid #654EA3`
 
 If an agent encounters a gap (a real category not yet listed here), leave a `<!-- TODO: design-data.md needs <key> -->` comment in the artifact — never invent.
@@ -603,11 +680,11 @@ If an agent encounters a gap (a real category not yet listed here), leave a `<!-
 
 ---
 
-## 9. Districts (громади)
+## 10. Districts (громади)
 
 PB projects come from the **Ivano-Frankivsk amalgamated territorial community** (об'єднана територіальна громада, ОТГ). After the 2020 amalgamation reform, the community consists of **19 entities**: the city of Ivano-Frankivsk plus 18 surrounding villages.
 
-### 9.1 Canonical list
+### 10.1 Canonical list
 
 Use these exact spellings as the source of truth — different administrative sources may write the same village as «Хриплин», «с. Хриплин», or «село Хриплин»; canonicalize to the form below.
 
@@ -635,7 +712,7 @@ Use these exact spellings as the source of truth — different administrative so
 
 All 18 villages joined the community in 2020. PB data prior to 2020 covers only the city; from 2020 onward, projects from any of the 19 entities are eligible.
 
-### 9.2 City-vs-villages asymmetry
+### 10.2 City-vs-villages asymmetry
 
 The community is structurally lopsided: 1 city accounts for the vast majority of PB participation; 18 small villages share a long tail. Naive visualizations are misleading.
 
@@ -647,7 +724,7 @@ The community is structurally lopsided: 1 city accounts for the vast majority of
 - **Two-segment summary** «місто vs усі села разом» when a single split is needed.
 - **Villages-only mode** for a deep-dive feature on rural participation — explicit toggle/filter.
 
-### 9.3 Color rules by scenario
+### 10.3 Color rules by scenario
 
 This file does **not** assign fixed colors per district. Use the rules below; they reuse `design.md` core tokens, never introduce district-specific HEX.
 
@@ -661,15 +738,16 @@ This file does **not** assign fixed colors per district. Use the rules below; th
 | Donut with 5–7 entities + «Інші» | Same multi-line fixed order; «Інші» segment → `neutral-300`. |
 | Map markers for individual projects | Marker fill = **category color** (per §4), never district color. The district is encoded by geographic position. |
 
-### 9.4 When fixed colors per district may emerge later
+### 10.4 When fixed colors per district may emerge later
 
 If real PB data narratives consistently feature **2–4 «hero» districts** (e.g., one village wins multiple top-N rankings; another drives a recurring story arc), those districts may receive canonical colors in a future MINOR bump. Until that pattern emerges from actual data, fixed colors are deliberately deferred.
 
 ---
 
-## 10. Known gaps
+## 11. Known gaps
 
-- **Fixed «hero district» colors.** §9 enumerates all 19 community entities and gives rules-by-scenario for color, but does **not** assign canonical colors per district. Such colors will be added in a future MINOR bump only when 2–4 «hero» districts emerge from real PB data narratives — overcommitting now would lock the system to predictions, not facts.
+- **Fixed «hero district» colors.** §10 enumerates all 19 community entities and gives rules-by-scenario for color, but does **not** assign canonical colors per district. Such colors will be added in a future MINOR bump only when 2–4 «hero» districts emerge from real PB data narratives — overcommitting now would lock the system to predictions, not facts.
+- **Gender data 2020–2026.** The `author-gender` axis (§6) currently has populated values only for 2016–2019 (from the `authorSex` column). 2020+ entries need a backfill — either by derivation from `ПІБ автора` or by a fresh export. Multi-year gender charts must explicitly label the post-2019 gap until that lands.
 - **Real project counts and budgets per category.** This file maps colors and icons, not numeric data. Aggregated counts per year/category come from the PB administrative export, not from a design artifact.
 - **Author-record categories** (top-N authors with most winning projects). Not a design concern; lives in product data.
 - **District-level GeoJSON** for choropleth polygon geometry. Not a design concern; pull from public OSM/admin data when implementing maps.
@@ -692,16 +770,23 @@ CANONICAL CATEGORIES (11)
   accessibility              #0E7C8C   accessibility
   other                      #71737E   package
 
-PROJECT STATUSES (6)
+PROJECT STATUSES (7)
   realized              success-green
   in-progress           info-blue
   participated          neutral-grey
   rejected              warning-amber
   rejected-permanent    error-red
   impossible            graphite
+  removed               muted-grey  (admin removal — not a verdict)
+
+AUTHOR GENDER (orthogonal axis)
+  female    #9C8BCC  primary-200   (lighter purple)
+  male      #4E3C84  primary-900   (deeper purple)
+  unknown   #CACAD1  neutral-300   (2016 only)
+  Order: female → male → unknown. No icons.
 
 YEARS COVERED: 2016–2026 (10 cycles, 2022 skipped)
 
 DISTRICTS: 19 (1 city + 18 villages, since 2020)
-  Color policy: rules-by-scenario (§9.3), no fixed-color-per-district
+  Color policy: rules-by-scenario (§10.3), no fixed-color-per-district
 ```

@@ -1,5 +1,5 @@
 ---
-version: 1.2.0
+version: 1.2.1
 name: Participatory Budgeting Ivano-Frankivsk
 description: Design system for the Participatory Budget (PB) of Ivano-Frankivsk. Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
@@ -313,7 +313,7 @@ Two universal badges needed by any user of the system — including an individua
 | Переможець року (Winner) | `#FFEC08` (Secondary-500) | `#1A1A1A` | Winning project of the year's vote |
 | Реалізовано (Implemented) | `#E8F3EC` (tint Success) | `#1E6B39` | Project completed after winning |
 
-> The full set of **6 real statuses** from the PB data (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement) lives in [design-data.md](./design-data.md) §6 for analytic dashboards. We keep this section minimal because these two badges are the only ones needed for promo, pitch, and project-specific materials.
+> The full set of **7 real statuses** from the PB data (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Removed) lives in [design-data.md](./design-data.md) §7 for analytic dashboards. We keep this section minimal because these two badges are the only ones needed for promo, pitch, and project-specific materials.
 
 ### Core Data-viz
 
@@ -355,6 +355,17 @@ External AI tools (Lovable, v0, Stitch, Canva) and third-party presentations do 
 
 > Geist Sans/Geist Mono are acceptable secondary fallbacks if Inter is also unavailable.
 > Never substitute Phenomena with a serif, slab, or display script — the system loses its architectural calm.
+
+### Local fonts (in-repo, gitignored)
+
+When working on this repository **locally**, the real brand font files are available on disk at:
+
+- `fonts/Phenomena/` — 7 weights (Thin → Black), `.otf`
+- `fonts/Proxima-Nova/` — 13 files (Thin → Black + italics), `.otf`
+
+**Use these whenever you render anything locally** (HTML/CSS via `@font-face` with a relative path, matplotlib via `font_manager.fontManager.addfont()`, Pillow/Cairo via `ImageFont.truetype("fonts/Phenomena/Phenomena-Black.otf", size)`, etc.) — prefer the real fonts over the Inter Tight / Inter fallbacks above.
+
+The fallbacks apply only to **external environments without filesystem access** (Lovable, v0, Stitch, Canva, the GitHub raw-URL flow). The `fonts/` folder is licensed and is excluded from git via `.gitignore`; never commit the files.
 
 ### Available Weights
 - **Phenomena**: Thin (100), ExtraLight (200), Light (300), Regular (400), Bold (700), ExtraBold (800), Black (900)
@@ -687,7 +698,7 @@ The "10 Years of PB" site and all infographics are **designed for mobile first**
 
 ### Map & Category Icons
 
-> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), lives in [design-data.md](./design-data.md) §4 and §7. We only dictate general icon rules here (weight, size, `currentColor`) because the category set shifts year to year.
+> The fixed "category → icon → color" table, alongside map specifics (project markers, clusters, winner stars), lives in [design-data.md](./design-data.md) §4 and §8. We only dictate general icon rules here (weight, size, `currentColor`) because the category set shifts year to year.
 
 ---
 
@@ -734,7 +745,8 @@ DATA-VIZ (in core)
   Sequential for heatmap/choropleth: Primary-50 → Primary-900
   Yellow in charts ALWAYS with dark outline #1A1A1A 1-1.5px
   Data-viz palette goes in a fixed order. Yellow in charts - ALWAYS with a dark outline.
-  Extended categorical palette + map tokens → design-data.md (§4, §7)
+  Extended categorical palette + map tokens → design-data.md (§4, §8)
+  Author-gender axis (Жінки/Чоловіки/Невідомо) → design-data.md §6
 
 RADII: 4, 8, 12, 16, 24, 999 (pill)
 SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
@@ -751,7 +763,7 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 **Social Media Infographic (1:1):**
 > Create a 1080×1080 infographic. Background #FDFDFD with subtle top-right corner detail in Primary-50 #F6F4FB. Big display number in center: "14 832" in Phenomena Black 180px, color #654EA3, tabular-nums. Below in Proxima Nova 28px 600: "голоси за двір на Галицькій, 2019". Footer: small yellow badge "переможець року" bg #FFEC08, dark border 1px. Logo bottom-left.
 
-> **Examples for maps, heatmaps, and other analytical artifacts** — see [design-data.md](./design-data.md) §7 (map tokens) and §8 (visualization patterns). We only keep core promo/card examples here, which any consumer of the core system would need.
+> **Examples for maps, heatmaps, and other analytical artifacts** — see [design-data.md](./design-data.md) §8 (map tokens) and §9 (visualization patterns). We only keep core promo/card examples here, which any consumer of the core system would need.
 
 ### Iteration Guide
 1. Always start with the brand core (purple + yellow + graphite on off-white).
@@ -769,9 +781,10 @@ This system is intentionally minimal. The following areas are **out of scope** f
 **Provided by [design-data.md](./design-data.md)** (the data layer):
 - Canonical categorical palette (11 categories, stable colors, Lucide icons) — §4
 - Year-by-year category mapping with renamings/splits/merges — §2 and §3
-- 6 real project statuses (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement) — §6. Only the 2 promotional badges (Winner, Implemented) live in core.
-- Map tokens: project markers, clusters, winner stars, choropleth scale — §7
+- 7 real project statuses (Implemented, In Progress, Participated, Rejected, Permanently Rejected, Impossible to Implement, Removed) — §7. Only the 2 promotional badges (Winner, Implemented) live in core.
+- Map tokens: project markers, clusters, winner stars, choropleth scale — §8
 - Project size axis (Малий / Середній / Великий / Маленький) — §5
+- Author gender axis (Жінки / Чоловіки / Невідомо — two-purple palette) — §6
 
 **Out of scope entirely** (do not design or generate):
 - Dark mode — municipal transparency is rooted in a light interface
