@@ -19,7 +19,7 @@
 
 # Дизайн-система «Бюджет участі Івано-Франківської громади»
 
-Дизайн-система для бюджету участі (громадського бюджету) Івано-Франківської громади у форматі [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) — плейн-маркдаун, який читають AI-агенти (Claude, Stitch, Cursor, Lovable, v0) і генерують UI, інфографіку та аналітичні візуалізації в бренді бюджету участі Івано-Франківська.
+Дизайн-система для бюджету участі (громадського бюджету) Івано-Франківської громади у форматі [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) — плейн-маркдаун, який читають AI-агенти (Claude, Stitch, Cursor, Lovable, v0) і генерують UI, інфографіку та аналітичні візуалізації в бренді бюджету участі Івано-Франківської громади.
 
 ## Що тут є
 
@@ -30,13 +30,15 @@
   - `infographics.md` — аналітична інфографіка (heatmaps, діаграми голосів, мапи, рейтинги)
   - `social-media.md` — пости для соцмереж (1:1, 4:5, stories 9:16)
   - `presentations.md` — слайди для презентацій мерії/громади
+  - `render-examples.md` — self-contained промпти для порівняння AI-інструментів (5 готових до вставки рендерів, без потреби давати посилання на design-систему)
 
 ## Як цим користуватися з AI
 
 ### Спосіб 1 — дати посилання на raw-файл
+
 Відкрийте чат з Claude (claude.ai, Claude Code, Cursor) і напишіть:
 
-> Використай дизайн-систему з цього документа: https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
+> Використай дизайн-систему з цього документа: <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md>
 >
 > Створи [що саме — інфографіку/картку/слайд].
 
@@ -45,6 +47,7 @@
 > **Для production використання — пиньтеся на tagged-версію** замість `main`, наприклад `https://raw.githubusercontent.com/ifrc-ua/pb-design/design-v1.2.0/design.md`. Гілка `main` змінюється з часом; теговані версії заморожені й захищають від breaking changes. Доступні версії — у [Releases](https://github.com/ifrc-ua/pb-design/releases).
 
 ### Спосіб 2 — скопіювати у свій проєкт
+
 Склонуйте цей репозиторій (або скопіюйте `design.md` у корінь вашого проєкту) і вкажіть AI-інструменту, де його шукати:
 
 - **Claude Code**: створіть `CLAUDE.md` поряд із `design.md` з одним рядком — `Use the design system in design.md for all UI work.` Claude Code автоматично читає `CLAUDE.md` на початку кожної сесії.
@@ -54,6 +57,7 @@
 Просто покласти `design.md` у папку **недостатньо** — агенту треба сказати дивитися на нього.
 
 ### Спосіб 3 — вставити вміст у чат
+
 Відкрийте `design.md`, скопіюйте весь вміст, вставте в чат з інструкцією:
 
 > Ось дизайн-система проєкту. Нижче йде завдання.
@@ -64,7 +68,7 @@
 
 ## Швидкий приклад промпту
 
-> Використай дизайн-систему з https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
+> Використай дизайн-систему з <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md>
 >
 > Створи інфографіку 1080×1080 для Instagram: топ-5 категорій БУ Івано-Франківська за 10 років (2016–2026, у 2022 БУ не проводився), з кількістю проєктів-переможців у кожній. Стиль: стриманий, дані у центрі уваги, фіолетовий фон-акцент у куті.
 
@@ -132,12 +136,12 @@ pb-design/
 - **Proxima Nova** — комерційна ліцензія на [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova). Безкоштовної версії немає; redistribution заборонено.
 
 Якщо оригінальні шрифти недоступні, використовуйте такі безкоштовні замінники з Google Fonts (ліцензія OFL):
+
 - Для **Phenomena** (заголовки): [Inter Tight](https://fonts.google.com/specimen/Inter+Tight) (накреслення 900 Black).
 - Для **Proxima Nova** (UI і текст): [Inter](https://fonts.google.com/specimen/Inter) (з обов'язковим `tabular-nums` для цифр).
 - *Другий резерв:* Geist Sans / Geist Mono.
 
 Детальні інструкції щодо корекції міжлітерного інтервалу та висоти рядка для замінників дивіться у файлі `design.md`.
-
 
 ## Внесення змін
 

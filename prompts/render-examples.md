@@ -2,7 +2,7 @@
 
 > Для одноразового використання: 5 self-contained промптів, кожен працює без потреби бачити `design.md`/`design-data.md` — всі токени вшиті всередину. Згенеруйте картинки в різних AI, складіть результати у папку `assets/{ai-model}/` (наприклад `assets/Claude-opus-4.7/`) з підписом «згенеровано {AI}» в README цієї папки.
 
-> ⚠️ **Числа в усіх 5 промптах нижче — для дизайн-цілей, не для аналітики.** Значення на кшталт «1 412 проєктів», «127К учасників», «₴62 млн», «24% Шкільні», «2 847 голосів», матриця heatmap — це орієнтовні placeholder'и для перевірки візуального стилю, токенів і композиції. Реальні цифри підставлятимуться з analytics-джерела при production-використанні. У README кожної AI-папки повторити це застереження.
+> ⚠️ **Числа в усіх 5 промптах нижче — для дизайн-цілей, не для аналітики.** Значення на кшталт «1 412 проєктів», «127 тис. учасників», «₴62 млн», «24% Шкільні», «2 847 голосів», матриця heatmap — це орієнтовні placeholder'и для перевірки візуального стилю, токенів і композиції. Реальні цифри підставлятимуться з analytics-джерела при production-використанні. У README кожної AI-папки повторити це застереження.
 
 ## Як цим користуватися
 
@@ -85,7 +85,7 @@ LAYOUT:
 
 CONTENT (use exactly):
 - Column 1 number: "1 412" (with non-breaking space U+00A0 between "1" and "412") | Label: "ПРОЄКТІВ ЗА 10 РОКІВ"
-- Column 2 number: "127К"  | Label: "УНІКАЛЬНИХ УЧАСНИКІВ"
+- Column 2 number: "127 тис." (with non-breaking space U+00A0 between "127" and "тис.")  | Label: "УНІКАЛЬНИХ УЧАСНИКІВ"
 - Column 3 number: "₴62 млн" (₴ followed by non-breaking space, then "62" + non-breaking space + "млн") | Label: "РЕАЛІЗОВАНО"
 
 Below the card (outside, 16px gap): caption Inter 14px 400 #71737E, centered: "за період 2016–2026 (у 2022 БУ не проводився)" — use en-dash 2016–2026.
@@ -131,7 +131,7 @@ LAYOUT (top to bottom inside the 375px viewport):
    Each card: bg #F6F4FB, border-radius 16px, padding 20px, height 96px
    Layout inside card: number left (large), label right (multi-line allowed):
    - Card 1: "1 412" Inter Tight 900 48px #654EA3 tabular-nums + label "проєктів за 10 років" Inter 14px 600 uppercase letter-spacing +0.5px #71737E
-   - Card 2: "127К" + "учасників"
+   - Card 2: "127 тис." (with non-breaking space U+00A0 between "127" and "тис.") + "учасників"
    - Card 3: "₴62 млн" + "реалізовано"
 
 5. Footer note (after 24px gap): centered, Inter 13px 400 #71737E "у 2022 БУ не проводився"
@@ -260,8 +260,9 @@ LAYOUT (top to bottom, padding 20px around card):
 7. Meta: "Ольга Дмитришин · Хриплин" Inter 14px 400 #71737E.
 8. 16px gap.
 9. Stats row: two equal-width columns separated by 1px #EFEFF1 vertical line:
-   - Left: "2 847" Inter Tight 900 28px #1A1A1A tabular-nums, then 4px gap, then "ГОЛОСІВ" Inter 11px 600 uppercase letter-spacing +1px #71737E
-   - Right: "₴1,2 млн" Inter Tight 900 28px #1A1A1A tabular-nums, then 4px gap, then "БЮДЖЕТ" same label style
+   - Left: "2 847" Inter Tight 700 28px #1A1A1A tabular-nums, then 4px gap, then "ГОЛОСІВ" Inter 11px 600 uppercase letter-spacing +1px #71737E
+   - Right: "₴1,2 млн" Inter Tight 700 28px #1A1A1A tabular-nums, then 4px gap, then "БЮДЖЕТ" same label style
+   (700 — not 900 — matches `design.md §4 Project Card` which sets stats at Phenomena 28px **700**; Black/900 is reserved for hero numbers `data-stat` / `display-hero`)
 10. 16px gap.
 11. Bottom-aligned: Yellow winner badge (pill): bg #FFEC08, border 1px solid #1A1A1A, height 28px, padding 4px 12px, radius 999px. Inside: small star icon (★ or SVG) 14px, then "ПЕРЕМОЖЕЦЬ 2024" Inter 12px 700 uppercase letter-spacing +1px color #1A1A1A.
 

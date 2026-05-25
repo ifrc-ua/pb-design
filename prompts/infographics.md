@@ -19,7 +19,7 @@ Each column contains:
 
 Column values:
 1. "{1 412}" / "ПРОЄКТІВ ЗА 10 РОКІВ"
-2. "{127К}" / "УНІКАЛЬНИХ УЧАСНИКІВ"
+2. "{127 тис.}" / "УНІКАЛЬНИХ УЧАСНИКІВ"
 3. "{₴62 МЛН}" / "РЕАЛІЗОВАНО"
 
 Background #FDFDFD, padding 64px, border-radius 24px, shadow level 1.

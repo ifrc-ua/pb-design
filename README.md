@@ -17,9 +17,9 @@
   <a href="README.ua.md">Читати українською (Read in Ukrainian)</a>
 </p>
 
-# Design System "Participatory Budget of Ivano-Frankivsk"
+# Design System "Participatory Budget of Ivano-Frankivsk community"
 
-A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municipality in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format — a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
+A design system for the Participatory Budget (PB) of the Ivano-Frankivsk community in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format — a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
 
 ## What's inside
 
@@ -30,13 +30,15 @@ A design system for the Participatory Budget (PB) of the Ivano-Frankivsk municip
   - `infographics.md` — analytical infographics (heatmaps, voting charts, maps, rankings)
   - `social-media.md` — social media posts (1:1, 4:5, 9:16 stories)
   - `presentations.md` — slides for municipality/community presentations
+  - `render-examples.md` — self-contained prompts for AI-tool comparison (5 ready-to-paste renders, no design-system links required)
 
 ## How to use this with AI
 
 ### Method 1 — provide a raw file link
+
 Open a chat with Claude (claude.ai, Claude Code, Cursor) and write:
 
-> Use the design system from this document: https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
+> Use the design system from this document: <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md>
 >
 > Create [what you need — infographic/card/slide].
 
@@ -45,15 +47,17 @@ The agent will download `design.md` and strictly follow all the rules — fonts,
 > **For production use, pin to a tagged version** instead of `main` — e.g. `https://raw.githubusercontent.com/ifrc-ua/pb-design/design-v1.2.0/design.md`. The `main` branch is a moving target; tagged versions are frozen and protect you from breaking changes. See [Releases](https://github.com/ifrc-ua/pb-design/releases) for available versions.
 
 ### Method 2 — copy to your project
+
 Clone this repository (or copy `design.md` into the root of your project) and tell your AI tooling where to find it:
 
-- **Claude Code**: create a `CLAUDE.md` next to `design.md` with one line — `Reference the design system in design.md for all UI work.` Claude Code reads `CLAUDE.md` automatically on every session.
+- **Claude Code**: create a `CLAUDE.md` next to `design.md` with one line — `Use the design system in design.md for all UI work.` Claude Code reads `CLAUDE.md` automatically on every session.
 - **Cursor**: create `.cursorrules` next to `design.md` with the same line. Cursor injects `.cursorrules` into every prompt.
 - **Other agents**: most accept a system-prompt or "rules" file — point it at `design.md` once.
 
 Just dropping `design.md` into the folder is **not enough** on its own — the agent has to be told to look at it.
 
 ### Method 3 — paste the content into the chat
+
 Open `design.md`, copy its entire content, and paste it into the chat with the instruction:
 
 > Here is the project design system. The task follows below.
@@ -64,7 +68,7 @@ Open `design.md`, copy its entire content, and paste it into the chat with the i
 
 ## Quick Prompt Example
 
-> Use the design system from https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md
+> Use the design system from <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md>
 >
 > Create a 1080×1080 infographic for Instagram: top-5 PB Ivano-Frankivsk categories over 10 years (2016–2026, no PB in 2022), with the number of winning projects in each. Style: restrained, data in focus, purple accent background in the corner.
 
@@ -132,12 +136,12 @@ Fonts are **not included in this repository** — and must not be committed to i
 - **Proxima Nova** — commercial license at [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova). No free tier; redistribution forbidden.
 
 If the original fonts are unavailable, use the following free alternatives from Google Fonts (OFL license):
+
 - For **Phenomena** (headings): [Inter Tight](https://fonts.google.com/specimen/Inter+Tight) (900 Black weight).
 - For **Proxima Nova** (UI and text): [Inter](https://fonts.google.com/specimen/Inter) (with mandatory `tabular-nums` for digits).
 - *Secondary fallback:* Geist Sans / Geist Mono.
 
 See `design.md` for detailed instructions on correcting letter spacing and line height when using fallback fonts.
-
 
 ## Contributing
 

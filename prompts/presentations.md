@@ -218,9 +218,8 @@ Create a 1920×1080 thank-you closing.
 Background #FDFDFD with large "+" shape top-right (fill #FFEC08, 800×800px, 50% off-canvas, subtle).
 
 Centered vertically:
-- "Дякуємо." Phenomena Black 320px color #1A1A1A
-- Below: "Питання?" Phenomena 80px 400 color #654EA3
-- Contact line: "ім'я.прізвище@ifrc.org.ua · @ifbudget" Proxima Nova 24px 500 color #71737E
+- "Питання?" Phenomena 80px 400 color #654EA3
+- Contact line: "ім'я.прізвище@... · @ifbudget" Proxima Nova 24px 500 color #71737E
 - URL "pb.if.ua" Phenomena 40px 700 color #654EA3 at bottom-center
 ```
 
@@ -246,7 +245,7 @@ Structure (each item references a template above by its title — see headings `
 12. Timeline 10 років — use the `Timeline slide` template
 13. Section divider "Інсайти" — use the `Section divider` template
 14. Takeaways — use the `Takeaway / closing slide` template
-15. Thank-you — use the `Thank-you slide` template
+15. Питання? — use the `Thank-you slide` template
 
 Use consistent footer (slide number + project name + logo), consistent 4px yellow top-detail line on non-divider slides, consistent color palette, consistent fonts.
 ```
