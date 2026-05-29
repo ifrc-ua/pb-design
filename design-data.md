@@ -1,9 +1,9 @@
 ---
-version: 0.6.0
+version: 0.7.0
 name: PB Ivano-Frankivsk Community — Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author- and voter-gender axes. Companion to design.md.
 parent: design.md
-updated: 2026-05-25
+updated: 2026-05-29
 status: beta
 canonical-categories:
   # Education group (purple family — semantically grouped)
@@ -176,7 +176,7 @@ author-gender:
     color: "#9C8BCC"             # = colors.primary-200 in design.md
     color-token: "primary-200"
     available-years: [2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026]
-    note: "Source: column `authorSex`."
+    note: "2016–2019: source column `authorSex`. 2020–2026: no such column — gender derived from patronymic (по-батькові) in 21_gender_detect, name-dictionary fallback; undetectable → `U`."
   male:
     label-en: "Men"
     label-uk: "Чоловіки"
@@ -188,8 +188,8 @@ author-gender:
     label-uk: "Невідомо"
     color: "#CACAD1"             # = colors.neutral-300 in design.md
     color-token: "neutral-300"
-    available-years: [2016]
-    note: "Only 2016 has `n/a` entries (29 of 80 projects). 2017+ cycles have no n/a authors."
+    available-years: [2016, 2020, 2021, 2023, 2024, 2025, 2026]
+    note: "2016: source has 29/80 `n/a`. 2020–2026: gender is derived from patronymic, so undetectable names become `U` (counts pending the 21_gender_detect run). 2017–2019 source had no n/a → no unknown."
 voter-gender:
   # Orthogonal axis: gender of citizens who voted (distinct from author-gender above).
   # Shares the author-gender palette intentionally — visualizations comparing the two axes
@@ -569,7 +569,7 @@ The person who submitted the project.
 
 - **Fixed display order:** `female` → `male` → `unknown`. In legends, female (light purple) sits before male (deep purple), reflecting that women are the historical majority of PB authors (e.g. 2019: 79 women vs 51 men); `unknown` (neutral grey) closes the legend as a non-purple "missing data" tail.
 - **Contrast between female and male:** `#9C8BCC` vs `#4E3C84` differs by ~29% lightness (~3.2:1 ratio) — passes WCAG 2.1 SC 1.4.11 for non-text graphical objects (≥ 3:1).
-- **`unknown` only appears for 2016** (29 of 80 projects had `authorSex = n/a`). For 2017+ the segment should not be drawn at all unless data adds it.
+- **`unknown` appears in 2016 and 2020–2026.** 2016: 29 of 80 projects had source `authorSex = n/a`. 2020–2026: gender is derived from patronymic (no source column) → undetectable names become `U` (counts pending the `21_gender_detect` run). 2017–2019 source had no n/a → no unknown segment.
 
 #### Data availability — authors (snapshot)
 
@@ -579,15 +579,15 @@ The person who submitted the project.
 | 2017 | `authorSex` column | 28 | 24 | — |
 | 2018 | `authorSex` column | 81 | 58 | — |
 | 2019 | `authorSex` column | 79 | 51 | — |
-| 2020 | `authorSex` column | TBD | TBD | — |
-| 2021 | `authorSex` column | TBD | TBD | — |
+| 2020 | derived (по-батькові) | TBD | TBD | TBD |
+| 2021 | derived (по-батькові) | TBD | TBD | TBD |
 | 2022 | PB not held — `years-without-pb` | — | — | — |
-| 2023 | `authorSex` column | TBD | TBD | — |
-| 2024 | `authorSex` column | TBD | TBD | — |
-| 2025 | `authorSex` column | TBD | TBD | — |
-| 2026 | `authorSex` column | TBD | TBD | — |
+| 2023 | derived (по-батькові) | TBD | TBD | TBD |
+| 2024 | derived (по-батькові) | TBD | TBD | TBD |
+| 2025 | derived (по-батькові) | TBD | TBD | TBD |
+| 2026 | derived (по-батькові) | TBD | TBD | TBD |
 
-Coverage is complete across the 10 PB cycles; only 2016 carries `unknown` entries (29 of 80 projects had `authorSex = n/a`). 2022 row is the only structural gap and is omitted from every multi-year chart per `years-without-pb`. The TBD cells are filled into this table as the next data ingest lands; the YAML `available-years` already reflects full coverage.
+Gender is available for all 10 PB cycles, but the source differs: 2016–2019 from the `authorSex` column (2016 also carries 29 `n/a`); 2020–2026 derived from patronymic in `21_gender_detect` (no source column) — so those years will also carry `unknown` for undetectable names, with exact counts landing here after that step. 2022 is the only structural gap, omitted from every multi-year chart per `years-without-pb`.
 
 #### Display examples — authors
 
@@ -856,7 +856,7 @@ PROJECT STATUSES (7)
 AUTHOR GENDER (orthogonal axis — who submitted)
   female    #9C8BCC  primary-200   (lighter purple)
   male      #4E3C84  primary-900   (deeper purple)
-  unknown   #CACAD1  neutral-300   (2016 only)
+  unknown   #CACAD1  neutral-300   (2016 + derived 2020–2026)
   Order: female → male → unknown. No icons.
 
 VOTER GENDER (orthogonal axis — who voted)
