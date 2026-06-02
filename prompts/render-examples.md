@@ -28,7 +28,7 @@
 ## Спільний brief (опційно — деякі AI працюють краще, якщо дати окремо перед промптом)
 
 ```
-You are generating UI/infographic mockups for "Бюджет участі Івано-Франківська" (Ivano-Frankivsk Participatory Budgeting), a 10-year analytics design system covering 2016-2026 (PB was not held in 2022).
+You are generating UI/infographic mockups for "Бюджет участі Івано-Франківська" (Ivano-Frankivsk Participatory Budgeting), a 10-year analytics design system covering 2016–2026 (PB was not held in 2022).
 
 DESIGN TOKENS:
 - Brand purple (primary-500): #654EA3
@@ -295,7 +295,7 @@ Fonts:
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 GRID:
-- 11 rows (categories) × 11 columns (years 2016-2026)
+- 11 rows (categories) × 10 columns (years 2016–2026, no 2022)
 - Cell size: 70×34, gap 2px, radius 4px
 - 2022 does NOT appear in the grid — 10 columns only (2021 → 2023 directly)
 
@@ -320,17 +320,17 @@ Do NOT add any disabled/greyed 2022 slot. Mention "у 2022 БУ не прово�
 CELL VALUES — use this matrix exactly (rows in same order as above; "—" means inactive — render as #EFEFF1 with diagonal hatch in #CACAD1, no number):
 
 | Cat \\ Year     | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2023 | 2024 | 2025 | 2026 |
-| Освіта         |  —   |  —   |  —   |  7   |  5   |  —   |  4   |  —   |  —   |  —   |
+| Освіта         |  —   |  —   |  —   |  7   |  5   |  6   |  4   |  —   |  —   |  —   |
 | Шкільні        |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  9   |  11  |  8   |
 | Дошкільні      |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  4   |  5   |  6   |
 | Позашкільні    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  4   |  5   |
 | Благоустрій    |  —   |  —   |  —   |  —   |  —   |  —   |  6   |  8   |  10  |  12  |
 | Малі вулиці    |  —   |  —   |  —   |  —   |  4   |  5   |  6   |  7   |  8   |  9   |
 | Спадщина       |  —   |  —   |  —   |  —   |  —   |  2   |  —   |  —   |  —   |  1   |
-| Зелені         |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  —   |  5   |  7   |
+| Зелені         |  —   |  —   |  —   |  —   |  —   |  —   |  3   |  —   |  —   |  7   |
 | ЗСУ            |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  4   |  5   |
 | Доступність    |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  —   |  2   |  3   |
-| Інші проєкти   |  —   |  —   |  —   |  8   |  10  |  —   |  5   |  4   |  4   |  3   |
+| Інші проєкти   |  —   |  —   |  —   |  8   |  10  |  7   |  —   |  4   |  4   |  3   |
 
 CELL FILL by value (sequential primary scale):
 - 1-2: #EEEAF7 (text color #1A1A1A)

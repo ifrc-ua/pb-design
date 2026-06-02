@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="README.md">🇬🇧 Read in English</a>
+  <a href="README.md">Read in English</a>
 </p>
 
 # Дизайн-система «Бюджет участі Івано-Франківської громади»
@@ -44,7 +44,7 @@
 
 Агент завантажить `design.md` і буде дотримуватися усіх правил — шрифтів, палітри, геометрії.
 
-> **Для production використання — пиньтеся на tagged-версію** замість `main`, наприклад `https://raw.githubusercontent.com/ifrc-ua/pb-design/design-v1.2.0/design.md`. Гілка `main` змінюється з часом; теговані версії заморожені й захищають від breaking changes. Доступні версії — у [Releases](https://github.com/ifrc-ua/pb-design/releases).
+> **Для production використання — пиньтеся на tagged-версію** замість `main`: візьміть найновіший тег зі сторінки [Releases](https://github.com/ifrc-ua/pb-design/releases) і вставте його в URL, наприклад `https://raw.githubusercontent.com/ifrc-ua/pb-design/<latest-tag>/design.md`. Гілка `main` змінюється з часом; теговані версії заморожені й захищають від breaking changes.
 
 ### Спосіб 2 — скопіювати у свій проєкт
 
@@ -68,7 +68,7 @@
 
 ## Швидкий приклад промпту
 
-> Використай дизайн-систему з <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md>
+> Використай дизайн-систему з <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design.md> і шар даних з <https://raw.githubusercontent.com/ifrc-ua/pb-design/main/design-data.md> (категорії, статуси, пропуск 2022).
 >
 > Створи інфографіку 1080×1080 для Instagram: топ-5 категорій БУ Івано-Франківська за 10 років (2016–2026, у 2022 БУ не проводився), з кількістю проєктів-переможців у кожній. Стиль: стриманий, дані у центрі уваги, фіолетовий фон-акцент у куті.
 
@@ -106,7 +106,7 @@ pb-design/
 │   ├── Claude-opus-4.7/      ← референс-рендери (у кожній папці є власний README)
 │   ├── Gemini-3.1-pro/
 │   └── v0-max/
-└── .gitignore          ← виключає файли ліцензованих шрифтів (.otf/.ttf) з комітів
+└── .gitignore          ← виключає файли ліцензованих шрифтів (.otf/.ttf/.woff) з комітів
 ```
 
 ## Бренд у двох словах

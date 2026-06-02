@@ -2,7 +2,7 @@
 
 Промпти для створення слайдів у 16:9 (1920×1080) про історичні дані БУ ІФ — для виступів у мерії, на громадських обговореннях, конференціях.
 
-Передбачається, що агент має доступ до [design.md](../design.md).
+Передбачається, що агент має доступ до [design.md](../design.md) (система) та [design-data.md](../design-data.md) (категорії, статуси, мап-токени, 19 громад).
 
 ---
 
@@ -176,7 +176,7 @@ Right side (60%, x=720):
 - Quote text Phenomena 44px 400 italic color #1A1A1A line-height 1.3, max-width 960px, 4–5 lines
   Example: "Коли мій двір переміг у голосуванні, я вперше відчула, що моя думка важить у цьому місті."
 - 32px gap
-- Attribution: "— Марія К., Пасічна" Proxima Nova 22px 600 color #1A1A1A
+- Attribution: "— Марія К., Крихівці" Proxima Nova 22px 600 color #1A1A1A
 - 4px gap
 - Project meta: "{Двір на Галицькій · 2 847 голосів · реалізовано 2020}" Proxima Nova 18px 500 color #71737E
 ```

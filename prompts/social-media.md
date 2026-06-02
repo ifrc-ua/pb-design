@@ -66,7 +66,7 @@ Top (safe zone starts at 250px from top):
 
 Middle (centered):
 - Large question in Phenomena 80px 700, color #1A1A1A, max 4 lines, leading 1.05
-  Example: "Хто голосує активніше — Пасічна чи Каскад?"
+  Example: "Хто голосує активніше — Хриплин чи Угорники?"
 
 Answer reveal block (bottom, ~400px above bottom safe zone):
 - Split bar: 2 horizontal bars, one per district
@@ -132,7 +132,7 @@ Layout:
 - Bottom text block (white on darkened gradient):
   - Project title Phenomena 56px 700 color #FDFDFD, max 3 lines
   - Meta line Proxima Nova 20px 500 color rgba(253,253,253,0.8): "{автор}, {район}, {категорія}"
-  - Stats row: "₴{1.2 МЛН}" and "{2 847} ГОЛОСІВ" in Phenomena 32px 900 color #FFEC08, Proxima Nova 14px 600 uppercase labels below
+  - Stats row: "₴{1,2 МЛН}" and "{2 847} ГОЛОСІВ" in Phenomena 32px 900 color #FFEC08, Proxima Nova 14px 600 uppercase labels below
 - Logo bottom-left corner 40px, white version
 ```
 
@@ -178,7 +178,7 @@ Top overlay (both sides):
 Bottom overlay (both sides, full width, bg #1A1A1A opacity 0.8):
 - Project name Phenomena 32px 700 color #FDFDFD
 - Meta: "{рік реалізації}, {район}" Proxima Nova 16px 500 color rgba(253,253,253,0.7)
-- Budget: "₴{1.2 млн}" Phenomena 24px 900 color #FFEC08, right-aligned
+- Budget: "₴{1,2 млн}" Phenomena 24px 900 color #FFEC08, right-aligned
 ```
 
 ---

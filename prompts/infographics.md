@@ -39,7 +39,7 @@ Structure:
 - Meta line: "{Ім'я Автора} · {Район}" in Proxima Nova 14px 400, color #71737E
 - Stats row (two values side by side):
   - "{2 847}" голосів — Phenomena 24px 700 + label 12px 500 uppercase
-  - "₴{1.2 млн}" бюджет — same style
+  - "₴{1,2 млн}" бюджет — same style
 - Bottom-right badge: "Переможець {2019}" — pill bg #FFEC08, text #1A1A1A, Proxima Nova 12px 600, with small star icon
 
 Card: bg #FDFDFD, border 1px #EFEFF1, radius 12px, padding 20px, shadow level 1 (hover level 2).
@@ -74,7 +74,7 @@ Cell styling:
 - Border-radius: 4px
 - Fill: sequential purple scale {colors.primary-50} (lowest) → {colors.primary-900} (highest)
 - Label inside each cell: count of winning projects, Proxima Nova 12px 500, tabular-nums, auto-contrast text color
-- For (category, year) pairs where the category did not exist that year (consult design-data.md §3 active-years): fill {colors.neutral-100} with a 1px diagonal hatch in {colors.neutral-300}, no number
+- For (category, year) pairs where the category did not exist that year (consult the design-data.md §3 category × year matrix): fill {colors.neutral-100} with a 1px diagonal hatch in {colors.neutral-300}, no number
 
 Axes:
 - Row labels (left): Proxima Nova 13px 600, color #3F4049, with 16px category icon (see design-data.md §4) before text in the canonical category color
@@ -101,7 +101,7 @@ Donut:
 - Segments colored with the canonical-category palette from design-data.md §4. Use only the categories that were active in {2023}. For 2023 specifically those are: Освіта (education-general), Інший благоустрій → improvement-general, Благоустрій малих вулиць (improvement-streets), Зелені проєкти (greenery). Pull each fill from {data.canonical-categories.<key>.color}.
 - Render segments in the canonical fixed display order from design-data.md §4, regardless of segment size.
 - Gaps between segments: 2px
-- Hover: segment pushes out 8px, darkens by 10%
+- Hover: segment pushes out 8px, lightens by 10%
 - Never use yellow {colors.secondary-500} as a categorical segment fill — it is reserved as the «exceptionally important» accent. To highlight a single category, add a 1.5px dark outline `#1A1A1A` over its native color.
 
 Center:
@@ -163,7 +163,7 @@ Curves: smooth (monotone), no sharp corners.
 
 Annotations:
 - Small callouts on notable moments (e.g., "COVID: екологія +47%" in 2020) — Proxima Nova 12px 600, connected by thin 1px line to the layer
-- Total budget per year shown above at each year tick: "₴{6.2 млн}" in Phenomena 16px 700 tabular-nums
+- Total budget per year shown above at each year tick: "₴{6,2 млн}" in Phenomena 16px 700 tabular-nums
 
 Title: "₴62 млн за 10 років — куди йшли гроші" in Phenomena 32px 700.
 Subtitle: "Розподіл реалізованих бюджетів за категоріями" in Proxima Nova 15px 400 #71737E.
@@ -216,7 +216,7 @@ Structure:
 1. Hero number at top-left: "47%" in Phenomena Black 160px, color #654EA3, tabular-nums
    Right: headline "Проєктів переможців 2020 — про екологію" in Phenomena 40px 700 on 2 lines
 2. Lede paragraph: "У ковідний рік мешканці ІФ проголосували за проєкти озеленення і парків майже удвічі активніше..." Proxima Nova 20px 400 line-height 1.55, max-width 760px
-3. Supporting chart: a small comparison bar chart 2018 vs 2020 vs 2024 for "Зелені проєкти" — 3 bars in {data.canonical-categories.greenery.color} (#3D7C3F), 2020 highlighted with a 1.5px {colors.ink} outline plus a small yellow {colors.secondary-500} accent dot above the bar. Note: «Зелені проєкти» as a formal category appeared only in 2023; for pre-2023 years use the data point if it exists in administrative records under a related label, otherwise mark the bar with «—» and a footnote.
+3. Supporting chart: a small comparison bar chart 2023 vs 2025 vs 2026 for "Зелені проєкти" — 3 bars in {data.canonical-categories.greenery.color} (#3D7C3F), 2026 highlighted with a 1.5px {colors.ink} outline plus a small yellow {colors.secondary-500} accent dot above the bar. Note: «Зелені проєкти» became a formal category in 2023 and received 0 submissions in 2025 (mark that bar «—»); never invent greenery data for years where the category was inactive — consult the §3 category × year matrix in design-data.md.
 4. Pullquote: "Зелень стала важливішою за асфальт." in Phenomena 32px 400 italic, color #654EA3, left border 4px #FFEC08, padding-left 24px, max-width 700px
 5. Second chart: streamgraph mini — same style as the `Streamgraph — еволюція бюджету` template above, but compact 800×240
 6. Callout box bottom: Light Primary-50 bg, radius 16px, padding 32px — "Дослідити всі інсайти →" CTA link in #654EA3 Proxima Nova 18px 600 + arrow
@@ -238,7 +238,7 @@ Each side:
   - Голосів подано: {N}
   - Бюджет: ₴{N}
 - At bottom: stacked horizontal bar chart showing the categories share for that side. Left side (2016) has only one segment «Без категоризації» in {colors.neutral-300} (no thematic split existed pre-2019). Right side (2026) splits across the 11 canonical categories from design-data.md §4 in fixed display order, each segment using {data.canonical-categories.<key>.color}. Each bar 32px tall, gap 2px.
-- Top-3 authors strip (optional): names + район only, no portraits (per design.md §5). Format: "Марія К. · Пасічна · 5 переможних" each line, Proxima Nova 14px 500
+- Top-3 authors strip (optional): names + район only, no portraits (per design.md §5). Format: "Марія К. · Крихівці · 5 переможних" each line, Proxima Nova 14px 500
 
 Separator: 2px vertical line #EFEFF1, center
 
@@ -257,11 +257,11 @@ Per design.md §5 — no avatars or portraits, ever (resident-privacy rule). The
 Layout:
 - Top hero block (centered): tiny overline "ПЕРЕМОЖНИХ ПРОЄКТІВ" Proxima Nova 11px 600 uppercase letter-spacing +1px color #71737E, then giant number "5" Phenomena Black 120px color #654EA3 tabular-nums, line-height 1.0
 - Name: Phenomena 24px 700 centered, color #1A1A1A — "{Марія Коваленко}"
-- Subtitle: "{Район Пасічна}" in Proxima Nova 14px 500 #71737E
+- Subtitle: "{Район Крихівці}" in Proxima Nova 14px 500 #71737E
 - Divider: 1px #EFEFF1, width 80px, centered
 - 3 mini-stats in horizontal row (the "5 переможних" stat already lives at the top as hero):
   - "12" / "поданих заявок"
-  - "₴4.8М" / "реалізовано"
+  - "₴4,8 млн" / "реалізовано"
   - "2016–2024" / "активна"
   Each stat: Phenomena 28px 700 number + Proxima Nova 11px 500 uppercase letter-spacing +1px label #71737E
 - Bottom: small list of her top 3 project titles in Proxima Nova 13px 500, each prefixed with a year tag
