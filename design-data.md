@@ -1,5 +1,5 @@
 ---
-version: 0.9.0
+version: 0.9.1
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author- and voter-gender axes. Companion to design.md.
 parent: design.md
@@ -589,25 +589,18 @@ The person who submitted the project.
 
 - **Fixed display order:** `female` → `male` → `unknown`. In legends, female (light purple) sits before male (deep purple), reflecting that women are the historical majority of PB authors (e.g. 2019: 79 women vs 51 men); `unknown` (neutral grey) closes the legend as a non-purple "missing data" tail.
 - **Contrast between female and male:** `#9C8BCC` vs `#4E3C84` differs by ~29% lightness (~3.2:1 ratio), passes WCAG 2.1 SC 1.4.11 for non-text graphical objects (≥ 3:1).
-- **`unknown` appears in 2016 and 2020–2026.** 2016: 29 of 80 projects had source `authorSex = n/a`. 2020–2026: gender is derived from patronymic (no source column) → undetectable names become `U` (counts pending the `21_gender_detect` run). 2017–2019 source had no n/a → no unknown segment.
+- **`unknown` appears in 2016 and 2020–2026.** 2016 had some `authorSex = n/a`; for 2020–2026 gender is derived from patronymic (no source column), so undetectable names fall to `unknown`. 2017–2019 had no n/a, so no unknown segment.
 
-#### Data availability, authors (snapshot)
+#### Data availability, authors
 
-| Year | Source | Female | Male | Unknown |
-|---|---|---:|---:|---:|
-| 2016 | `authorSex` column | 27 | 24 | 29 |
-| 2017 | `authorSex` column | 28 | 24 | — |
-| 2018 | `authorSex` column | 81 | 58 | — |
-| 2019 | `authorSex` column | 79 | 51 | — |
-| 2020 | derived (по-батькові) | TBD | TBD | TBD |
-| 2021 | derived (по-батькові) | TBD | TBD | TBD |
-| 2022 | PB not held, `years-without-pb` | — | — | — |
-| 2023 | derived (по-батькові) | TBD | TBD | TBD |
-| 2024 | derived (по-батькові) | TBD | TBD | TBD |
-| 2025 | derived (по-батькові) | TBD | TBD | TBD |
-| 2026 | derived (по-батькові) | TBD | TBD | TBD |
+Author gender exists for all 10 cycles; only the source differs. Exact counts are not a design concern; they live in the data pipeline (see §12). This table records only the source and where the gaps are.
 
-Gender is available for all 10 PB cycles, but the source differs: 2016–2019 from the `authorSex` column (2016 also carries 29 `n/a`); 2020–2026 derived from patronymic in `21_gender_detect` (no source column), so those years will also carry `unknown` for undetectable names, with exact counts landing here after that step. 2022 is the only structural gap, omitted from every multi-year chart per `years-without-pb`.
+| Year | Source | Note |
+|---|---|---|
+| 2016 | `authorSex` column | some `n/a` → `unknown` segment |
+| 2017–2019 | `authorSex` column | no `n/a` |
+| 2020–2026 | derived from patronymic (`21_gender_detect`) | undetectable names → `unknown` |
+| 2022 | PB not held (`years-without-pb`) | omit from every multi-year axis |
 
 #### Display examples, authors
 
@@ -634,17 +627,16 @@ The citizens who voted in a given cycle. **Distinct from author-gender**: the sa
 - **Disambiguation in legends is mandatory.** Write «жінки-виборчині» / «жінки-авторки», never just «жінки». In a 2-up panel comparing the two axes, position an axis-label band above each chart («ВИБОРЦІ» / «АВТОРИ»).
 - **Per-project breakdown is valid.** When showing votes-by-gender for a single project («двір на Галицькій: 70 % жіночих голосів»), split the project's vote bar into two segments using the female/male HEX. The card chip still uses the project's **category** color, gender split is a secondary visualization.
 
-#### Data availability, voters (snapshot)
+#### Data availability, voters
 
-| Year | Source | Female (votes) | Male (votes) |
-|---|---|---:|---:|
-| 2016–2020 | not collected | — | — |
-| 2021 | voter registry | 38 000 | 12 122 |
-| 2022 | PB not held, `years-without-pb` | — | — |
-| 2023 | voter registry | TBD | TBD |
-| 2024 | voter registry | TBD | TBD |
-| 2025 | voter registry | TBD | TBD |
-| 2026 | voter registry | TBD | TBD |
+Voter gender exists only from 2021 onward; counts live in the data pipeline (see §12), not here.
+
+| Year | Source | Note |
+|---|---|---|
+| 2016–2020 | not collected | no voter-gender data |
+| 2021 | voter registry | first cycle available |
+| 2022 | PB not held (`years-without-pb`) | omit from axes |
+| 2023–2026 | voter registry | available |
 
 Pre-2021 voter gender is not in the source data, render the gap as a footnote («гендер виборців доступний з 2021»), not as silent zero bars. 2022 is omitted from any voter-gender axis the same way as for every other multi-year chart, per `years-without-pb`.
 
@@ -783,10 +775,10 @@ When a chart crosses the 2019 or 2024 boundary, two choices recur. Apply these d
 
 ### Beta status and placeholder data: surface, don't bake in
 
-This file is `status: beta` (palette and icons are proposals pending municipal review), and some data cells read `TBD`. When an artifact relies on either, make it visible rather than silent.
+This file is `status: beta` (palette and icons are proposals pending municipal review), and it deliberately carries no numeric data of its own (counts live in the data pipeline, see §12). When an artifact relies on the beta palette, or hits a year or axis with no data, make that visible rather than silent.
 
 - Category palette in a published-looking artifact: add a small caption, e.g. «палітра категорій: beta».
-- A `TBD` value (for example a per-year gender count): never invent a number. Leave a `<!-- TODO: design-data.md value pending -->` marker and render the gap as a footnote, following the existing gap rule.
+- Missing data for a year or axis (for example voter gender before 2021, or a cycle still being processed): never invent a number; render the gap as a footnote, following the existing gap rule.
 
 ---
 
