@@ -1,9 +1,9 @@
 ---
-version: 0.8.0
+version: 0.9.0
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author- and voter-gender axes. Companion to design.md.
 parent: design.md
-updated: 2026-06-02
+updated: 2026-06-03
 status: beta
 canonical-categories:
   # Education group (purple family, semantically grouped)
@@ -857,8 +857,41 @@ If real PB data narratives consistently feature **2–4 «hero» districts** (e.
 ## 11. Known gaps
 
 - **Fixed «hero district» colors.** §10 enumerates all 19 community entities and gives rules-by-scenario for color, but does **not** assign canonical colors per district. Such colors will be added in a future MINOR bump only when 2–4 «hero» districts emerge from real PB data narratives, overcommitting now would lock the system to predictions, not facts.
-- **Real project counts and budgets per category.** This file maps colors and icons, not numeric data. Aggregated counts per year/category come from the PB administrative export, not from a design artifact.
+- **Real project counts and budgets per category.** This file maps colors and icons, not numeric data. Aggregated counts per year/category come from the PB administrative export, not from a design artifact. The fields and the raw→canonical join that export must satisfy are specified in §12.
 - **Author-record categories** (top-N authors with most winning projects). Not a design concern; lives in product data.
+
+---
+
+## 12. Data contract (export → canonical)
+
+This file owns the **vocabulary** (category, size, status, and district keys plus their colors), not the numbers. Real project counts, budgets, and votes come from the PB administrative export (the yearly `.xlsx` files), never from a design artifact. This section states the boundary between the two so any dataset feeding a visualization can be checked against it.
+
+### Expected per-project fields
+
+A clean dataset is one row per project. These field names are the contract; an export with other raw column names must resolve to them. The set mirrors the clean schema used by the Site analytics pipeline.
+
+| Field | Meaning | Canonical key source |
+|---|---|---|
+| `year` | Cycle year (2016–2026, no 2022) | — |
+| `project_id` | Stable per-project id (Site pipeline format) | — |
+| `title` | Title as submitted | — |
+| `category_canonical` | One of 11 keys, or `null` (2016–2018, size-only) | §3, §4 |
+| `size` | `small`/`great`/`medium`/`tiny`, or `null` | §5 |
+| `district_canonical` | One of 19 communities, derived from coordinates | §10.1 |
+| `address_clean` | Normalized address string | — |
+| `lat`, `lng` | Geocoded coordinates | — |
+| `votes` | Vote count, `null` where unpublished | — |
+| `budget_uah` | Requested budget, integer UAH | — |
+| `status_canonical` | One of 7 statuses, or `null` (2016–2019) | §7 |
+| `is_winner` | Boolean | — |
+| `is_realized` | Boolean, or `null` where unknown | — |
+| `author_sex` | `F`/`M`/`null` | §6.1 |
+
+### The raw → canonical join
+
+Every raw label an export uses must reduce to a canonical key defined here: **category** → §3 (Canonical mapping table); **size** → §5; **status** → §7. The **district** is not read from any «Район» column (unreliable); it is derived from `lat`/`lng` to one of the 19 communities in §10.1.
+
+The authoritative, cycle-by-cycle implementation of this join (which raw column maps where, per year) lives in the Site analytics pipeline as `notebooks/schema_mapping.yaml`, kept in agreement with this file. Treat it as the reference example; this section is the contract it satisfies. A value that maps to no canonical key is a data error: surface it, do not invent a key.
 
 ---
 

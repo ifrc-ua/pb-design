@@ -25,6 +25,7 @@ External projects reference both via raw GitHub URL. Both files have a Ukrainian
 - Respond to the user in **Ukrainian**: that is their working language.
 - Ensure the primary `design.md` file remains in **English** for maximum AI understanding.
 - Keep the localized copy `design.ua.md` in **Ukrainian**.
+- Edit the English file first, then mirror the change into its `.ua.md` twin in the same commit (see «Pre-commit consistency checklist»).
 - Meta-documentation for agents (this file) stays in English.
 
 ## Repo layout
@@ -72,6 +73,18 @@ Both `design.md` and `design-data.md` carry a `version: X.Y.Z` field that follow
 Each file's English and Ukrainian copies (e.g. `design.md` ↔ `design.ua.md`) must always carry the same version number, bumped in the same commit. `design.md` and `design-data.md` version independently of each other.
 
 On every version bump, create and push the matching git tag: `design-vX.Y.Z` for the design system, `data-vX.Y.Z` for the data layer. The README tells downstream users to pin to the newest tag, so a missing tag silently strands them on an older release.
+
+## Pre-commit consistency checklist (twin files)
+
+A manual gate (no script) to run before committing any change to `design.md`, `design-data.md`, or their `.ua.md` twins. It catches the EN/UA drift and stale-tag mistakes.
+
+1. **English first.** Edit the English file (`design.md` / `design-data.md`), then mirror the same change into its `.ua.md` twin in the **same commit**. English is canonical; Ukrainian is the localized copy.
+2. **Version parity.** After the edit, the English file and its Ukrainian twin carry the **same** `version:`.
+3. **Bump on change.** If a file's content changed at all, its `version:` was bumped per the MAJOR/MINOR/PATCH rules above (and `updated:`, where present, is today's date).
+4. **Section parity.** The set of headings/anchors is identical across the two twins. External prompts deep-link to anchors, so a section added or renamed in one must appear in the other.
+5. **Tag on bump.** Every version bump has its matching tag (`design-vX.Y.Z` / `data-vX.Y.Z`) created and pushed in the same push. A bumped version with no pushed tag silently strands downstream consumers.
+
+`design.md` and `design-data.md` version independently: a commit may bump one pair and leave the other untouched, fine, as long as each changed file satisfies 1–5.
 
 ## Scope
 
