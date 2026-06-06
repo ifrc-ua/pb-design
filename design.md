@@ -1,5 +1,5 @@
 ---
-version: 1.4.0
+version: 1.4.1
 name: Participatory Budgeting Ivano-Frankivsk Community (PB IF)
 description: Design system for the Participatory Budget (PB) of the Ivano-Frankivsk city territorial community (МТГ). Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:

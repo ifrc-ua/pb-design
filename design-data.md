@@ -1,9 +1,9 @@
 ---
-version: 0.9.1
+version: 0.9.2
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author- and voter-gender axes. Companion to design.md.
 parent: design.md
-updated: 2026-06-03
+updated: 2026-06-06
 status: beta
 canonical-categories:
   # Education group (purple family, semantically grouped)
@@ -323,6 +323,9 @@ districts:
 This file extends [design.md](./design.md) with the **real, year-by-year structure of Participatory Budgeting in Ivano-Frankivsk (2016–2026)**: which categories existed in each year, their canonical colors and icons, real project statuses, and map tokens.
 
 The core `design.md` deliberately stays minimal. This file is the **data layer**: agents pull category colors, icons, and statuses from here when generating analytical artifacts (heatmaps, donuts, choropleths, status badges).
+
+> [!WARNING]
+> 🟡 **Data cleanup in progress.** The numeric examples in this file are illustrative and unverified — the final, validated PB dataset is still being assembled. Once the analytics are finalized, the examples will be replaced with real values and a note.
 
 ---
 
