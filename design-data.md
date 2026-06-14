@@ -1,9 +1,9 @@
 ---
-version: 0.9.2
+version: 0.10.0
 name: PB Ivano-Frankivsk Community, Real Data Reference
-description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author- and voter-gender axes. Companion to design.md.
+description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender and vote-channel axes. Companion to design.md.
 parent: design.md
-updated: 2026-06-06
+updated: 2026-06-10
 status: beta
 canonical-categories:
   # Education group (purple family, semantically grouped)
@@ -210,6 +210,25 @@ voter-gender:
     available-years: [2021, 2023, 2024, 2025, 2026]
   # No `unknown` key today, voter dataset has no n/a entries. If a future export introduces
   # them, add `voter-gender.unknown` with `colors.neutral-300` in a MINOR bump (same as author).
+vote-channel:
+  # Orthogonal axis: how the vote was submitted. Voting only (2021+). Drives the time-animation map widget
+  # (Site METHODOLOGY.md §8.1), where each vote-dot is colored by channel.
+  # NOTE: `paper.color` (#0E7C8C teal) INTENTIONALLY reuses the `accessibility` category color. Not a collision:
+  # project categories and the vote-channel axis never co-occur in one visual (categories describe projects;
+  # channel describes votes in the voter time-map). Legends MUST label the channel. Same logic as gender reusing purples.
+  electronic:
+    label-en: "Electronic (BankID)"
+    label-uk: "Електронний (BankID)"
+    color: "#654EA3"             # = colors.primary-500 in design.md (brand purple; majority/default channel)
+    color-token: "primary-500"
+    available-years: [2021, 2023, 2024, 2025, 2026]
+    note: "Self-service online via BankID; ~82% of votes 2021–2026; around-the-clock, evening peak."
+  paper:
+    label-en: "Paper (via ЦНАП / CNAP desk)"
+    label-uk: "Паперовий (через ЦНАП)"
+    color: "#0E7C8C"             # teal — INTENTIONALLY shared with `accessibility` category (see note above)
+    available-years: [2021, 2023, 2024, 2025, 2026]
+    note: "Entered by an administrator at a ЦНАП desk from documents (not a ballot); ~18%, declining 26%→13%; office-hours-only."
 map-tokens:
   marker:
     type: map-pin
@@ -333,7 +352,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 
 - **10 cycles across 2016–2026** (PB was not held in 2022).
 - **Categorization changed every year**: 2016–2017 had no thematic split (size only); 2024 split education into 3 sub-categories; 2025 added Defense (ЗСУ) and Accessibility; 2026 introduced size sub-tiers within education.
-- **Four orthogonal axes**: thematic category (color + icon), project size (Малий / Середній / Великий / Маленький, badge modifier), author gender, and voter gender. The two gender axes share one two-purple palette, legends must disambiguate «автори» vs «виборці».
+- **Five orthogonal axes**: thematic category (color + icon), project size (Малий / Середній / Великий / Маленький, badge modifier), author gender, voter gender, and **vote channel** (`electronic` brand-purple / `paper`-ЦНАП teal; voting only, 2021+). The two gender axes share one two-purple palette; vote-channel's teal intentionally reuses the accessibility color (channel and category never co-occur). Legends must disambiguate.
 - **11 canonical categories** unify all year-specific labels into a stable color + icon set.
 - **7 real project statuses**, mapped to the design-system semantic palette (success / info / warning / error / neutral / graphite / muted-grey).
 - **Map tokens** (markers, clusters, winner stars, choropleth scale) live here, not in `design.md`.
@@ -569,10 +588,11 @@ Size badges are subordinate to category color, a project card always primarily r
 
 ## 6. Gender axes (orthogonal)
 
-Two distinct gender axes live alongside category (§4) and size (§5):
+Two distinct gender axes — plus a non-gender **vote-channel** axis (§6.3, grouped here as a sibling orthogonal axis) — live alongside category (§4) and size (§5):
 
 - **§6.1, Author gender** (`author-gender`): the person who submitted the project.
 - **§6.2, Voter gender** (`voter-gender`): the citizens who voted.
+- **§6.3, Vote channel** (`vote-channel`): how the vote was submitted (online BankID vs ЦНАП desk). Voting only, 2021+.
 
 Both share the same female/male/unknown palette and the same restraint rules (no icons, no yellow, no main-card color). **The legend MUST disambiguate «автори» vs «виборці»**, since the colors are identical across the two axes. Use these axes only for dedicated gender-distribution visualizations (donuts, bar charts, stacked bars per year, per-project gender breakdown for voters). Yellow is forbidden for either gender on either axis, yellow stays a non-gendered importance accent per `design.md` §2 yellow rule.
 
@@ -650,6 +670,29 @@ Pre-2021 voter gender is not in the source data, render the gap as a footnote (�
 - **2-up axis comparison «АВТОРИ vs ВИБОРЦІ» for one year**: two donuts side by side, identical female/male HEX; axis-label band «АВТОРИ» above left, «ВИБОРЦІ» above right. Reader sees, say, that 60 % female authors translated into 75 % female voters.
 - **Per-project breakdown**: on a project page, a thin horizontal bar split female/male in voter-gender colors, with absolute votes labelled at the segment edges.
 
+### 6.3 Vote channel (`vote-channel`)
+
+How a vote was submitted: self-service online via BankID, or entered by an administrator at a ЦНАП (CNAP) service desk from documents. **Voting only**, available 2021+. Primary use: the time-animation map widget («годинник-мапа», Site `METHODOLOGY.md` §8.1), where each vote-dot is colored by channel so the viewer sees the behavioral difference — electronic votes arrive around the clock with an evening peak; ЦНАП votes only during office hours.
+
+#### Palette, vote channel
+
+| Key | UA label | EN label | HEX | Source/role |
+|---|---|---|---|---|
+| `electronic` | Електронний (BankID) | Electronic (BankID) | `#654EA3` | `colors.primary-500` (brand purple; majority/default channel, ~82%) |
+| `paper` | Паперовий (через ЦНАП) | Paper (via ЦНАП desk) | `#0E7C8C` | teal — **intentionally shared** with `accessibility` category (~18%) |
+
+#### Rules, vote channel
+
+- **The teal reuse is deliberate, not a collision.** `#0E7C8C` also marks the `accessibility` category (§4). Allowed because **project categories and the vote-channel axis never co-occur in one visual**: categories describe *projects* (markers, donuts, heatmaps), while channel describes *votes* in the voter time-map. Same rationale as the gender axes reusing the primary purples (§6.1–6.2).
+- **Legend is mandatory.** Any channel visual must label «Електронний / Паперовий (ЦНАП)», so teal is never ambiguous against its accessibility meaning.
+- **Colorblind safety.** Purple vs teal must differ in **lightness**, not hue alone; verify the pair in a color-blindness simulator (deuteranopia/protanopia). The legend and the channel's time behavior (ЦНАП daytime-only) are additional disambiguators.
+- **Contrast vs `#FDFDFD`:** `#654EA3` ~7:1 (✓ AA), `#0E7C8C` ~4:1 (✓ for non-text graphical objects / map dots). Both valid as dot fills.
+- **«Paper» is a label, not ballots.** There was no paper-ballot voting; «Паперовий» is the export's term for the ЦНАП/document channel (an administrator enters the vote). See Site `METHODOLOGY.md` §2.2.
+
+#### Data availability, vote channel
+
+Channel exists from 2021 (voting only); source field «Тип голосу» in the consolidated voting export. Shares ~82% electronic / ~18% paper over 2021–2026, with the paper share declining year over year (≈26% in 2021 → ≈13% in 2026 — a digitalization story). Counts live in the Site analytics pipeline, not here.
+
 ---
 
 ## 7. Project statuses
@@ -704,6 +747,23 @@ When the project is a year's winner, overlay a small star on the marker:
 - Stroke: 1px solid `#1A1A1A` (`ink`), required so yellow-on-light remains visible
 - Placement: top-right of marker, slight overlap
 
+### Spotlight highlight (selected project)
+
+For «project spotlight» interactions (a list item or marker is selected and the map shows where its votes came from — Site widget `widgets/spotlight/`):
+
+- Selected project point: circle, fill `#FFEC08` (`secondary-500`), stroke 1.5px solid `#1A1A1A` (`ink`) — same yellow-needs-ink rule as the winner overlay; size ≥ 14px so it reads above the support surface.
+- Halo: soft glow `rgba(255, 236, 8, 0.35)`, radius ~2.5× the point — the «spotlight» itself.
+- Yellow is reserved for the **selected** entity only; it never encodes intensity or category. One yellow point per view.
+- **Honesty about precision (client decision 2026-06-13).** The dot marks the project's own address, whose reliability is `geocode_quality`: `ok` = building-level (precise), `review` = street-level or **settlement-centre fallback** (exact address not established; in villages the geocoder often drops many projects onto one shared centre point). A `review` dot's hover tooltip must say «приблизне місце — точну адресу не встановлено» so it is not read as a precise pin. Projects with no coordinate at all (`no_location`) show no dot. For approximate/no-address projects the map's value is the support surface, not the dot.
+
+### Support surface (vote origin)
+
+Where the selected project's votes came from, two co-existing layers:
+
+- **H3 cells (res 9):** sequential primary scale (same 5 stops as the choropleth below), mapped to votes-per-cell; opacity ≤ 0.75 so the basemap stays readable. **Hairline outline** — `#7B66B8` (`primary-300`), 0.5px, ~35% alpha (a barely-noticeable edge so pale cells separate from the dirty-white basemap without the grid jumping out; client decisions 2026-06-13). Cell size (current H3 reference): edge ~200 m, ~350 m across, ~10.5 ha — label it «соти ~350 м», NOT «~150 м» (the old H3 table's radius; corrected 2026-06-12).
+- **District remainder (merged votes below cell level):** **no fill** (a fill muted the hex pattern — client decision 2026-06-12); instead a **purple perimeter** — `#7B66B8` (`primary-300`), 1px, ~55% alpha — marks districts holding merged votes, so they read at a glance without hovering all 19 (client decision 2026-06-13; alpha softened from ~82% so a screenful of perimeters does not read as a heavy grid when zoomed out); the polygon stays hover-able and reveals the count in a tooltip («Громада: N голосів, без точної соти»). Keep a thin grey district outline (`neutral-300` `#CACAD1`, 1px) so empty districts stay readable without the boundary grid reading as heavy when zoomed out (client decision 2026-06-13; was `neutral-400` 1.5px — too dark/thick).
+- Legend must state both units («соти ~350 м» / «решта — при наведенні на громаду») — they encode the same measure at different precision.
+
 ### Cluster
 
 When zoom level groups multiple markers:
@@ -757,6 +817,8 @@ When prompts need a category color, write `{data.canonical-categories.<key>.colo
 - `{data.author-gender.male.color}` → `#4E3C84`
 - `{data.voter-gender.female.color}` → `#9C8BCC` (intentionally same as author female, legends must disambiguate)
 - `{data.voter-gender.male.color}` → `#4E3C84` (intentionally same as author male)
+- `{data.vote-channel.electronic.color}` → `#654EA3` (BankID, brand purple)
+- `{data.vote-channel.paper.color}` → `#0E7C8C` (ЦНАП, teal — intentionally shared with `accessibility`; never co-occurs)
 - `{data.map-tokens.cluster.border}` → `2px solid #654EA3`
 - `{data.districts-color-policy}` → `rules-by-scenario` (means: do not pull a per-district HEX from this file; apply the scenario-based rules in §10.3 instead)
 

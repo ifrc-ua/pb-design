@@ -22,7 +22,7 @@
 A design system for the Participatory Budget (PB) of the Ivano-Frankivsk community in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format, a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
 
 > [!WARNING]
-> 🟡 **Data cleanup in progress.** A verified dataset of the participatory budget is currently being assembled across all available parameters. Until then, the numeric examples in this design system are **illustrative and unverified**. Once the analytics are finalized, the examples will be replaced with real values and a note to that effect.
+> **Data cleanup in progress.** A verified dataset of the participatory budget is currently being assembled across all available parameters. Until then, the numeric examples in this design system are **illustrative and unverified**.
 
 ## What's inside
 
