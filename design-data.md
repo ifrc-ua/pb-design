@@ -1,9 +1,9 @@
 ---
-version: 0.10.0
+version: 0.11.0
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender and vote-channel axes. Companion to design.md.
 parent: design.md
-updated: 2026-06-10
+updated: 2026-06-12
 status: beta
 canonical-categories:
   # Education group (purple family, semantically grouped)
@@ -216,16 +216,23 @@ vote-channel:
   # NOTE: `paper.color` (#0E7C8C teal) INTENTIONALLY reuses the `accessibility` category color. Not a collision:
   # project categories and the vote-channel axis never co-occur in one visual (categories describe projects;
   # channel describes votes in the voter time-map). Legends MUST label the channel. Same logic as gender reusing purples.
+  # Display labels are reader-facing «Online / Offline» (clearer to a general audience than
+  # the export's «Electronic / Paper»). `label-*-source` keeps the raw export terms (field
+  # «Тип голосу»: Електронний / Паперовий) for data joins — never surface those to readers.
   electronic:
-    label-en: "Electronic (BankID)"
-    label-uk: "Електронний (BankID)"
+    label-en: "Online (BankID)"
+    label-uk: "Онлайн (BankID)"
+    label-en-source: "Electronic"
+    label-uk-source: "Електронний"
     color: "#654EA3"             # = colors.primary-500 in design.md (brand purple; majority/default channel)
     color-token: "primary-500"
     available-years: [2021, 2023, 2024, 2025, 2026]
     note: "Self-service online via BankID; ~82% of votes 2021–2026; around-the-clock, evening peak."
   paper:
-    label-en: "Paper (via ЦНАП / CNAP desk)"
-    label-uk: "Паперовий (через ЦНАП)"
+    label-en: "Offline (ЦНАП / CNAP desk)"
+    label-uk: "Офлайн (ЦНАП)"
+    label-en-source: "Paper"
+    label-uk-source: "Паперовий"
     color: "#0E7C8C"             # teal — INTENTIONALLY shared with `accessibility` category (see note above)
     available-years: [2021, 2023, 2024, 2025, 2026]
     note: "Entered by an administrator at a ЦНАП desk from documents (not a ballot); ~18%, declining 26%→13%; office-hours-only."
@@ -672,22 +679,24 @@ Pre-2021 voter gender is not in the source data, render the gap as a footnote (�
 
 ### 6.3 Vote channel (`vote-channel`)
 
-How a vote was submitted: self-service online via BankID, or entered by an administrator at a ЦНАП (CNAP) service desk from documents. **Voting only**, available 2021+. Primary use: the time-animation map widget («годинник-мапа», Site `METHODOLOGY.md` §8.1), where each vote-dot is colored by channel so the viewer sees the behavioral difference — electronic votes arrive around the clock with an evening peak; ЦНАП votes only during office hours.
+How a vote was submitted: self-service online via BankID, or entered by an administrator at a ЦНАП (CNAP) service desk from documents. **Voting only**, available 2021+. Primary use: the time-animation map widget («годинник-мапа», Site `METHODOLOGY.md` §8.1), where each vote-dot is colored by channel so the viewer sees the behavioral difference — online votes arrive around the clock with an evening peak; ЦНАП (offline) votes only during office hours.
+
+**Reader-facing labels are «Online / Offline»** (clearer to a general audience), set in 2026-06 superseding the earlier «Electronic / Paper». The raw export terms «Електронний / Паперовий» (field «Тип голосу») are retained only as `label-*-source` in the YAML for data joins — never show them to readers.
 
 #### Palette, vote channel
 
-| Key | UA label | EN label | HEX | Source/role |
-|---|---|---|---|---|
-| `electronic` | Електронний (BankID) | Electronic (BankID) | `#654EA3` | `colors.primary-500` (brand purple; majority/default channel, ~82%) |
-| `paper` | Паперовий (через ЦНАП) | Paper (via ЦНАП desk) | `#0E7C8C` | teal — **intentionally shared** with `accessibility` category (~18%) |
+| Key | UA label | EN label | Source term (export) | HEX | Source/role |
+|---|---|---|---|---|---|
+| `electronic` | Онлайн (BankID) | Online (BankID) | Електронний | `#654EA3` | `colors.primary-500` (brand purple; majority/default channel, ~82%) |
+| `paper` | Офлайн (ЦНАП) | Offline (ЦНАП desk) | Паперовий | `#0E7C8C` | teal — **intentionally shared** with `accessibility` category (~18%) |
 
 #### Rules, vote channel
 
 - **The teal reuse is deliberate, not a collision.** `#0E7C8C` also marks the `accessibility` category (§4). Allowed because **project categories and the vote-channel axis never co-occur in one visual**: categories describe *projects* (markers, donuts, heatmaps), while channel describes *votes* in the voter time-map. Same rationale as the gender axes reusing the primary purples (§6.1–6.2).
-- **Legend is mandatory.** Any channel visual must label «Електронний / Паперовий (ЦНАП)», so teal is never ambiguous against its accessibility meaning.
+- **Legend is mandatory.** Any channel visual must label «Онлайн / Офлайн (ЦНАП)», so teal is never ambiguous against its accessibility meaning.
 - **Colorblind safety.** Purple vs teal must differ in **lightness**, not hue alone; verify the pair in a color-blindness simulator (deuteranopia/protanopia). The legend and the channel's time behavior (ЦНАП daytime-only) are additional disambiguators.
 - **Contrast vs `#FDFDFD`:** `#654EA3` ~7:1 (✓ AA), `#0E7C8C` ~4:1 (✓ for non-text graphical objects / map dots). Both valid as dot fills.
-- **«Paper» is a label, not ballots.** There was no paper-ballot voting; «Паперовий» is the export's term for the ЦНАП/document channel (an administrator enters the vote). See Site `METHODOLOGY.md` §2.2.
+- **«Offline» is the channel, not paper ballots.** There was no paper-ballot voting; the offline channel is a ЦНАП desk where an administrator enters the vote from documents («Паперовий» in the export). See Site `METHODOLOGY.md` §2.2.
 
 #### Data availability, vote channel
 
@@ -818,7 +827,9 @@ When prompts need a category color, write `{data.canonical-categories.<key>.colo
 - `{data.voter-gender.female.color}` → `#9C8BCC` (intentionally same as author female, legends must disambiguate)
 - `{data.voter-gender.male.color}` → `#4E3C84` (intentionally same as author male)
 - `{data.vote-channel.electronic.color}` → `#654EA3` (BankID, brand purple)
+- `{data.vote-channel.electronic.label-uk}` → `Онлайн (BankID)` (reader-facing; `label-uk-source` `Електронний` is for data joins only)
 - `{data.vote-channel.paper.color}` → `#0E7C8C` (ЦНАП, teal — intentionally shared with `accessibility`; never co-occurs)
+- `{data.vote-channel.paper.label-uk}` → `Офлайн (ЦНАП)` (reader-facing; `label-uk-source` `Паперовий` is for data joins only)
 - `{data.map-tokens.cluster.border}` → `2px solid #654EA3`
 - `{data.districts-color-policy}` → `rules-by-scenario` (means: do not pull a per-district HEX from this file; apply the scenario-based rules in §10.3 instead)
 
