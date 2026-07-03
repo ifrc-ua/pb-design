@@ -1,5 +1,5 @@
 ---
-version: 1.4.1
+version: 1.4.2
 name: Participatory Budgeting Ivano-Frankivsk Community (PB IF)
 description: Design system for the Participatory Budget (PB) of the Ivano-Frankivsk city territorial community (МТГ). Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
@@ -25,7 +25,7 @@ colors:
   neutral-200: "#E2E2E6"
   neutral-300: "#CACAD1"
   neutral-400: "#9FA0A9"
-  neutral-500: "#71737E"
+  neutral-500: "#6A6C77"   # v1.4.2: darkened from #71737E — 4.32:1 on primary-50 panels failed AA text (4.5); now 4.8:1
   neutral-700: "#3F4049"
   neutral-900: "#1A1A1A"
   neutral-950: "#0D0D12"
@@ -299,7 +299,7 @@ The aesthetic is restrained infographics: abundant white space, clear grids, lar
 | neutral-200 | `#E2E2E6` | Borders, input-rest |
 | neutral-300 | `#CACAD1` | Disabled border, subtle emphasis |
 | neutral-400 | `#9FA0A9` | Placeholder, muted text |
-| neutral-500 | `#71737E` | Secondary text |
+| neutral-500 | `#6A6C77` | Secondary text (v1.4.2: darkened from `#71737E` for AA on panel surfaces) |
 | neutral-700 | `#3F4049` | Body on light, subtitle |
 | neutral-900 | `#1A1A1A` | Text primary |
 | neutral-950 | `#0D0D12` | Overlay, max-contrast display |
@@ -342,7 +342,7 @@ Verified pairs:
 - `#FDFDFD` on `#654EA3`, 6.7:1 ✓ AA
 - `#1A1A1A` on `#FFEC08`, 16.1:1 ✓ AAA
 - `#654EA3` on `#FDFDFD`, 7.0:1 ✓ AA
-- `#71737E` (neutral-500) on `#FDFDFD`, 4.7:1 ✓ AA (for muted text)
+- `#6A6C77` (neutral-500) on `#FDFDFD`, 5.1:1 ✓ AA; on `#F6F4FB` panels 4.8:1 ✓ AA (for muted text)
 
 > **DO NOT use:** white text on yellow, or purple on yellow (both fail AA accessibility).
 
@@ -810,7 +810,7 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 > Create a hero card for "10 років Бюджету участі Івано-Франківська". Large display number "10" in Phenomena Black 96px, color #654EA3, tabular-nums. Subtitle "років змін" in Proxima Nova 20px 400, color #1A1A1A. Background #FDFDFD, padding 48px, border-radius 24px, subtle shadow level 2. Below: three stat chips (1 412 проєктів / 127 тис. учасників / ₴62 млн) in Phenomena 28px 700.
 
 **Historical Project Card:**
-> Build a project card: photo on top (radius 12px, aspect-ratio 3:2), then a pill-tag «Освіта» (bg rgba(101, 78, 163, 0.15), text #4E3C84, font Proxima Nova 12px 600). Title in Proxima Nova 20px 600, color #1A1A1A. Below: author name in Proxima Nova 14px 400, color #71737E. Stats row: "2 847 голосів" (Phenomena 24px 700) and "₴1,2 млн" (Phenomena 24px 700). Bottom: yellow badge "Переможець 2019" bg #FFEC08, text #1A1A1A, pill, Proxima Nova 12px 600.
+> Build a project card: photo on top (radius 12px, aspect-ratio 3:2), then a pill-tag «Освіта» (bg rgba(101, 78, 163, 0.15), text #4E3C84, font Proxima Nova 12px 600). Title in Proxima Nova 20px 600, color #1A1A1A. Below: author name in Proxima Nova 14px 400, color #6A6C77. Stats row: "2 847 голосів" (Phenomena 24px 700) and "₴1,2 млн" (Phenomena 24px 700). Bottom: yellow badge "Переможець 2019" bg #FFEC08, text #1A1A1A, pill, Proxima Nova 12px 600.
 
 **Social Media Infographic (1:1):**
 > Create a 1080×1080 infographic. Background #FDFDFD with subtle top-right corner detail in Primary-50 #F6F4FB. Big display number in center: "14 832" in Phenomena Black 180px, color #654EA3, tabular-nums. Below in Proxima Nova 28px 600: "голоси за двір на Галицькій, 2019". Footer: small yellow badge "переможець року" bg #FFEC08, dark border 1px. Logo bottom-left.

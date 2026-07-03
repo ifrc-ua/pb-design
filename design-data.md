@@ -1,9 +1,9 @@
 ---
-version: 0.11.0
+version: 0.11.1
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender and vote-channel axes. Companion to design.md.
 parent: design.md
-updated: 2026-06-12
+updated: 2026-07-04
 status: beta
 canonical-categories:
   # Education group (purple family, semantically grouped)
@@ -85,7 +85,7 @@ canonical-categories:
   other:
     label-en: "Other"
     label-uk: "Інші проєкти"
-    color: "#71737E"             # = colors.neutral-500 in design.md
+    color: "#71737E"             # frozen chart fill (ex neutral-500 v1.4.1; text token is #6A6C77 since v1.4.2)
     color-token: "neutral-500"
     icon: package
     active-years: [2019, 2020, 2021, 2024, 2025, 2026]
@@ -129,7 +129,7 @@ project-statuses:
   participated:
     label-en: "Participated"
     label-uk: "Брав участь"
-    color: "#71737E"             # = colors.neutral-500
+    color: "#71737E"             # frozen status fill (ex neutral-500 v1.4.1)
     bg-tint: "#EFEFF1"           # = colors.neutral-100
     text: "#3F4049"              # = colors.neutral-700
     icon: vote
@@ -163,7 +163,7 @@ project-statuses:
     label-uk: "Видалений"
     color: "#9FA0A9"             # = colors.neutral-400
     bg-tint: "#F7F7F8"           # = colors.neutral-50
-    text: "#71737E"              # = colors.neutral-500
+    text: "#6A6C77"              # = colors.neutral-500 (v1.4.2)
     icon: trash-2
     finality: terminal-administrative
     note: "Administrative removal by moderator. Distinct from `rejected` (failed review on merits) and `impossible` (factual unfeasibility)."
@@ -546,7 +546,7 @@ Stable category → color → icon mapping. Each category keeps the same color a
 | `greenery` | Зелені проєкти | `#3D7C3F` | extension (deep green) | `tree-deciduous` | 2023, 2025, 2026 |
 | `afu-support` | Допомога ЗСУ | `#3F4049` | `colors.neutral-700` from design.md | `shield` | 2025, 2026 |
 | `accessibility` | Доступність | `#0E7C8C` | extension (teal) | `accessibility` | 2025, 2026 |
-| `other` | Інші проєкти | `#71737E` | `colors.neutral-500` from design.md | `package` | 2019, 2020, 2021, 2024, 2025, 2026 |
+| `other` | Інші проєкти | `#71737E` | frozen (ex `neutral-500` v1.4.1) | `package` | 2019, 2020, 2021, 2024, 2025, 2026 |
 
 ### Contrast against `#FDFDFD` canvas
 
@@ -564,7 +564,8 @@ All extension colors satisfy WCAG 2.1 SC 1.4.11 (≥ 3:1 for non-text graphical 
 | `#3D7C3F` | ~4.2:1 ✓ AA-large / fills | fills, large text |
 | `#3F4049` | ~10:1 ✓ AAA | text + fills |
 | `#0E7C8C` | ~4.0:1 ✓ AA-large / fills | fills, large text |
-| `#71737E` | 4.7:1 ✓ AA (verified in design.md) | text + fills |
+| `#71737E` | 4.7:1 ✓ AA | fills only (frozen chart/status color; for text use neutral-500 `#6A6C77`) |
+| `#6A6C77` | 5.1:1 ✓ AA | text + fills (neutral-500 since design.md v1.4.2) |
 
 > Re-verify with WebAIM contrast-checker before any external publication.
 
@@ -712,11 +713,11 @@ Seven real project statuses from PB administrative data. Use these for analytica
 |---|---|---|---|---|---|---|
 | `realized` | Реалізований | `#2F8F4E` (success) | `#E8F3EC` | `#1E6B39` | `circle-check` | terminal-positive |
 | `in-progress` | На реалізації | `#2563EB` (info) | `#E8EEFD` | `#1E4FBF` | `loader-circle` | active |
-| `participated` | Брав участь | `#71737E` (neutral-500) | `#EFEFF1` (neutral-100) | `#3F4049` (neutral-700) | `vote` | neutral |
+| `participated` | Брав участь | `#71737E` (frozen, ex neutral-500 v1.4.1) | `#EFEFF1` (neutral-100) | `#3F4049` (neutral-700) | `vote` | neutral |
 | `rejected` | Відхилений | `#D97706` (warning) | `#FEF3E2` | `#A05905` | `circle-x` | recoverable |
 | `rejected-permanent` | Відхилений остаточно | `#DC2626` (error) | `#FCE9E9` | `#A01818` | `ban` | terminal-negative |
 | `impossible` | Неможливо реалізувати | `#3F4049` (neutral-700) | `#E2E2E6` (neutral-200) | `#1A1A1A` | `triangle-alert` | terminal-factual |
-| `removed` | Видалений | `#9FA0A9` (neutral-400) | `#F7F7F8` (neutral-50) | `#71737E` (neutral-500) | `trash-2` | terminal-administrative |
+| `removed` | Видалений | `#9FA0A9` (neutral-400) | `#F7F7F8` (neutral-50) | `#6A6C77` (neutral-500) | `trash-2` | terminal-administrative |
 
 ### Reading the statuses
 
