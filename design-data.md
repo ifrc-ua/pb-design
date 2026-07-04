@@ -1,7 +1,7 @@
 ---
-version: 0.11.1
+version: 0.12.0
 name: PB Ivano-Frankivsk Community, Real Data Reference
-description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender and vote-channel axes. Companion to design.md.
+description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender, vote-channel and locality (own/elsewhere) axes. Companion to design.md.
 parent: design.md
 updated: 2026-07-04
 status: beta
@@ -236,6 +236,34 @@ vote-channel:
     color: "#0E7C8C"             # teal — INTENTIONALLY shared with `accessibility` category (see note above)
     available-years: [2021, 2023, 2024, 2025, 2026]
     note: "Entered by an administrator at a ЦНАП desk from documents (not a ballot); ~18%, declining 26%→13%; office-hours-only."
+locality:
+  # Orthogonal axis: did a vote go to a project in the voter's OWN place, or ELSEWHERE?
+  # Used by the flows widget (city↔village Sankey, Site METHODOLOGY §8.7-adjacent) and the
+  # communities-projects widget. Both showed this same idea in DIFFERENT colors (flows: yellow=own +
+  # greys; communities: blue=own + gold=other) — unified here 2026-07-04 (customer decision).
+  # METAPHOR: home is WARM, elsewhere is COOL and (by lightness) more distant.
+  # WARM own uses a MUTED ochre, NOT brand yellow #FFEC08 — per design.md the brand yellow is a
+  # marker of IMPORTANCE, never a fill for large areas; these are big diagram bands. Brand yellow
+  # stays reserved for «selected/winner». The cool blue-greys are deliberately DULLER than the
+  # `improvement-general` civic blue (#2D6BAB) so locality never reads as a category.
+  own:
+    label-en: "Own place"
+    label-uk: "За своє"
+    color: "#E0A73E"            # muted warm ochre; text on segment = ink #1A1A1A (contrast 8.1, AAA)
+    text-on: "#1A1A1A"
+    note: "Vote for a project in the voter's own hromada/settlement. Warm = home."
+  other:
+    label-en: "Elsewhere"
+    label-uk: "За чуже"
+    color: "#5A7085"            # cool slate-blue; text on segment = white (contrast 5.1, AA)
+    text-on: "#FFFFFF"
+    note: "Vote for a project elsewhere. In 2-direction charts (communities-projects: own vs other NP) this is the single 'other'. In the 3-direction flows chart it is 'other villages'."
+  other-far:
+    label-en: "Elsewhere, farthest"
+    label-uk: "За чуже, найдальше"
+    color: "#3E5266"            # deeper slate; text = white (contrast 8.1, AAA)
+    text-on: "#FFFFFF"
+    note: "Only for the 3-direction flows chart, where 'city' is the farthest tier from a village voter. Darker = more distant. Not used in 2-direction charts."
 map-tokens:
   marker:
     type: map-pin
@@ -702,6 +730,34 @@ How a vote was submitted: self-service online via BankID, or entered by an admin
 #### Data availability, vote channel
 
 Channel exists from 2021 (voting only); source field «Тип голосу» in the consolidated voting export. Shares ~82% electronic / ~18% paper over 2021–2026, with the paper share declining year over year (≈26% in 2021 → ≈13% in 2026 — a digitalization story). Counts live in the Site analytics pipeline, not here.
+
+---
+
+### 6.4 Locality (`locality`) — own place vs elsewhere
+
+Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP). Before 2026-07-04 each invented its own colors (flows: brand yellow for «own» + greys; communities: blue for «own» + gold for «other»), which inverted the reader's signal — yellow meant «own» in one and «other» in the neighbor. Unified here (customer decision 2026-07-04).
+
+**Metaphor: home is warm, elsewhere is cool and — by lightness — more distant.**
+
+#### Palette, locality
+
+| Key | UA label | HEX | Text on segment | Contrast (text) | Role |
+|---|---|---|---|---|---|
+| `own` | За своє | `#E0A73E` | `#1A1A1A` ink | 8.1:1 ✓ AAA | muted warm ochre — own place |
+| `other` | За чуже | `#5A7085` | `#FFFFFF` | 5.1:1 ✓ AA | cool slate-blue — elsewhere (the single «other» in 2-direction charts; «other villages» in flows) |
+| `other-far` | За чуже, найдальше | `#3E5266` | `#FFFFFF` | 8.1:1 ✓ AAA | deeper slate — «city» tier in the 3-direction flows chart only; darker = farther |
+
+#### Rules, locality
+
+- **«Own» is a MUTED ochre `#E0A73E`, not brand yellow `#FFEC08`.** design.md rules the brand yellow as a marker of *importance* (winner, CTA, selected), never a fill for large areas — and these are big diagram bands. So locality gets a softened warm tone; brand yellow stays reserved for «selected/winner» (e.g. the yellow+ink highlight of a chosen row/hex elsewhere). Never fill a large locality band with `#FFEC08`.
+- **Text color is fixed per tier, never switches mid-scale.** Ochre carries **ink** text; both cool tiers carry **white**. The cool scale was pushed dark enough that white clears AA on every tier — so a segment's label color never depends on its value.
+- **Cool tiers are duller than the civic blue.** `#5A7085` / `#3E5266` are deliberately greyer than `improvement-general`'s `#2D6BAB` (§4) so a locality band never reads as the «Благоустрій» category. Locality (a vote-direction axis) and project categories never co-occur in one visual anyway — same non-collision logic as the gender axes (§6.1–6.2) and vote-channel (§6.3).
+- **Two directions vs three.** A 2-direction chart uses only `own` + `other`. A 3-direction chart (flows) uses `own` + `other` (nearer: other villages) + `other-far` (farthest: city). If a future chart needs a 4th tier, add one more step on the same cool ramp (lighter than `#5A7085` with white text still ≥ AA, or a step between).
+- **«Own» highlight stacking.** Where a widget also marks a *selected* item with the brand-yellow-plus-ink rule, that selection outline sits on top and is unambiguous — ochre is a fill, yellow-with-ink is a stroke/marker. They don't compete.
+
+#### Data availability, locality
+
+Derived from the voter's registered/residence place vs the voted project's place (Site pipeline). Available wherever both are known (voting 2021+). Counts live in the Site analytics pipeline, not here.
 
 ---
 
