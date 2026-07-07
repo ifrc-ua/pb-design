@@ -1,5 +1,5 @@
 ---
-version: 1.0.2
+version: 1.0.3
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender, vote-channel and locality (own/elsewhere) axes. Companion to design.md.
 parent: design.md
@@ -239,8 +239,7 @@ vote-channel:
 locality:
   # Orthogonal axis: did a vote go to a project in the voter's OWN place, or ELSEWHERE?
   # Used by the flows widget (city↔village Sankey, Site METHODOLOGY §8.7-adjacent) and the
-  # communities-projects widget. Both use this single palette, so the reader's signal
-  # never inverts between neighboring charts.
+  # communities-projects widget.
   # METAPHOR: home is WARM, elsewhere is COOL and (by lightness) more distant.
   # WARM own uses a MUTED ochre, NOT brand yellow #FFEC08 — per design.md the brand yellow is a
   # marker of IMPORTANCE, never a fill for large areas; these are big diagram bands. Brand yellow
@@ -736,7 +735,7 @@ Channel exists from 2021 (voting only); source field «Тип голосу» in 
 
 ### 6.4 Locality (`locality`) — own place vs elsewhere
 
-Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP). Both use this single palette, so the reader's signal never inverts between neighboring charts.
+Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP).
 
 **Metaphor: home is warm, elsewhere is cool and — by lightness — more distant.**
 
