@@ -21,14 +21,14 @@
 
 A design system for the Participatory Budget (PB) of the Ivano-Frankivsk community in [DESIGN.md](https://github.com/VoltAgent/awesome-design-md) format, a plain-markdown specification read by AI agents (Claude, Stitch, Cursor, Lovable, v0) to generate UI, infographics, and analytical visualizations adhering to the PB IF brand.
 
-> [!WARNING]
-> **Data cleanup in progress.** A verified dataset of the participatory budget is currently being assembled across all available parameters. Until then, the numeric examples in this design system are **illustrative and unverified**.
+> [!NOTE]
+> ✅ **Data verified.** The numbers used across this design system and its prompts are checked against the primary participatory-budget dataset as of **June 2026**. The published aggregated data and widget code live in [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) (code MIT, data CC BY 4.0) — that repository is the source of truth for figures. Explicitly marked composition placeholders in render prompts remain style-testing values, not statistics.
 
 ## What's inside
 
 - **[design.md](./design.md)**: the design **system**: colors, typography, components, rules.
 - **[design-data.md](./design-data.md)** *(beta)*, the **data layer**: real PB categories per year (2016–2026), canonical category palette, project statuses, map tokens. Subject to change pending municipal review.
-- **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings, free for use but redistribution forbidden) and Proxima Nova (text/UI, commercial), font files are not included in the repository.
+- **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings; free EULA allows web embedding, redistribution forbidden) and Proxima Nova (text/UI in **print/local renders only** — on the web, body text is **Inter**; Proxima Nova is never shipped as a webfont). Font files are not included in the repository.
 - **[prompts/](./prompts/)**: ready-made prompts for typical tasks:
   - `infographics.md`, analytical infographics (heatmaps, voting charts, maps, rankings)
   - `social-media.md`, social media posts (1:1, 4:5, 9:16 stories)
@@ -115,7 +115,7 @@ pb-design/
 ## The Brand in a Nutshell
 
 - **Colors:** purple ![](https://img.shields.io/badge/-%23654EA3-654EA3?labelColor=654EA3) + yellow ![](https://img.shields.io/badge/-%23FFEC08-FFEC08?labelColor=FFEC08) on near-white ![](https://img.shields.io/badge/-%23FDFDFD-FDFDFD?labelColor=FDFDFD), text ![](https://img.shields.io/badge/-%231A1A1A-1A1A1A?labelColor=1A1A1A).
-- **Fonts:** Phenomena, headings and large numbers; Proxima Nova, everything else.
+- **Fonts:** Phenomena, headings and large numbers; Proxima Nova, everything else in print/local renders (web body text: Inter).
 - **Vibe:** municipal trust + community energy. Restraint, clarity, large numbers, plenty of whitespace.
 - **Context:** analytics for **10 years of PB** Ivano-Frankivsk across the 2016–2026 timeframe (no PB held in 2022). Not the active voting cycle.
 
@@ -126,7 +126,7 @@ pb-design/
 - **AI-parseable + human-readable**: YAML frontmatter for machines, prose for the *why* behind each rule. Both stay in sync; YAML wins on conflicts.
 - **Mobile-first**: designed at 375px width first; 44×44px touch targets; bottom-sheets over hover-only interactions.
 - **Static stillness with one signature flourish**: no animation by default; the only choreographed moment is the count-up of hero numbers as they enter the viewport. Always honors `prefers-reduced-motion`.
-- **Numbers obey UA locale**: non-breaking space for thousands (`14 832`), comma for decimals (`3,7%`), `tabular-nums` everywhere. AI agents that default to `14,832` are corrected by the spec.
+- **Numbers obey UA locale**: non-breaking space for thousands (`14 832`), comma for decimals (`3,7%`), `tabular-nums` everywhere. AI agents that default to `14,832` are corrected by the spec.
 - **Explicit "out of scope"**: dark mode, live voting, admin UI, and submission forms are deliberately not designed. Real PB data (categories, statuses, map tokens) is split into `design-data.md`; agents leave `<!-- TODO: design-data.md needs X -->` markers rather than fabricate.
 
 ## License and Fonts
@@ -135,13 +135,13 @@ This design system is distributed under the [MIT](https://opensource.org/license
 
 Fonts are **not included in this repository** and must not be committed to it. Download them separately for local use:
 
-- **Phenomena**: free for personal and commercial use at [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (email-gated download, 7 weights, Thin → Black). The Fontfabric Free Fonts EULA **forbids redistribution** of the font files, do not upload `.otf` / `.ttf` to public repositories. `@font-face` embedding on your own website is allowed.
-- **Proxima Nova**: commercial license at [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova). No free tier; redistribution forbidden.
+- **Phenomena**: free for personal and commercial use at [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (email-gated download, 7 weights, Thin → Black). The Fontfabric Free Fonts EULA **forbids redistribution** of the font files, do not upload `.otf` / `.ttf` to public repositories. `@font-face` embedding on your own website is allowed — production web widgets use self-hosted WOFF2 subsets.
+- **Proxima Nova**: commercial license at [Mark Simonson Studio](https://www.marksimonson.com/fonts/view/proxima-nova). No free tier; redistribution forbidden. The license covers desktop/print use only — **the webfont license is a separate paid product and usage is actively monitored. Never use Proxima Nova on the web**; web products use Inter for body text instead (see `design.md` §3 «Media Rules»).
 
-If the original fonts are unavailable, use the following free alternatives from Google Fonts (OFL license):
+On the web (body/UI) and whenever the original fonts are unavailable, use the following free alternatives from Google Fonts (OFL license):
 
 - For **Phenomena** (headings): [Inter Tight](https://fonts.google.com/specimen/Inter+Tight) (900 Black weight).
-- For **Proxima Nova** (UI and text): [Inter](https://fonts.google.com/specimen/Inter) (with mandatory `tabular-nums` for digits).
+- For **Proxima Nova** (UI and text): [Inter](https://fonts.google.com/specimen/Inter) (with mandatory `tabular-nums` for digits). On web products, Inter is the standing body font, not merely a fallback.
 - *Secondary fallback:* Geist Sans / Geist Mono.
 
 See `design.md` for detailed instructions on correcting letter spacing and line height when using fallback fonts.

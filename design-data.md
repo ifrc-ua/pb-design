@@ -1,9 +1,9 @@
 ---
-version: 0.12.0
+version: 0.13.0
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender, vote-channel and locality (own/elsewhere) axes. Companion to design.md.
 parent: design.md
-updated: 2026-07-04
+updated: 2026-07-07
 status: beta
 canonical-categories:
   # Education group (purple family, semantically grouped)
@@ -188,8 +188,8 @@ author-gender:
     label-uk: "Невідомо"
     color: "#CACAD1"             # = colors.neutral-300 in design.md
     color-token: "neutral-300"
-    available-years: [2016, 2020, 2021, 2023, 2024, 2025, 2026]
-    note: "2016: source has 29/80 `n/a`. 2020–2026: gender is derived from patronymic, so undetectable names become `U` (counts pending the 21_gender_detect run). 2017–2019 source had no n/a → no unknown."
+    available-years: [2016, 2020]
+    note: "2016: source has 29/80 `n/a`. 2020–2026: gender derived from patronymic; the 21_gender_detect run left exactly one undetectable author (initials only, 2020) — 30 unknown of 1 565 total. 2017–2019 source had no n/a → no unknown."
 voter-gender:
   # Orthogonal axis: gender of citizens who voted (distinct from author-gender above).
   # Shares the author-gender palette intentionally, visualizations comparing the two axes
@@ -378,8 +378,10 @@ This file extends [design.md](./design.md) with the **real, year-by-year structu
 
 The core `design.md` deliberately stays minimal. This file is the **data layer**: agents pull category colors, icons, and statuses from here when generating analytical artifacts (heatmaps, donuts, choropleths, status badges).
 
-> [!WARNING]
-> 🟡 **Data cleanup in progress.** The numeric examples in this file are illustrative and unverified — the final, validated PB dataset is still being assembled. Once the analytics are finalized, the examples will be replaced with real values and a note.
+> [!NOTE]
+> ✅ **Numbers verified.** Every figure this file cites is checked against the primary PB dataset as of **June 2026**. The published aggregated data and widget code live in [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) (code MIT, data CC BY 4.0) — treat that repository as the source of counts.
+>
+> 🟡 The file itself stays `status: beta`: the canonical palette and icons remain proposals pending municipal review (see §1 «Versioning»).
 
 ---
 
@@ -387,7 +389,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 
 - **10 cycles across 2016–2026** (PB was not held in 2022).
 - **Categorization changed every year**: 2016–2017 had no thematic split (size only); 2024 split education into 3 sub-categories; 2025 added Defense (ЗСУ) and Accessibility; 2026 introduced size sub-tiers within education.
-- **Five orthogonal axes**: thematic category (color + icon), project size (Малий / Середній / Великий / Маленький, badge modifier), author gender, voter gender, and **vote channel** (`electronic` brand-purple / `paper`-ЦНАП teal; voting only, 2021+). The two gender axes share one two-purple palette; vote-channel's teal intentionally reuses the accessibility color (channel and category never co-occur). Legends must disambiguate.
+- **Six orthogonal axes**: thematic category (color + icon), project size (Малий / Середній / Великий / Маленький, badge modifier), author gender, voter gender, **vote channel** (`electronic` brand-purple / `paper`-ЦНАП teal; voting only, 2021+), and **locality** (own place = warm ochre / elsewhere = cool slate; §6.4). The two gender axes share one two-purple palette; vote-channel's teal intentionally reuses the accessibility color (channel and category never co-occur). Legends must disambiguate.
 - **11 canonical categories** unify all year-specific labels into a stable color + icon set.
 - **7 real project statuses**, mapped to the design-system semantic palette (success / info / warning / error / neutral / graphite / muted-grey).
 - **Map tokens** (markers, clusters, winner stars, choropleth scale) live here, not in `design.md`.
@@ -624,11 +626,12 @@ Size badges are subordinate to category color, a project card always primarily r
 
 ## 6. Gender axes (orthogonal)
 
-Two distinct gender axes — plus a non-gender **vote-channel** axis (§6.3, grouped here as a sibling orthogonal axis) — live alongside category (§4) and size (§5):
+Two distinct gender axes — plus two non-gender axes grouped here as sibling orthogonal axes (**vote channel**, §6.3, and **locality**, §6.4) — live alongside category (§4) and size (§5):
 
 - **§6.1, Author gender** (`author-gender`): the person who submitted the project.
 - **§6.2, Voter gender** (`voter-gender`): the citizens who voted.
 - **§6.3, Vote channel** (`vote-channel`): how the vote was submitted (online BankID vs ЦНАП desk). Voting only, 2021+.
+- **§6.4, Locality** (`locality`): did the vote go to a project in the voter's own place, or elsewhere. Voting only, 2021+.
 
 Both share the same female/male/unknown palette and the same restraint rules (no icons, no yellow, no main-card color). **The legend MUST disambiguate «автори» vs «виборці»**, since the colors are identical across the two axes. Use these axes only for dedicated gender-distribution visualizations (donuts, bar charts, stacked bars per year, per-project gender breakdown for voters). Yellow is forbidden for either gender on either axis, yellow stays a non-gendered importance accent per `design.md` §2 yellow rule.
 
@@ -648,7 +651,7 @@ The person who submitted the project.
 
 - **Fixed display order:** `female` → `male` → `unknown`. In legends, female (light purple) sits before male (deep purple), reflecting that women are the historical majority of PB authors (e.g. 2019: 79 women vs 51 men); `unknown` (neutral grey) closes the legend as a non-purple "missing data" tail.
 - **Contrast between female and male:** `#9C8BCC` vs `#4E3C84` differs by ~29% lightness (~3.2:1 ratio), passes WCAG 2.1 SC 1.4.11 for non-text graphical objects (≥ 3:1).
-- **`unknown` appears in 2016 and 2020–2026.** 2016 had some `authorSex = n/a`; for 2020–2026 gender is derived from patronymic (no source column), so undetectable names fall to `unknown`. 2017–2019 had no n/a, so no unknown segment.
+- **`unknown` appears in 2016 and (a single case) 2020.** 2016 had 29 `authorSex = n/a`; for 2020–2026 gender is derived from patronymic (no source column), and the detection run left exactly one undetectable author (initials only, 2020). 2017–2019 had no n/a, so no unknown segment. Total: 30 of 1 565.
 
 #### Data availability, authors
 
@@ -658,14 +661,14 @@ Author gender exists for all 10 cycles; only the source differs. Exact counts ar
 |---|---|---|
 | 2016 | `authorSex` column | some `n/a` → `unknown` segment |
 | 2017–2019 | `authorSex` column | no `n/a` |
-| 2020–2026 | derived from patronymic (`21_gender_detect`) | undetectable names → `unknown` |
+| 2020–2026 | derived from patronymic (`21_gender_detect`) | a single undetectable case (initials only, 2020) → `unknown` |
 | 2022 | PB not held (`years-without-pb`) | omit from every multi-year axis |
 
 #### Display examples, authors
 
 - **Donut «гендер авторів за 10 років»**: two segments (`female`, `male`); `unknown` only if non-zero across the window.
 - **Stacked bar «жінки/чоловіки серед переможців, за роком»**: one bar per year, two stacks (female bottom, male top, following the fixed order); 2022 omitted from the axis per `years-without-pb`.
-- **Two-up KPI cards**: «жінки 65%» (#9C8BCC fill) next to «чоловіки 35%» (#4E3C84 fill), Phenomena 56px 900 numbers, captions in Proxima Nova.
+- **Two-up KPI cards**: «жінки 61%» (#9C8BCC fill) next to «чоловіки 39%» (#4E3C84 fill) — the real 10-year author split among determined, Phenomena 56px 900 numbers, captions in Proxima Nova.
 
 ### 6.2 Voter gender (`voter-gender`)
 
@@ -682,9 +685,9 @@ The citizens who voted in a given cycle. **Distinct from author-gender**: the sa
 
 #### Rules, voters
 
-- **Fixed display order:** `female` → `male` (light-to-dark; women are the historical majority of voters too, e.g. 2021: 38 000 women vs 12 122 men, ~76 % female).
+- **Fixed display order:** `female` → `male` (light-to-dark; women are the historical majority of voters too, e.g. 2021: 35 409 women vs 19 552 men among that year's unique voters, 64,4 % female — and the share grows every cycle, to 74,6 % of votes in 2026).
 - **Disambiguation in legends is mandatory.** Write «жінки-виборчині» / «жінки-авторки», never just «жінки». In a 2-up panel comparing the two axes, position an axis-label band above each chart («ВИБОРЦІ» / «АВТОРИ»).
-- **Per-project breakdown is valid.** When showing votes-by-gender for a single project («двір на Галицькій: 70 % жіночих голосів»), split the project's vote bar into two segments using the female/male HEX. The card chip still uses the project's **category** color, gender split is a secondary visualization.
+- **Per-project breakdown is valid.** When showing votes-by-gender for a single project (e.g. «шкільний проєкт: 70 % жіночих голосів»), split the project's vote bar into two segments using the female/male HEX. The card chip still uses the project's **category** color, gender split is a secondary visualization.
 
 #### Data availability, voters
 
@@ -701,7 +704,7 @@ Pre-2021 voter gender is not in the source data, render the gap as a footnote (�
 
 #### Display examples, voters
 
-- **Donut «жінки/чоловіки серед виборців 2021»**: two segments using the voter-gender palette, center label «50 122 голоси» Phenomena Black.
+- **Donut «жінки/чоловіки серед виборців 2021»**: two segments using the voter-gender palette, center label «124 348 голосів» Phenomena Black.
 - **Stacked bar 2021–2026**: two segments per year (female bottom, male top); 5 bars total (2021, 2023, 2024, 2025, 2026); 2022 absent from axis.
 - **2-up axis comparison «АВТОРИ vs ВИБОРЦІ» for one year**: two donuts side by side, identical female/male HEX; axis-label band «АВТОРИ» above left, «ВИБОРЦІ» above right. Reader sees, say, that 60 % female authors translated into 75 % female voters.
 - **Per-project breakdown**: on a project page, a thin horizontal bar split female/male in voter-gender colors, with absolute votes labelled at the segment edges.
@@ -783,7 +786,7 @@ Seven real project statuses from PB administrative data. Use these for analytica
 - **`rejected` (Відхилений)**: failed administrative review for this cycle. Author may revise and resubmit.
 - **`rejected-permanent` (Відхилений остаточно)**: failed final review with no path forward. Terminal negative.
 - **`impossible` (Неможливо реалізувати)**: administrative verdict that physical/legal/financial implementation is not feasible. Graphite (not red), communicates fact, not blame.
-- **`removed` (Видалений)**: administrative removal by a moderator (not a verdict on the project's merits). Muted neutral grey, deliberately quieter than `rejected` or `impossible`, signals «no longer in the dataset for this cycle», not failure. Appears in every cycle 2020–2026 (between 2 and 12 entries per year).
+- **`removed` (Видалений)**: administrative removal by a moderator (not a verdict on the project's merits). Muted neutral grey, deliberately quieter than `rejected` or `impossible`, signals «no longer in the dataset for this cycle», not failure. Appears in every cycle 2020–2026 in the **raw registry** (between 2 and 12 entries per year), but is **excluded from canonical project counts**: per the counting canon (decision 2026-06-20), «Видалений» rows are withdrawn drafts that never reached the review board, so the canonical total (1 565 = 1 606 − 40 removed − 1 duplicate) omits them and the published `projects.json` contains no `removed` rows. The status stays here for raw-registry visuals.
 
 ### Badge geometry
 
@@ -908,7 +911,7 @@ When a chart crosses the 2019 or 2024 boundary, two choices recur. Apply these d
 
 ### Beta status and placeholder data: surface, don't bake in
 
-This file is `status: beta` (palette and icons are proposals pending municipal review), and it deliberately carries no numeric data of its own (counts live in the data pipeline, see §12). When an artifact relies on the beta palette, or hits a year or axis with no data, make that visible rather than silent.
+This file is `status: beta` (palette and icons are proposals pending municipal review), and it deliberately carries no numeric data of its own — counts live in the published data repository [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) and follow the pipeline contract in §12; the figures this file cites in examples are verified against the primary dataset (June 2026). When an artifact relies on the beta palette, or hits a year or axis with no data, make that visible rather than silent.
 
 - Category palette in a published-looking artifact: add a small caption, e.g. «палітра категорій: beta».
 - Missing data for a year or axis (for example voter gender before 2021, or a cycle still being processed): never invent a number; render the gap as a footnote, following the existing gap rule.
@@ -954,7 +957,7 @@ The community is structurally lopsided: 1 city accounts for the vast majority of
 **Bad pattern:** a 19-segment donut where Ivano-Frankivsk is ~90% and the rest is unreadable. It looks like a single purple circle with confetti.
 
 **Good patterns:**
-- **Show the city separately**: «Івано-Франківськ, 1 412 проєктів. Топ-5 серед сіл: …», pull the city out of the comparison.
+- **Show the city separately**: «Івано-Франківськ — 1 251 проєкт. Топ-5 серед сіл: …», pull the city out of the comparison (1 251 of the 1 445 place-attributed projects are the city's).
 - **Normalize per 1000 residents** when comparing absolute numbers, exposes engagement intensity, not raw scale.
 - **Two-segment summary** «місто vs усі села разом» when a single split is needed.
 - **Villages-only mode** for a deep-dive feature on rural participation, explicit toggle/filter.
@@ -989,7 +992,7 @@ If real PB data narratives consistently feature **2–4 «hero» districts** (e.
 
 ## 12. Data contract (export → canonical)
 
-This file owns the **vocabulary** (category, size, status, and district keys plus their colors), not the numbers. Real project counts, budgets, and votes come from the PB administrative export (the yearly `.xlsx` files), never from a design artifact. This section states the boundary between the two so any dataset feeding a visualization can be checked against it.
+This file owns the **vocabulary** (category, size, status, and district keys plus their colors), not the numbers. Real project counts, budgets, and votes come from the PB administrative export (the yearly `.xlsx` files), never from a design artifact. This section states the boundary between the two so any dataset feeding a visualization can be checked against it. Note the canonical dataset excludes `removed` registry rows and exact-duplicate re-submissions — the counting canon is **1 565 projects** (see §7).
 
 ### Expected per-project fields
 
@@ -1008,6 +1011,7 @@ A clean dataset is one row per project. These field names are the contract; an e
 | `votes` | Vote count, `null` where unpublished | — |
 | `budget_uah` | Requested budget, integer UAH | — |
 | `status_canonical` | One of 7 statuses, or `null` (2016–2019) | §7 |
+| `geocode_quality` | Coordinate reliability: `ok` (building-level) / `review` (street-level or settlement-centre fallback) / `none` | §8 (spotlight) |
 | `is_winner` | Boolean | — |
 | `is_realized` | Boolean, or `null` where unknown | — |
 | `author_sex` | `F`/`M`/`null` | §6.1 |
@@ -1048,7 +1052,7 @@ PROJECT STATUSES (7)
 AUTHOR GENDER (orthogonal axis, who submitted)
   female    #9C8BCC  primary-200   (lighter purple)
   male      #4E3C84  primary-900   (deeper purple)
-  unknown   #CACAD1  neutral-300   (2016 + derived 2020–2026)
+  unknown   #CACAD1  neutral-300   (2016 + one case in 2020)
   Order: female → male → unknown. No icons.
 
 VOTER GENDER (orthogonal axis, who voted)

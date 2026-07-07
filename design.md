@@ -1,5 +1,5 @@
 ---
-version: 1.4.2
+version: 1.5.0
 name: Participatory Budgeting Ivano-Frankivsk Community (PB IF)
 description: Design system for the Participatory Budget (PB) of the Ivano-Frankivsk city territorial community (МТГ). Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
@@ -222,8 +222,8 @@ shadows:
 ## TL;DR (for AI agents and impatient readers)
 
 - **Brand colors**: purple `#654EA3` + yellow `#FFEC08` on near-white `#FDFDFD`, text `#1A1A1A`.
-- **Fonts**: `Phenomena` for display/headings/big numbers; `Proxima Nova` for everything else. Fallbacks (when commercial fonts unavailable): `Inter Tight` + `Inter` via Google Fonts CDN.
-- **Numbers**: always use `tabular-nums`; thousands separator is a non-breaking space (`14 832`, never `14,832`); decimal separator is comma (`3,7%`).
+- **Fonts**: `Phenomena` for display/headings/big numbers; `Proxima Nova` for everything else in print and local renders. **On the web: self-hosted Phenomena WOFF2 + `Inter` for body/UI — Proxima Nova is never shipped as a webfont** (see §3 «Media Rules»). Fallbacks for external tools: `Inter Tight` + `Inter` via Google Fonts CDN.
+- **Numbers**: always use `tabular-nums`; thousands separator is a non-breaking space (`14 832`, never `14,832`); decimal separator is comma (`3,7%`).
 - **Yellow rule**: yellow is an accent, never a large fill. In charts, yellow segments always carry a `#1A1A1A` 1.5px outline.
 - **Layout**: mobile-first (test at 375px first); `8/12px` radii for buttons/cards; `96px` between sections; `tabular-nums` everywhere there are digits.
 - **Scope**: 10 years of historical PB data across the 2016–2026 timeframe (no PB held in 2022). Not active voting cycles, no dark mode, no admin UI, no submission forms.
@@ -356,6 +356,18 @@ Verified pairs:
 - **Body/UI**: `Proxima Nova` (commercial license, not bundled), fallback: `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
 - **Numerics/Data**: `Proxima Nova` with `font-variant-numeric: tabular-nums`, mandatory for tables, dashboards, and charts.
 
+### Media Rules (which family ships on which medium)
+
+The YAML `typography.*` tokens name the brand-truth families (Phenomena / Proxima Nova). How a token **resolves** depends on the medium:
+
+| Medium | Display / big numbers | Body / UI / data | Notes |
+|---|---|---|---|
+| **Web products** (site, widgets, embeds) | Phenomena, **self-hosted WOFF2** (subset, weights 700/900) | **Inter** | The Fontfabric free EULA allows `@font-face` web embedding and webfont conversion of Phenomena. Inter is the **standing body font on the web**, not a fallback. |
+| **Print & local raster renders** (PDF, PNG, posters, decks exported locally) | Phenomena OTF | Proxima Nova OTF | Licensed OTF files live in the local `fonts/` folder (gitignored), see «Local fonts» below. |
+| **External AI tools without filesystem access** (Lovable, v0, Stitch, Canva, raw-URL flow) | Inter Tight 900 | Inter | See «Font Substitutes» below. |
+
+> **Proxima Nova is FORBIDDEN on the web.** Its webfont license is a separate paid product and the foundry actively monitors usage. Never convert the OTFs to WOFF/WOFF2, never `@font-face` them on a public site, never upload them to a font CDN. On the web every Proxima Nova token resolves to **Inter** (apply the corrections from «Font Substitutes» below). This is the project's standing decision, verified against the production widgets.
+
 ### Font Substitutes (when commercial fonts are unavailable)
 
 External AI tools (Lovable, v0, Stitch, Canva) and third-party presentations do not bundle Phenomena or Proxima Nova. Use these substitutes and apply the listed corrections, otherwise the typographic rhythm collapses.
@@ -405,7 +417,7 @@ The fallbacks apply only to **external environments without filesystem access** 
 | `{typography.body-sm}` | Proxima Nova | 14px | 400 (Regular) | 1.50 | normal | Auxiliary text, metadata |
 | `{typography.caption}` | Proxima Nova | 12–13px | 500 (Medium) | 1.40 | normal | Chart/image captions |
 | `{typography.label-bold}` | Proxima Nova | 11–12px | 600 (Semibold) | 1.20 | +1px (uppercase) | Section labels, tags |
-| `{typography.data-stat}` | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | "14 832 голоси", "₴5.2 млн" |
+| `{typography.data-stat}` | Phenomena | 48–72px | 900 (Black) | 1.00 | -1px, tabular-nums | "14 832 голоси", "₴5,2 млн" |
 | `{typography.data-label}` | Proxima Nova | 11–13px | 400 (Regular) | 1.30 | normal, tabular-nums | Chart axes, tooltip values |
 
 ### Responsive Type Scale
@@ -445,12 +457,12 @@ Values in the YAML frontmatter are **desktop defaults**. AI agents must scale th
 
 ### Number & Currency Formatting (UA locale)
 
-All numbers must be formatted according to Ukrainian standards. This is **mandatory**: English-speaking agents (Stitch, Lovable, v0) default to using commas for thousands, and without this rule, "14 832 голоси" turns into "14,832".
+All numbers must be formatted according to Ukrainian standards. This is **mandatory**: English-speaking agents (Stitch, Lovable, v0) default to using commas for thousands, and without this rule, "14 832 голоси" turns into "14,832".
 
-- **Thousands separator**: non-breaking space (` `). `14 832`, `127 456`, `1 412`. NOT `14,832`, NOT `14.832`.
-- **Decimal separator**: comma. `3,7%`, `5,2 млн`. NOT `3.7%`.
-- **Currency**: `₴` before the number with a non-breaking space, `₴5,2 млн`. For exact sums, as a postfix: `62 437 ₴`.
-- **Abbreviations**: `тис.`, `млн`, `млрд` with a non-breaking space. `127 тис.`, `5,2 млн`.
+- **Thousands separator**: non-breaking space (` `). `14 832`, `127 456`, `1 412`. NOT `14,832`, NOT `14.832`.
+- **Decimal separator**: comma. `3,7%`, `5,2 млн`. NOT `3.7%`.
+- **Currency**: `₴` before the number with a non-breaking space, `₴5,2 млн`. For exact sums, as a postfix: `62 437 ₴`.
+- **Abbreviations**: `тис.`, `млн`, `млрд` with a non-breaking space. `127 тис.`, `5,2 млн`.
 - **Percentages**: tight, no space. `47,3%`.
 - **Year ranges**: en-dash without spaces. `2016–2026`, NOT `2016-2026`, NOT `2016 - 2026`.
 - **Years**: full digits. `2019`, NOT `'19`.
@@ -675,7 +687,7 @@ Real PB project photos vary wildly in quality, the system masks this with a unif
 - Do not put purple text on a yellow background, or white on yellow, both fail AA contrast.
 - Do not use large yellow fills, it causes eye fatigue and creates an unintended "warning" vibe.
 - Do not use neon or gradient colors, the brand is restrained.
-- Do not roughly round large numbers in official stats, "14 832 голоси", not "~15 тис.".
+- Do not roughly round large numbers in official stats, "14 832 голоси", not "~15 тис.".
 - Do not confuse roles: "live" status chips like "Voting in progress" are **forbidden**. The site is a **historical analytics** platform, not an active PB voting cycle.
 - Do not use lateral shadows (x-offset), stick strictly to vertical drops.
 - Do not design dark-mode variants, municipal transparency is rooted in a light interface; dark mode is **out of scope** for this system.
@@ -756,13 +768,13 @@ The "10 Years of PB" site and all infographics are **designed for mobile first**
 - **Formal-yet-warm.** Always use the polite "Ви" (You). Never use the informal "Ти", not even on social media.
 - **Active verbs, concrete results.** "Residents of Pasichna chose 14 projects" is better than "Voting was conducted." "12 courtyards renovated for 5.2M UAH" is better than "A series of improvement measures were executed."
 - **No bureaucratic jargon.** Words like "вищезазначений" (aforementioned), "в рамках" (within the framework), "з метою" (with the aim of), "шляхом" (by means of), or "здійснення" (carrying out / execution) are banned. Write simply, in plain language, but not primitively.
-- **Don't hide hero numbers.** If 127 thousand people participated over 10 years, that should be a massive display number, not buried in a paragraph.
+- **Don't hide hero numbers.** If more than 110 thousand residents cast votes over the years, that should be a massive display number, not buried in a paragraph.
 - **Focus on people and results, not processes.** "Maria from the Bus Station area submitted the city's first bike station project" beats "Applications were submitted via the electronic cabinet."
 
 ### Headings
 
 - Short, specific, featuring a number or a name whenever possible.
-- ✓ "10 years, 1,412 projects, 8 legendary winners"
+- ✓ "10 years, 1 565 projects, one kindergarten with 8 wins"
 - ✗ "Overview of participatory budgeting implementation over a ten-year period"
 
 ### Chart Captions
@@ -771,7 +783,7 @@ The "10 Years of PB" site and all infographics are **designed for mobile first**
 
 ### Social Media
 
-- Brief facts with an emotional hook: "In 2019, a courtyard on Halytska gathered more votes than any educational project across all 10 years. See how it happened in the insights ↓"
+- Brief facts with an emotional hook: "In 2021, the restoration of St. Dmytro's wooden church gathered 5 479 votes — and still lost. See how it happened in the insights ↓"
 - Always offer a clear call to action: a link to the site with a pre-applied filter.
 
 ---
@@ -790,6 +802,7 @@ BRAND CORE
 FONTS
   Display/Headings:    Phenomena (900 Black for hero, 700 for H1-H2, 400 for H3)
   Body/UI:             Proxima Nova (600 for titles, 400 for body)
+  Web products:        Phenomena self-hosted WOFF2 + Inter for body; Proxima Nova = print/local only
   All numbers:         tabular-nums
 
 DATA-VIZ (in core)
@@ -798,7 +811,7 @@ DATA-VIZ (in core)
   Yellow in charts ALWAYS with dark outline #1A1A1A 1-1.5px
   Data-viz palette goes in a fixed order. Yellow in charts - ALWAYS with a dark outline.
   Extended categorical palette + map tokens → design-data.md (§4, §8)
-  Author-gender axis (Жінки/Чоловіки/Невідомо) → design-data.md §6
+  Orthogonal axes (author/voter gender, vote channel, locality) → design-data.md §6
 
 RADII: 4, 8, 12, 16, 24, 999 (pill)
 SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
@@ -807,13 +820,13 @@ SPACING: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96
 ### Example Prompts
 
 **"10 Years of PB" Hero Card:**
-> Create a hero card for "10 років Бюджету участі Івано-Франківська". Large display number "10" in Phenomena Black 96px, color #654EA3, tabular-nums. Subtitle "років змін" in Proxima Nova 20px 400, color #1A1A1A. Background #FDFDFD, padding 48px, border-radius 24px, subtle shadow level 2. Below: three stat chips (1 412 проєктів / 127 тис. учасників / ₴62 млн) in Phenomena 28px 700.
+> Create a hero card for "10 років Бюджету участі Івано-Франківська". Large display number "10" in Phenomena Black 96px, color #654EA3, tabular-nums. Subtitle "років змін" in Proxima Nova 20px 400, color #1A1A1A. Background #FDFDFD, padding 48px, border-radius 24px, subtle shadow level 2. Below: three stat chips (1 565 проєктів / 781 тис. голосів / 365 реалізовано) in Phenomena 28px 700.
 
 **Historical Project Card:**
-> Build a project card: photo on top (radius 12px, aspect-ratio 3:2), then a pill-tag «Освіта» (bg rgba(101, 78, 163, 0.15), text #4E3C84, font Proxima Nova 12px 600). Title in Proxima Nova 20px 600, color #1A1A1A. Below: author name in Proxima Nova 14px 400, color #6A6C77. Stats row: "2 847 голосів" (Phenomena 24px 700) and "₴1,2 млн" (Phenomena 24px 700). Bottom: yellow badge "Переможець 2019" bg #FFEC08, text #1A1A1A, pill, Proxima Nova 12px 600.
+> Build a project card: photo on top (radius 12px, aspect-ratio 3:2), then a pill-tag «Освіта» (bg rgba(101, 78, 163, 0.15), text #4E3C84, font Proxima Nova 12px 600). Title in Proxima Nova 20px 600, color #1A1A1A. Below: author name in Proxima Nova 14px 400, color #6A6C77. Stats row: "2 847 голосів" (Phenomena 24px 700) and "₴295 тис." (Phenomena 24px 700). Bottom: yellow badge "Переможець 2019" bg #FFEC08, text #1A1A1A, pill, Proxima Nova 12px 600.
 
 **Social Media Infographic (1:1):**
-> Create a 1080×1080 infographic. Background #FDFDFD with subtle top-right corner detail in Primary-50 #F6F4FB. Big display number in center: "14 832" in Phenomena Black 180px, color #654EA3, tabular-nums. Below in Proxima Nova 28px 600: "голоси за двір на Галицькій, 2019". Footer: small yellow badge "переможець року" bg #FFEC08, dark border 1px. Logo bottom-left.
+> Create a 1080×1080 infographic. Background #FDFDFD with subtle top-right corner detail in Primary-50 #F6F4FB. Big display number in center: "6 000" in Phenomena Black 180px, color #654EA3, tabular-nums. Below in Proxima Nova 28px 600: "голосів за «Ліцей №16: простір для всіх», 2026". Footer: small yellow badge "переможець року" bg #FFEC08, dark border 1px. Logo bottom-left.
 
 > **Examples for maps, heatmaps, and other analytical artifacts**: see [design-data.md](./design-data.md) §8 (map tokens) and §9 (visualization patterns). We only keep core promo/card examples here, which any consumer of the core system would need.
 
@@ -881,7 +894,7 @@ This is the system's signature flair. When a hero number (Phenomena Black 48px+)
 - **Trigger**: `IntersectionObserver`, threshold 0.4 (when 40% of the element is visible).
 - **Duration**: 900–1200ms (larger numbers skew closer to 1200ms).
 - **Easing**: Natural deceleration, fast start, braking towards the end.
-- **Intermediate formatting**: Interstitial numbers must retain the non-breaking space formatting (`8 421` → `14 832`), not unformatted "14832".
+- **Intermediate formatting**: Interstitial numbers must retain the non-breaking space formatting (`8 421` → `14 832`), not unformatted "14832".
 - **Minimum threshold**: Do not apply to numbers `< 100`, it looks erratic.
 - **Adjacent stat cards**: Apply an 80–120ms stagger between cards; they should not count up in perfect unison.
 

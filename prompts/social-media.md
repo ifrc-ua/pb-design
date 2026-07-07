@@ -14,13 +14,13 @@ Create a square 1080×1080 social post.
 Layout (centered composition):
 - Background #FDFDFD
 - Top-right corner decorative shape: quarter-circle in #F6F4FB radius 480px, subtle
-- Big display number centered vertically at ~40% from top: "{14 832}" in Phenomena Black 240px, color #654EA3, tabular-nums
-- Below number: contextual line in Proxima Nova 40px 600, color #1A1A1A, max 2 lines, e.g. "голоси за двір на Галицькій"
-- Below that: small meta line in Proxima Nova 22px 400 color #71737E: "{2019, проєкт-переможець}"
+- Big display number centered vertically at ~40% from top: "{6 000}" in Phenomena Black 240px, color #654EA3, tabular-nums
+- Below number: contextual line in Proxima Nova 40px 600, color #1A1A1A, max 2 lines, e.g. "голосів за «Ліцей №16: простір для всіх» — рекорд за 10 років"
+- Below that: small meta line in Proxima Nova 22px 400 color #6A6C77: "{2026, проєкт-переможець}"
 - Bottom area:
   - Yellow pill badge bottom-center: "ПЕРЕМОЖЕЦЬ РОКУ" bg #FFEC08 text #1A1A1A, Proxima Nova 16px 700 uppercase letter-spacing +1px, dark 1px border
 - Bottom-left 48px margin: logo "Бюджет участі ІФ" lockup, 28px height
-- Bottom-right 48px margin: URL "pb.if.ua" in Proxima Nova 16px 500 color #71737E
+- Bottom-right 48px margin: URL "pb.if.ua" in Proxima Nova 16px 500 color #6A6C77
 
 Overall padding 80px (keep safe zone for IG grid crop).
 ```
@@ -34,7 +34,7 @@ Create a vertical 1080×1350 post for Instagram.
 
 Top section (400px):
 - Hook headline in Phenomena 52px 700, color #1A1A1A, left-aligned, max-width 920px, 3 lines
-  Example: "За 10 років екологія обігнала дороги втричі"
+  Example: "З пів мільйона до 55 мільйонів: бюджет виріс у 110 разів"
 - Left margin 80px
 
 Middle section (550px):
@@ -87,21 +87,21 @@ Footer (last 200px):
 Спільні правила для карусельних слайдів:
 - Розмір 1080×1350
 - Bg #FDFDFD
-- На кожному слайді маленький лічильник угорі "{1}/5" у Proxima Nova 18px 600 #71737E
+- На кожному слайді маленький лічильник угорі "{1}/5" у Proxima Nova 18px 600 #6A6C77
 - Внизу праворуч стрілка "→" 32px для навігації
 - Єдиний футер: logo + "pb.if.ua"
 
 ```
 SLIDE 1 (cover):
-- Phenomena 88px 900 centered: "{2023} у цифрах"
-- Subtitle Proxima Nova 26px 400 color #71737E: "Бюджет участі Івано-Франківська"
+- Phenomena 88px 900 centered: "{2026} у цифрах"
+- Subtitle Proxima Nova 26px 400 color #6A6C77: "Бюджет участі Івано-Франківська"
 - Background: subtle purple dotted pattern (#EEEAF7 dots 4px, 24px grid, opacity 40%)
 - Bottom-center yellow pill "ЛИСТАЙ →"
 
 SLIDE 2 (key stat):
-- "{187}" in Phenomena Black 280px color #654EA3 tabular-nums, centered
-- "поданих проєктів" Proxima Nova 40px 500 below
-- "рекорд за 8 років" small annotation in pill #FFF9B3 with 1px border #E6D307
+- "{226 627}" in Phenomena Black 280px color #654EA3 tabular-nums, centered
+- "голосів подано" Proxima Nova 40px 500 below
+- "рекорд за всі 10 років" small annotation in pill #FFF9B3 with 1px border #E6D307
 
 SLIDE 3 (category breakdown):
 - Title: "Куди йшли голоси" Phenomena 48px 700
@@ -110,7 +110,7 @@ SLIDE 3 (category breakdown):
 
 SLIDE 4 (winner):
 - Project photo large (radius 24px) top 60%
-- Winner info below: title + author + district + "3 421 голос"
+- Winner info below: title + author + district + "{6 000} голосів"
 - Yellow "ПЕРЕМОЖЕЦЬ" pill overlaid top-right of photo
 
 SLIDE 5 (CTA):
@@ -132,7 +132,7 @@ Layout:
 - Bottom text block (white on darkened gradient):
   - Project title Phenomena 56px 700 color #FDFDFD, max 3 lines
   - Meta line Proxima Nova 20px 500 color rgba(253,253,253,0.8): "{автор}, {район}, {категорія}"
-  - Stats row: "₴{1,2 МЛН}" and "{2 847} ГОЛОСІВ" in Phenomena 32px 900 color #FFEC08, Proxima Nova 14px 600 uppercase labels below
+  - Stats row: "₴{1,2 МЛН}" and "{2 847} ГОЛОСІВ" in Phenomena 32px 900 color #FFEC08, Proxima Nova 14px 600 uppercase labels below
 - Logo bottom-left corner 40px, white version
 ```
 
@@ -145,15 +145,15 @@ Create 1080×1920 Story showing timeline of project implementation.
 
 Title top (safe zone start):
 - "Від ідеї до реалізації" Phenomena 56px 700 color #1A1A1A
-- Subtitle Proxima Nova 24px 400 color #71737E: "Проєкт «{Дитячий майданчик на Галицькій}»"
+- Subtitle Proxima Nova 24px 400 color #6A6C77: "Проєкт «{Дитячий майданчик на Галицькій}»"
 
 Middle — vertical timeline:
 - Left vertical line 3px #EFEFF1 at x=140
-- 4 dots (16px, filled #654EA3) with right-side cards:
-  1. "Листопад 2019" + "Подача заявки"
-  2. "Січень 2020" + "Голосування — 2 847 голосів"
-  3. "Травень 2020" + "Старт робіт"
-  4. "Вересень 2020" + "Відкриття" — this dot is yellow #FFEC08 with 2px dark stroke
+- 4 dots (16px, filled #654EA3) with right-side cards (реальна каденція циклу: подання взимку, голосування у квітні, реалізація до кінця року):
+  1. "Лютий 2024" + "Подача заявки"
+  2. "Квітень 2024" + "Голосування — 2 847 голосів"
+  3. "Липень 2024" + "Старт робіт"
+  4. "Жовтень 2024" + "Відкриття" — this dot is yellow #FFEC08 with 2px dark stroke
 - Each card: Proxima Nova 22px 600 for date, 26px 500 for event text
 - Between dots: thin 1px vertical line same color
 
@@ -178,7 +178,7 @@ Top overlay (both sides):
 Bottom overlay (both sides, full width, bg #1A1A1A opacity 0.8):
 - Project name Phenomena 32px 700 color #FDFDFD
 - Meta: "{рік реалізації}, {район}" Proxima Nova 16px 500 color rgba(253,253,253,0.7)
-- Budget: "₴{1,2 млн}" Phenomena 24px 900 color #FFEC08, right-aligned
+- Budget: "₴{1,2 млн}" Phenomena 24px 900 color #FFEC08, right-aligned
 ```
 
 ---
@@ -190,7 +190,7 @@ Create 1080×1350 post: district activity ranking.
 
 Title top:
 - "Топ-5 районів за 10 років" Phenomena 52px 700
-- Subtitle Proxima Nova 22px 400 #71737E: "За кількістю поданих проєктів"
+- Subtitle Proxima Nova 22px 400 #6A6C77: "За кількістю поданих проєктів"
 
 List (5 rows, each 180px tall):
 - Rank number left, 72px width, Phenomena 88px 900, colors:
@@ -199,7 +199,7 @@ List (5 rows, each 180px tall):
   - #4–5 #9C8BCC
 - District name + project count, vertical:
   - Name Phenomena 36px 700
-  - Count Phenomena 28px 900 #654EA3 tabular-nums + "проєктів" Proxima Nova 18px 500 #71737E
+  - Count Phenomena 28px 900 #654EA3 tabular-nums + "проєктів" Proxima Nova 18px 500 #6A6C77
 - Horizontal bar fill showing relative count (full width minus 60px), Primary-500 for #1, Primary-300 for others
 
 Bottom CTA: "Детально за роками →" + URL

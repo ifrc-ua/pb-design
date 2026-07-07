@@ -15,12 +15,12 @@ Layout: three equal columns divided by thin Primary-100 #EEEAF7 lines.
 
 Each column contains:
 - Big display number in Phenomena Black, 96px, color #654EA3, tabular-nums
-- Below: label in Proxima Nova 16px 600 uppercase, letter-spacing +1px, color #71737E
+- Below: label in Proxima Nova 16px 600 uppercase, letter-spacing +1px, color #6A6C77
 
-Column values:
-1. "{1 412}" / "ПРОЄКТІВ ЗА 10 РОКІВ"
-2. "{127 тис.}" / "УНІКАЛЬНИХ УЧАСНИКІВ"
-3. "{₴62 МЛН}" / "РЕАЛІЗОВАНО"
+Column values (реальні значення станом на червень 2026 — за потреби підставте свіжіші):
+1. "{1 565}" / "ПРОЄКТІВ ЗА 10 РОКІВ"
+2. "{110 тис.}" / "УНІКАЛЬНИХ ВИБОРЦІВ"
+3. "{365}" / "ПРОЄКТІВ РЕАЛІЗОВАНО"
 
 Background #FDFDFD, padding 64px, border-radius 24px, shadow level 1.
 ```
@@ -36,10 +36,10 @@ Structure:
 - Photo at top, 360×240, border-radius 12px
 - Category chip below photo (left-aligned): pill 28px height, bg rgba({category-rgb}, 0.15), text {category-hex-dark}, Proxima Nova 12px 600, with a 14px icon on the left. Pull color and icon from {data.canonical-categories.<key>.color} and {data.canonical-categories.<key>.icon} (see design-data.md §4).
 - Title: Proxima Nova 20px 600, color #1A1A1A, max 2 lines
-- Meta line: "{Ім'я Автора} · {Район}" in Proxima Nova 14px 400, color #71737E
+- Meta line: "{Ім'я Автора} · {Район}" in Proxima Nova 14px 400, color #6A6C77
 - Stats row (two values side by side):
-  - "{2 847}" голосів — Phenomena 24px 700 + label 12px 500 uppercase
-  - "₴{1,2 млн}" бюджет — same style
+  - "{2 847}" голосів — Phenomena 24px 700 + label 12px 500 uppercase
+  - "₴{295 тис.}" бюджет — same style (перевіряйте кошторис проти стелі року: до 2023 стандартні стелі були 50–300 тис., з 2023 — 500 тис., вуличні — до 3 млн)
 - Bottom-right badge: "Переможець {2019}" — pill bg #FFEC08, text #1A1A1A, Proxima Nova 12px 600, with small star icon
 
 Card: bg #FDFDFD, border 1px #EFEFF1, radius 12px, padding 20px, shadow level 1 (hover level 2).
@@ -78,11 +78,11 @@ Cell styling:
 
 Axes:
 - Row labels (left): Proxima Nova 13px 600, color #3F4049, with 16px category icon (see design-data.md §4) before text in the canonical category color
-- Column labels (bottom): Proxima Nova 12px 600 uppercase letter-spacing +1px, color #71737E
+- Column labels (bottom): Proxima Nova 12px 600 uppercase letter-spacing +1px, color #6A6C77
 
 Title above (H2 style): "Як змінювалися інтереси мешканців, 2016–2026" in Phenomena 32px 700, color #1A1A1A.
 
-Subtitle: "Кількість проєктів-переможців у кожній категорії за рік" in Proxima Nova 15px 400, color #71737E.
+Subtitle: "Кількість проєктів-переможців у кожній категорії за рік" in Proxima Nova 15px 400, color #6A6C77.
 
 Legend bottom: horizontal gradient bar with labels "0" and "{max}" at ends.
 
@@ -105,8 +105,8 @@ Donut:
 - Never use yellow {colors.secondary-500} as a categorical segment fill — it is reserved as the «exceptionally important» accent. To highlight a single category, add a 1.5px dark outline `#1A1A1A` over its native color.
 
 Center:
-- Big number "{14 832}" in Phenomena Black 56px, color #1A1A1A, tabular-nums
-- Below: "голосів у {2023}" in Proxima Nova 14px 500, color #71737E
+- Big number "{71 055}" in Phenomena Black 56px, color #1A1A1A, tabular-nums (реальна сума голосів 2023)
+- Below: "голосів у {2023}" in Proxima Nova 14px 500, color #6A6C77
 
 Legend right side:
 - Category name + % + count, in Proxima Nova 14px 500
@@ -140,7 +140,7 @@ Map styling — strictly per design-data.md §8:
 
 Popover on pin click:
 - 320px wide, radius 12px, shadow level 3
-- Photo thumb 80×60, title (Proxima Nova 16px 600), author+year (14px 400 #71737E), stats line, "Детальніше →" link in #654EA3
+- Photo thumb 80×60, title (Proxima Nova 16px 600), author+year (14px 400 #6A6C77), stats line, "Детальніше →" link in #654EA3
 
 Mobile (375×812):
 - Map full-screen
@@ -155,18 +155,18 @@ Mobile (375×812):
 ```
 Create a streamgraph 1200×400 showing distribution of total PB budget across canonical categories over 10 cycles (2016–2026, skip 2022).
 
-X-axis: 10 years in order — 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026. Do NOT add a 2022 slot. Axis jumps from 2021 to 2023. (Proxima Nova 12px 600 uppercase, color #71737E)
+X-axis: 10 years in order — 2016, 2017, 2018, 2019, 2020, 2021, 2023, 2024, 2025, 2026. Do NOT add a 2022 slot. Axis jumps from 2021 to 2023. (Proxima Nova 12px 600 uppercase, color #6A6C77)
 Y-axis: hidden; streamgraph is symmetric around center
 Layers — use canonical categories from design-data.md §4 in the fixed display order. For each layer, fill = {data.canonical-categories.<key>.color}. Years where a category did not yet exist are 0-height for that layer (the layer only appears when its active-years begin). Pre-2019 years are merged into a single «Без категоризації» band in {colors.neutral-300} since no thematic split existed.
 No outlines on category fills. Yellow {colors.secondary-500} is NOT used as a category color — only for highlighting a specific data point on top, in which case it carries a 1px {colors.ink} stroke.
 Curves: smooth (monotone), no sharp corners.
 
 Annotations:
-- Small callouts on notable moments (e.g., "COVID: екологія +47%" in 2020) — Proxima Nova 12px 600, connected by thin 1px line to the layer
-- Total budget per year shown above at each year tick: "₴{6,2 млн}" in Phenomena 16px 700 tabular-nums
+- Small callouts on notable moments (e.g., "2020: бюджет ×3 — з 5 до 15 млн") — Proxima Nova 12px 600, connected by thin 1px line to the layer
+- Total budget per year shown above at each year tick: "₴{15 млн}" in Phenomena 16px 700 tabular-nums (реальні річні обсяги: 0,5 → 1,5 → 2,5 → 5 → 15 → 18 → 25,5 → 30 → 50 → 55 млн)
 
-Title: "₴62 млн за 10 років — куди йшли гроші" in Phenomena 32px 700.
-Subtitle: "Розподіл реалізованих бюджетів за категоріями" in Proxima Nova 15px 400 #71737E.
+Title: "Від 0,5 до 55 млн: куди йшли гроші" in Phenomena 32px 700.
+Subtitle: "Розподіл реалізованих бюджетів за категоріями" in Proxima Nova 15px 400 #6A6C77.
 Legend top-right as horizontal chips.
 Background #FDFDFD, padding 32px.
 ```
@@ -181,7 +181,7 @@ Design a leaderboard table "Топ-10 проєктів за 10 років".
 Columns (desktop):
 1. № (40px, Phenomena 24px 700, color #654EA3)
 2. Photo thumb (60×45, radius 6px)
-3. Title + author line below (Proxima Nova 16px 600 title, 13px 400 #71737E author)
+3. Title + author line below (Proxima Nova 16px 600 title, 13px 400 #6A6C77 author)
 4. Category chip (pill) — bg = rgba({data.canonical-categories.<key>.color}, 0.15), text = darker version of the same color, with the canonical icon (design-data.md §4)
 5. District (Proxima Nova 14px 500)
 6. Year (Proxima Nova 14px 500, tabular-nums)
@@ -198,7 +198,7 @@ Row:
 Header:
 - bg #F7F7F8 (neutral-50)
 - Sticky on scroll
-- Labels: Proxima Nova 12px 600 uppercase letter-spacing +1px color #71737E
+- Labels: Proxima Nova 12px 600 uppercase letter-spacing +1px color #6A6C77
 
 Mobile (< 600px):
 - Card-based stack instead of rows
@@ -212,12 +212,12 @@ Mobile (< 600px):
 ```
 Create a full-width insight storytelling page 1200px wide.
 
-Structure:
-1. Hero number at top-left: "47%" in Phenomena Black 160px, color #654EA3, tabular-nums
-   Right: headline "Проєктів переможців 2020 — про екологію" in Phenomena 40px 700 on 2 lines
-2. Lede paragraph: "У ковідний рік мешканці ІФ проголосували за проєкти озеленення і парків майже удвічі активніше..." Proxima Nova 20px 400 line-height 1.55, max-width 760px
-3. Supporting chart: a small comparison bar chart 2023 vs 2025 vs 2026 for "Зелені проєкти" — 3 bars in {data.canonical-categories.greenery.color} (#3D7C3F), 2026 highlighted with a 1.5px {colors.ink} outline plus a small yellow {colors.secondary-500} accent dot above the bar. Note: «Зелені проєкти» became a formal category in 2023 and received 0 submissions in 2025 (mark that bar «—»); never invent greenery data for years where the category was inactive — consult the §3 category × year matrix in design-data.md.
-4. Pullquote: "Зелень стала важливішою за асфальт." in Phenomena 32px 400 italic, color #654EA3, left border 4px #FFEC08, padding-left 24px, max-width 700px
+Structure (реальний інсайт зі статті «10 років БУ»):
+1. Hero number at top-left: "40%" in Phenomena Black 160px, color #654EA3, tabular-nums
+   Right: headline "Голосів дають перші три дні кампанії" in Phenomena 40px 700 on 2 lines
+2. Lede paragraph: "Франківці голосують, щойно відкрилося, а не поки не закрилося: основна хвиля голосів припадає на старт кампанії, а останні три дні дають лише 9–18%..." Proxima Nova 20px 400 line-height 1.55, max-width 760px
+3. Supporting chart: a two-bar comparison «перші 3 дні» vs «останні 3 дні» — перший бар {colors.primary-500} з малою жовтою {colors.secondary-500} акцент-крапкою над ним (з 1px {colors.ink} stroke), другий {colors.neutral-300}; values "{до 40%}" і "{9–18%}" above the bars in Phenomena 28px 700. Never invent per-year splits that aren't in the data source — the verified claim is the range, not exact yearly values.
+4. Pullquote: "Хвиля анонсу на старті працює сильніше за страх дедлайну." in Phenomena 32px 400 italic, color #654EA3, left border 4px #FFEC08, padding-left 24px, max-width 700px
 5. Second chart: streamgraph mini — same style as the `Streamgraph — еволюція бюджету` template above, but compact 800×240
 6. Callout box bottom: Light Primary-50 bg, radius 16px, padding 32px — "Дослідити всі інсайти →" CTA link in #654EA3 Proxima Nova 18px 600 + arrow
 
@@ -242,29 +242,31 @@ Each side:
 
 Separator: 2px vertical line #EFEFF1, center
 
-Below both: synthesis paragraph "За 10 років бюджет БУ зріс у X разів, активність — у Y разів" in Proxima Nova 18px 400, centered, max-width 720px, color #3F4049.
+Below both: synthesis paragraph "За 10 років бюджет БУ зріс у 110 разів (номінально), а кількість голосів — у 108" in Proxima Nova 18px 400, centered, max-width 720px, color #3F4049.
 ```
 
 ---
 
-## 10. Картка автора-рекордсмена
+## 10. Картка адреси-рекордсмена
+
+Реальний факт зі статті «10 років БУ»: 54 адреси виграли більш ніж один проєкт (53 з них — у місті), а рекордсмен — дитсадок із 8 перемогами, по одній у кожній кампанії з 2018. Ідентифікація *авторів*-рекордсменів у даних свідомо закрита (ненадійне зв'язування між роками — Site METHODOLOGY §5.6), тож героєм картки є адреса/заклад, не особа.
 
 ```
-Design an author profile card 320×420 for "{Марія Коваленко — 5 переможних проєктів за 10 років}".
+Design a record-address profile card 320×420 for "{Дитячий садок №N — 8 перемог за 10 років}".
 
-Per design.md §5 — no avatars or portraits, ever (resident-privacy rule). The hero is the count, not the face.
+Per design.md §5 — no avatars or portraits, ever (resident-privacy rule). The hero is the count, not a face or facade photo.
 
 Layout:
-- Top hero block (centered): tiny overline "ПЕРЕМОЖНИХ ПРОЄКТІВ" Proxima Nova 11px 600 uppercase letter-spacing +1px color #71737E, then giant number "5" Phenomena Black 120px color #654EA3 tabular-nums, line-height 1.0
-- Name: Phenomena 24px 700 centered, color #1A1A1A — "{Марія Коваленко}"
-- Subtitle: "{Район Крихівці}" in Proxima Nova 14px 500 #71737E
+- Top hero block (centered): tiny overline "ПЕРЕМОГ НА ОДНІЙ АДРЕСІ" Proxima Nova 11px 600 uppercase letter-spacing +1px color #6A6C77, then giant number "8" Phenomena Black 120px color #654EA3 tabular-nums, line-height 1.0
+- Name: Phenomena 24px 700 centered, color #1A1A1A — "{Дитячий садок №N}"
+- Subtitle: "{вулиця · Івано-Франківськ}" in Proxima Nova 14px 500 #6A6C77
 - Divider: 1px #EFEFF1, width 80px, centered
-- 3 mini-stats in horizontal row (the "5 переможних" stat already lives at the top as hero):
-  - "12" / "поданих заявок"
-  - "₴4,8 млн" / "реалізовано"
-  - "2016–2024" / "активна"
-  Each stat: Phenomena 28px 700 number + Proxima Nova 11px 500 uppercase letter-spacing +1px label #71737E
-- Bottom: small list of her top 3 project titles in Proxima Nova 13px 500, each prefixed with a year tag
+- 3 mini-stats in horizontal row (the "8 перемог" stat already lives at the top as hero):
+  - "{12}" / "поданих заявок"
+  - "₴{N млн}" / "сумарний кошторис"
+  - "2018–2026" / "перемагає щокампанії"
+  Each stat: Phenomena 28px 700 number + Proxima Nova 11px 500 uppercase letter-spacing +1px label #6A6C77
+- Bottom: small list of the address's top 3 project titles in Proxima Nova 13px 500, each prefixed with a year tag
 
 Card: bg #FDFDFD, border 1px #EFEFF1, radius 16px, padding 24px, shadow level 1.
 ```
