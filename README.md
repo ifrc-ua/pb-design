@@ -27,7 +27,7 @@ A design system for the Participatory Budget (PB) of the Ivano-Frankivsk communi
 ## What's inside
 
 - **[design.md](./design.md)**: the design **system**: colors, typography, components, rules.
-- **[design-data.md](./design-data.md)**, the **data layer**: real PB categories per year (2016–2026), canonical category palette, project statuses, map tokens. Stable (v1.0.0) — the palette is finalized and approved by the project owner.
+- **[design-data.md](./design-data.md)**, the **data layer**: real PB categories per year (2016–2026), canonical category palette, project statuses, map tokens. Stable (v1.x) — the palette is finalized.
 - **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings; free EULA allows web embedding, redistribution forbidden) and Proxima Nova (text/UI in **print/local renders only** — on the web, body text is **Inter**; Proxima Nova is never shipped as a webfont). Font files are not included in the repository.
 - **[prompts/](./prompts/)**: ready-made prompts for typical tasks:
   - `infographics.md`, analytical infographics (heatmaps, voting charts, maps, rankings)
@@ -83,7 +83,7 @@ This design system allows AI agents to generate complex interfaces and infograph
 | :--- | :--- | :--- |
 | ![Project Card](assets/v0-max/project-card.png) | ![Heatmap](assets/Claude-opus-4.7/heatmap.png) | ![Donut Chart](assets/Gemini-3.1-pro/donut-2025.png) |
 
-<sub>*Data in the examples is intended for design purposes only, not for analytics. All numbers in the renders are placeholder values for style and composition testing, not a source of statistics.*</sub>
+<sub>*These renders were generated from earlier versions of the prompts, before the dataset was finalized. The numbers in them are illustrative — for style and composition testing only, not a source of statistics.*</sub>
 
 > Find more examples and detailed prompt descriptions in the **[assets/](./assets/)** folder.
 

@@ -1,5 +1,5 @@
 ---
-version: 1.0.0
+version: 1.0.1
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender, vote-channel and locality (own/elsewhere) axes. Companion to design.md.
 parent: design.md
@@ -240,7 +240,7 @@ locality:
   # Orthogonal axis: did a vote go to a project in the voter's OWN place, or ELSEWHERE?
   # Used by the flows widget (city↔village Sankey, Site METHODOLOGY §8.7-adjacent) and the
   # communities-projects widget. Both showed this same idea in DIFFERENT colors (flows: yellow=own +
-  # greys; communities: blue=own + gold=other) — unified here 2026-07-04 (customer decision).
+  # greys; communities: blue=own + gold=other) — unified here 2026-07-04.
   # METAPHOR: home is WARM, elsewhere is COOL and (by lightness) more distant.
   # WARM own uses a MUTED ochre, NOT brand yellow #FFEC08 — per design.md the brand yellow is a
   # marker of IMPORTANCE, never a fill for large areas; these are big diagram bands. Brand yellow
@@ -380,8 +380,6 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 
 > [!NOTE]
 > ✅ **Numbers verified.** Every figure this file cites is checked against the primary PB dataset as of **June 2026**. The published aggregated data and widget code live in [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) (code MIT, data CC BY 4.0) — treat that repository as the source of counts.
->
-> ✅ **Palette finalized.** The canonical categories, colors, icons, and axes are approved by the project owner and stable (`status: stable`, v1.0.0). Changes now follow the semver rules in §1, not a pending review.
 
 ---
 
@@ -414,7 +412,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 - Cross-year comparison, consult §3 «Year-over-year notes» for renamings.
 
 ### Versioning
-- Stable since v1.0.0: the canonical palette, icons, and axes are approved by the project owner. (Pre-1.0 `0.x` was the pre-approval phase; that review is done.)
+- Stable since v1.0.0: the canonical palette, icons, and axes are finalized. (Pre-1.0 `0.x` was the draft phase; that review is done.)
 - Same semver policy as `design.md` (see [CLAUDE.md](./CLAUDE.md)). MAJOR if any canonical color or icon changes; MINOR for new categories, statuses, or expanded `active-years` for an existing category; PATCH for wording.
 - Bump in lockstep with `design-data.ua.md`.
 
@@ -738,7 +736,7 @@ Channel exists from 2021 (voting only); source field «Тип голосу» in 
 
 ### 6.4 Locality (`locality`) — own place vs elsewhere
 
-Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP). Before 2026-07-04 each invented its own colors (flows: brand yellow for «own» + greys; communities: blue for «own» + gold for «other»), which inverted the reader's signal — yellow meant «own» in one and «other» in the neighbor. Unified here (customer decision 2026-07-04).
+Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP). Before 2026-07-04 each invented its own colors (flows: brand yellow for «own» + greys; communities: blue for «own» + gold for «other»), which inverted the reader's signal — yellow meant «own» in one and «other» in the neighbor. Unified here (2026-07-04).
 
 **Metaphor: home is warm, elsewhere is cool and — by lightness — more distant.**
 
@@ -823,14 +821,14 @@ For «project spotlight» interactions (a list item or marker is selected and th
 - Selected project point: circle, fill `#FFEC08` (`secondary-500`), stroke 1.5px solid `#1A1A1A` (`ink`) — same yellow-needs-ink rule as the winner overlay; size ≥ 14px so it reads above the support surface.
 - Halo: soft glow `rgba(255, 236, 8, 0.35)`, radius ~2.5× the point — the «spotlight» itself.
 - Yellow is reserved for the **selected** entity only; it never encodes intensity or category. One yellow point per view.
-- **Honesty about precision (client decision 2026-06-13).** The dot marks the project's own address, whose reliability is `geocode_quality`: `ok` = building-level (precise), `review` = street-level or **settlement-centre fallback** (exact address not established; in villages the geocoder often drops many projects onto one shared centre point). A `review` dot's hover tooltip must say «приблизне місце — точну адресу не встановлено» so it is not read as a precise pin. Projects with no coordinate at all (`no_location`) show no dot. For approximate/no-address projects the map's value is the support surface, not the dot.
+- **Honesty about precision (decision 2026-06-13).** The dot marks the project's own address, whose reliability is `geocode_quality`: `ok` = building-level (precise), `review` = street-level or **settlement-centre fallback** (exact address not established; in villages the geocoder often drops many projects onto one shared centre point). A `review` dot's hover tooltip must say «приблизне місце — точну адресу не встановлено» so it is not read as a precise pin. Projects with no coordinate at all (`no_location`) show no dot. For approximate/no-address projects the map's value is the support surface, not the dot.
 
 ### Support surface (vote origin)
 
 Where the selected project's votes came from, two co-existing layers:
 
-- **H3 cells (res 9):** sequential primary scale (same 5 stops as the choropleth below), mapped to votes-per-cell; opacity ≤ 0.75 so the basemap stays readable. **Hairline outline** — `#7B66B8` (`primary-300`), 0.5px, ~35% alpha (a barely-noticeable edge so pale cells separate from the dirty-white basemap without the grid jumping out; client decisions 2026-06-13). Cell size (current H3 reference): edge ~200 m, ~350 m across, ~10.5 ha — label it «соти ~350 м», NOT «~150 м» (the old H3 table's radius; corrected 2026-06-12).
-- **District remainder (merged votes below cell level):** **no fill** (a fill muted the hex pattern — client decision 2026-06-12); instead a **purple perimeter** — `#7B66B8` (`primary-300`), 1px, ~55% alpha — marks districts holding merged votes, so they read at a glance without hovering all 19 (client decision 2026-06-13; alpha softened from ~82% so a screenful of perimeters does not read as a heavy grid when zoomed out); the polygon stays hover-able and reveals the count in a tooltip («Громада: N голосів, без точної соти»). Keep a thin grey district outline (`neutral-300` `#CACAD1`, 1px) so empty districts stay readable without the boundary grid reading as heavy when zoomed out (client decision 2026-06-13; was `neutral-400` 1.5px — too dark/thick).
+- **H3 cells (res 9):** sequential primary scale (same 5 stops as the choropleth below), mapped to votes-per-cell; opacity ≤ 0.75 so the basemap stays readable. **Hairline outline** — `#7B66B8` (`primary-300`), 0.5px, ~35% alpha (a barely-noticeable edge so pale cells separate from the dirty-white basemap without the grid jumping out; decisions 2026-06-13). Cell size (current H3 reference): edge ~200 m, ~350 m across, ~10.5 ha — label it «соти ~350 м», NOT «~150 м» (the old H3 table's radius; corrected 2026-06-12).
+- **District remainder (merged votes below cell level):** **no fill** (a fill muted the hex pattern — decision 2026-06-12); instead a **purple perimeter** — `#7B66B8` (`primary-300`), 1px, ~55% alpha — marks districts holding merged votes, so they read at a glance without hovering all 19 (decision 2026-06-13; alpha softened from ~82% so a screenful of perimeters does not read as a heavy grid when zoomed out); the polygon stays hover-able and reveals the count in a tooltip («Громада: N голосів, без точної соти»). Keep a thin grey district outline (`neutral-300` `#CACAD1`, 1px) so empty districts stay readable without the boundary grid reading as heavy when zoomed out (decision 2026-06-13; was `neutral-400` 1.5px — too dark/thick).
 - Legend must state both units («соти ~350 м» / «решта — при наведенні на громаду») — they encode the same measure at different precision.
 
 ### Cluster
