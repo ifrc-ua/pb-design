@@ -1,5 +1,5 @@
 ---
-version: 1.5.0
+version: 1.5.1
 name: Participatory Budgeting Ivano-Frankivsk Community (PB IF)
 description: Design system for the Participatory Budget (PB) of the Ivano-Frankivsk city territorial community (МТГ). Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
@@ -25,7 +25,7 @@ colors:
   neutral-200: "#E2E2E6"
   neutral-300: "#CACAD1"
   neutral-400: "#9FA0A9"
-  neutral-500: "#6A6C77"   # v1.4.2: darkened from #71737E — 4.32:1 on primary-50 panels failed AA text (4.5); now 4.8:1
+  neutral-500: "#6A6C77"   # dark enough for AA text on primary-50 panels (4.8:1)
   neutral-700: "#3F4049"
   neutral-900: "#1A1A1A"
   neutral-950: "#0D0D12"
@@ -299,7 +299,7 @@ The aesthetic is restrained infographics: abundant white space, clear grids, lar
 | neutral-200 | `#E2E2E6` | Borders, input-rest |
 | neutral-300 | `#CACAD1` | Disabled border, subtle emphasis |
 | neutral-400 | `#9FA0A9` | Placeholder, muted text |
-| neutral-500 | `#6A6C77` | Secondary text (v1.4.2: darkened from `#71737E` for AA on panel surfaces) |
+| neutral-500 | `#6A6C77` | Secondary text (dark enough for AA on panel surfaces) |
 | neutral-700 | `#3F4049` | Body on light, subtitle |
 | neutral-900 | `#1A1A1A` | Text primary |
 | neutral-950 | `#0D0D12` | Overlay, max-contrast display |

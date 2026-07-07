@@ -1,5 +1,5 @@
 ---
-version: 1.0.1
+version: 1.0.2
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender, vote-channel and locality (own/elsewhere) axes. Companion to design.md.
 parent: design.md
@@ -85,7 +85,7 @@ canonical-categories:
   other:
     label-en: "Other"
     label-uk: "Інші проєкти"
-    color: "#71737E"             # frozen chart fill (ex neutral-500 v1.4.1; text token is #6A6C77 since v1.4.2)
+    color: "#71737E"             # frozen chart fill — intentionally NOT synced to the neutral-500 text token (#6A6C77)
     color-token: "neutral-500"
     icon: package
     active-years: [2019, 2020, 2021, 2024, 2025, 2026]
@@ -129,7 +129,7 @@ project-statuses:
   participated:
     label-en: "Participated"
     label-uk: "Брав участь"
-    color: "#71737E"             # frozen status fill (ex neutral-500 v1.4.1)
+    color: "#71737E"             # frozen status fill — intentionally NOT synced to the neutral-500 text token
     bg-tint: "#EFEFF1"           # = colors.neutral-100
     text: "#3F4049"              # = colors.neutral-700
     icon: vote
@@ -163,7 +163,7 @@ project-statuses:
     label-uk: "Видалений"
     color: "#9FA0A9"             # = colors.neutral-400
     bg-tint: "#F7F7F8"           # = colors.neutral-50
-    text: "#6A6C77"              # = colors.neutral-500 (v1.4.2)
+    text: "#6A6C77"              # = colors.neutral-500
     icon: trash-2
     finality: terminal-administrative
     note: "Administrative removal by moderator. Distinct from `rejected` (failed review on merits) and `impossible` (factual unfeasibility)."
@@ -239,8 +239,8 @@ vote-channel:
 locality:
   # Orthogonal axis: did a vote go to a project in the voter's OWN place, or ELSEWHERE?
   # Used by the flows widget (city↔village Sankey, Site METHODOLOGY §8.7-adjacent) and the
-  # communities-projects widget. Both showed this same idea in DIFFERENT colors (flows: yellow=own +
-  # greys; communities: blue=own + gold=other) — unified here 2026-07-04.
+  # communities-projects widget. Both use this single palette, so the reader's signal
+  # never inverts between neighboring charts.
   # METAPHOR: home is WARM, elsewhere is COOL and (by lightness) more distant.
   # WARM own uses a MUTED ochre, NOT brand yellow #FFEC08 — per design.md the brand yellow is a
   # marker of IMPORTANCE, never a fill for large areas; these are big diagram bands. Brand yellow
@@ -412,7 +412,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 - Cross-year comparison, consult §3 «Year-over-year notes» for renamings.
 
 ### Versioning
-- Stable since v1.0.0: the canonical palette, icons, and axes are finalized. (Pre-1.0 `0.x` was the draft phase; that review is done.)
+- Stable: the canonical palette, icons, and axes are finalized.
 - Same semver policy as `design.md` (see [CLAUDE.md](./CLAUDE.md)). MAJOR if any canonical color or icon changes; MINOR for new categories, statuses, or expanded `active-years` for an existing category; PATCH for wording.
 - Bump in lockstep with `design-data.ua.md`.
 
@@ -574,7 +574,7 @@ Stable category → color → icon mapping. Each category keeps the same color a
 | `greenery` | Зелені проєкти | `#3D7C3F` | extension (deep green) | `tree-deciduous` | 2023, 2025, 2026 |
 | `afu-support` | Допомога ЗСУ | `#3F4049` | `colors.neutral-700` from design.md | `shield` | 2025, 2026 |
 | `accessibility` | Доступність | `#0E7C8C` | extension (teal) | `accessibility` | 2025, 2026 |
-| `other` | Інші проєкти | `#71737E` | frozen (ex `neutral-500` v1.4.1) | `package` | 2019, 2020, 2021, 2024, 2025, 2026 |
+| `other` | Інші проєкти | `#71737E` | frozen chart fill (not synced to `neutral-500`) | `package` | 2019, 2020, 2021, 2024, 2025, 2026 |
 
 ### Contrast against `#FDFDFD` canvas
 
@@ -593,7 +593,7 @@ All extension colors satisfy WCAG 2.1 SC 1.4.11 (≥ 3:1 for non-text graphical 
 | `#3F4049` | ~10:1 ✓ AAA | text + fills |
 | `#0E7C8C` | ~4.0:1 ✓ AA-large / fills | fills, large text |
 | `#71737E` | 4.7:1 ✓ AA | fills only (frozen chart/status color; for text use neutral-500 `#6A6C77`) |
-| `#6A6C77` | 5.1:1 ✓ AA | text + fills (neutral-500 since design.md v1.4.2) |
+| `#6A6C77` | 5.1:1 ✓ AA | text + fills (the neutral-500 text token) |
 
 > Re-verify with WebAIM contrast-checker before any external publication.
 
@@ -711,7 +711,7 @@ Pre-2021 voter gender is not in the source data, render the gap as a footnote (�
 
 How a vote was submitted: self-service online via BankID, or entered by an administrator at a ЦНАП (CNAP) service desk from documents. **Voting only**, available 2021+. Primary use: the time-animation map widget («годинник-мапа», Site `METHODOLOGY.md` §8.1), where each vote-dot is colored by channel so the viewer sees the behavioral difference — online votes arrive around the clock with an evening peak; ЦНАП (offline) votes only during office hours.
 
-**Reader-facing labels are «Online / Offline»** (clearer to a general audience), set in 2026-06 superseding the earlier «Electronic / Paper». The raw export terms «Електронний / Паперовий» (field «Тип голосу») are retained only as `label-*-source` in the YAML for data joins — never show them to readers.
+**Reader-facing labels are «Online / Offline»** (clearer to a general audience). The raw export terms «Електронний / Паперовий» (field «Тип голосу») are retained only as `label-*-source` in the YAML for data joins — never show them to readers.
 
 #### Palette, vote channel
 
@@ -736,7 +736,7 @@ Channel exists from 2021 (voting only); source field «Тип голосу» in 
 
 ### 6.4 Locality (`locality`) — own place vs elsewhere
 
-Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP). Before 2026-07-04 each invented its own colors (flows: brand yellow for «own» + greys; communities: blue for «own» + gold for «other»), which inverted the reader's signal — yellow meant «own» in one and «other» in the neighbor. Unified here (2026-07-04).
+Whether a vote went to a project in the voter's **own** place or **elsewhere**. Two widgets carry this axis: **flows** («Потоки місто↔села», a city↔village Sankey with three directions — own / other villages / city) and **communities-projects** («Проєкти по громадах», a two-direction split — own NP / other NP). Both use this single palette, so the reader's signal never inverts between neighboring charts.
 
 **Metaphor: home is warm, elsewhere is cool and — by lightness — more distant.**
 
@@ -770,7 +770,7 @@ Seven real project statuses from PB administrative data. Use these for analytica
 |---|---|---|---|---|---|---|
 | `realized` | Реалізований | `#2F8F4E` (success) | `#E8F3EC` | `#1E6B39` | `circle-check` | terminal-positive |
 | `in-progress` | На реалізації | `#2563EB` (info) | `#E8EEFD` | `#1E4FBF` | `loader-circle` | active |
-| `participated` | Брав участь | `#71737E` (frozen, ex neutral-500 v1.4.1) | `#EFEFF1` (neutral-100) | `#3F4049` (neutral-700) | `vote` | neutral |
+| `participated` | Брав участь | `#71737E` (frozen fill) | `#EFEFF1` (neutral-100) | `#3F4049` (neutral-700) | `vote` | neutral |
 | `rejected` | Відхилений | `#D97706` (warning) | `#FEF3E2` | `#A05905` | `circle-x` | recoverable |
 | `rejected-permanent` | Відхилений остаточно | `#DC2626` (error) | `#FCE9E9` | `#A01818` | `ban` | terminal-negative |
 | `impossible` | Неможливо реалізувати | `#3F4049` (neutral-700) | `#E2E2E6` (neutral-200) | `#1A1A1A` | `triangle-alert` | terminal-factual |
@@ -784,7 +784,7 @@ Seven real project statuses from PB administrative data. Use these for analytica
 - **`rejected` (Відхилений)**: failed administrative review for this cycle. Author may revise and resubmit.
 - **`rejected-permanent` (Відхилений остаточно)**: failed final review with no path forward. Terminal negative.
 - **`impossible` (Неможливо реалізувати)**: administrative verdict that physical/legal/financial implementation is not feasible. Graphite (not red), communicates fact, not blame.
-- **`removed` (Видалений)**: administrative removal by a moderator (not a verdict on the project's merits). Muted neutral grey, deliberately quieter than `rejected` or `impossible`, signals «no longer in the dataset for this cycle», not failure. Appears in every cycle 2020–2026 in the **raw registry** (between 2 and 12 entries per year), but is **excluded from canonical project counts**: per the counting canon (decision 2026-06-20), «Видалений» rows are withdrawn drafts that never reached the review board, so the canonical total (1 565 = 1 606 − 40 removed − 1 duplicate) omits them and the published `projects.json` contains no `removed` rows. The status stays here for raw-registry visuals.
+- **`removed` (Видалений)**: administrative removal by a moderator (not a verdict on the project's merits). Muted neutral grey, deliberately quieter than `rejected` or `impossible`, signals «no longer in the dataset for this cycle», not failure. Appears in every cycle 2020–2026 in the **raw registry** (between 2 and 12 entries per year), but is **excluded from canonical project counts**: per the counting canon, «Видалений» rows are withdrawn drafts that never reached the review board, so the canonical total (1 565 = 1 606 − 40 removed − 1 duplicate) omits them and the published `projects.json` contains no `removed` rows. The status stays here for raw-registry visuals.
 
 ### Badge geometry
 
@@ -821,14 +821,14 @@ For «project spotlight» interactions (a list item or marker is selected and th
 - Selected project point: circle, fill `#FFEC08` (`secondary-500`), stroke 1.5px solid `#1A1A1A` (`ink`) — same yellow-needs-ink rule as the winner overlay; size ≥ 14px so it reads above the support surface.
 - Halo: soft glow `rgba(255, 236, 8, 0.35)`, radius ~2.5× the point — the «spotlight» itself.
 - Yellow is reserved for the **selected** entity only; it never encodes intensity or category. One yellow point per view.
-- **Honesty about precision (decision 2026-06-13).** The dot marks the project's own address, whose reliability is `geocode_quality`: `ok` = building-level (precise), `review` = street-level or **settlement-centre fallback** (exact address not established; in villages the geocoder often drops many projects onto one shared centre point). A `review` dot's hover tooltip must say «приблизне місце — точну адресу не встановлено» so it is not read as a precise pin. Projects with no coordinate at all (`no_location`) show no dot. For approximate/no-address projects the map's value is the support surface, not the dot.
+- **Honesty about precision.** The dot marks the project's own address, whose reliability is `geocode_quality`: `ok` = building-level (precise), `review` = street-level or **settlement-centre fallback** (exact address not established; in villages the geocoder often drops many projects onto one shared centre point). A `review` dot's hover tooltip must say «приблизне місце — точну адресу не встановлено» so it is not read as a precise pin. Projects with no coordinate at all (`no_location`) show no dot. For approximate/no-address projects the map's value is the support surface, not the dot.
 
 ### Support surface (vote origin)
 
 Where the selected project's votes came from, two co-existing layers:
 
-- **H3 cells (res 9):** sequential primary scale (same 5 stops as the choropleth below), mapped to votes-per-cell; opacity ≤ 0.75 so the basemap stays readable. **Hairline outline** — `#7B66B8` (`primary-300`), 0.5px, ~35% alpha (a barely-noticeable edge so pale cells separate from the dirty-white basemap without the grid jumping out; decisions 2026-06-13). Cell size (current H3 reference): edge ~200 m, ~350 m across, ~10.5 ha — label it «соти ~350 м», NOT «~150 м» (the old H3 table's radius; corrected 2026-06-12).
-- **District remainder (merged votes below cell level):** **no fill** (a fill muted the hex pattern — decision 2026-06-12); instead a **purple perimeter** — `#7B66B8` (`primary-300`), 1px, ~55% alpha — marks districts holding merged votes, so they read at a glance without hovering all 19 (decision 2026-06-13; alpha softened from ~82% so a screenful of perimeters does not read as a heavy grid when zoomed out); the polygon stays hover-able and reveals the count in a tooltip («Громада: N голосів, без точної соти»). Keep a thin grey district outline (`neutral-300` `#CACAD1`, 1px) so empty districts stay readable without the boundary grid reading as heavy when zoomed out (decision 2026-06-13; was `neutral-400` 1.5px — too dark/thick).
+- **H3 cells (res 9):** sequential primary scale (same 5 stops as the choropleth below), mapped to votes-per-cell; opacity ≤ 0.75 so the basemap stays readable. **Hairline outline** — `#7B66B8` (`primary-300`), 0.5px, ~35% alpha (a barely-noticeable edge so pale cells separate from the dirty-white basemap without the grid jumping out). Cell size (current H3 reference): edge ~200 m, ~350 m across, ~10.5 ha — label it «соти ~350 м», never a radius figure like «~150 м».
+- **District remainder (merged votes below cell level):** **no fill** (a fill would mute the hex pattern); instead a **purple perimeter** — `#7B66B8` (`primary-300`), 1px, ~55% alpha (soft enough that a screenful of perimeters does not read as a heavy grid when zoomed out) — marks districts holding merged votes, so they read at a glance without hovering all 19; the polygon stays hover-able and reveals the count in a tooltip («Громада: N голосів, без точної соти»). Keep a thin grey district outline (`neutral-300` `#CACAD1`, 1px) so empty districts stay readable without the boundary grid reading as heavy when zoomed out.
 - Legend must state both units («соти ~350 м» / «решта — при наведенні на громаду») — they encode the same measure at different precision.
 
 ### Cluster
