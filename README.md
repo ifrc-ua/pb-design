@@ -27,7 +27,7 @@ A design system for the Participatory Budget (PB) of the Ivano-Frankivsk communi
 ## What's inside
 
 - **[design.md](./design.md)**: the design **system**: colors, typography, components, rules.
-- **[design-data.md](./design-data.md)** *(beta)*, the **data layer**: real PB categories per year (2016–2026), canonical category palette, project statuses, map tokens. Subject to change pending municipal review.
+- **[design-data.md](./design-data.md)**, the **data layer**: real PB categories per year (2016–2026), canonical category palette, project statuses, map tokens. Stable (v1.0.0) — the palette is finalized and approved by the project owner.
 - **Fonts:** [Phenomena](https://www.fontfabric.com/fonts/phenomena/) (headings; free EULA allows web embedding, redistribution forbidden) and Proxima Nova (text/UI in **print/local renders only** — on the web, body text is **Inter**; Proxima Nova is never shipped as a webfont). Font files are not included in the repository.
 - **[prompts/](./prompts/)**: ready-made prompts for typical tasks:
   - `infographics.md`, analytical infographics (heatmaps, voting charts, maps, rankings)

@@ -1,10 +1,10 @@
 ---
-version: 0.13.0
+version: 1.0.0
 name: PB Ivano-Frankivsk Community, Real Data Reference
 description: Real PB categories per year (2016–2026), canonical category palette and icons, project statuses, map tokens, author-, voter-gender, vote-channel and locality (own/elsewhere) axes. Companion to design.md.
 parent: design.md
 updated: 2026-07-07
-status: beta
+status: stable
 canonical-categories:
   # Education group (purple family, semantically grouped)
   education-general:
@@ -381,7 +381,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 > [!NOTE]
 > ✅ **Numbers verified.** Every figure this file cites is checked against the primary PB dataset as of **June 2026**. The published aggregated data and widget code live in [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) (code MIT, data CC BY 4.0) — treat that repository as the source of counts.
 >
-> 🟡 The file itself stays `status: beta`: the canonical palette and icons remain proposals pending municipal review (see §1 «Versioning»).
+> ✅ **Palette finalized.** The canonical categories, colors, icons, and axes are approved by the project owner and stable (`status: stable`, v1.0.0). Changes now follow the semver rules in §1, not a pending review.
 
 ---
 
@@ -414,7 +414,7 @@ The core `design.md` deliberately stays minimal. This file is the **data layer**
 - Cross-year comparison, consult §3 «Year-over-year notes» for renamings.
 
 ### Versioning
-- Currently in `0.x` (beta), the canonical palette and icons are proposals subject to municipal review.
+- Stable since v1.0.0: the canonical palette, icons, and axes are approved by the project owner. (Pre-1.0 `0.x` was the pre-approval phase; that review is done.)
 - Same semver policy as `design.md` (see [CLAUDE.md](./CLAUDE.md)). MAJOR if any canonical color or icon changes; MINOR for new categories, statuses, or expanded `active-years` for an existing category; PATCH for wording.
 - Bump in lockstep with `design-data.ua.md`.
 
@@ -909,11 +909,10 @@ When a chart crosses the 2019 or 2024 boundary, two choices recur. Apply these d
 - **Pre-2019 (2016–2018):** no thematic categories existed, only sizes. Never fabricate a category breakdown for those years. Collapse them into a single «Без категоризації» band in `neutral-300`, or omit them from a category axis.
 - **Education across the 2024 split:** education ran as one umbrella (`education-general`, 2019–2023), then as three sub-categories (`education-school`, `education-preschool`, `education-extracurricular`, 2024+). For a single multi-year series, default to the roll-up (`education-general`) so the line stays continuous and nothing is double-counted. Fan out into the three sub-categories only when the prompt explicitly asks for post-2024 detail. Never show both the umbrella and its three children in the same total.
 
-### Beta status and placeholder data: surface, don't bake in
+### Placeholder data and gaps: surface, don't bake in
 
-This file is `status: beta` (palette and icons are proposals pending municipal review), and it deliberately carries no numeric data of its own — counts live in the published data repository [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) and follow the pipeline contract in §12; the figures this file cites in examples are verified against the primary dataset (June 2026). When an artifact relies on the beta palette, or hits a year or axis with no data, make that visible rather than silent.
+This file deliberately carries no numeric data of its own — counts live in the published data repository [github.com/ifrc-ua/pb-kurs](https://github.com/ifrc-ua/pb-kurs) and follow the pipeline contract in §12; the figures this file cites in examples are verified against the primary dataset (June 2026). When an artifact hits a year or axis with no data, make that visible rather than silent.
 
-- Category palette in a published-looking artifact: add a small caption, e.g. «палітра категорій: beta».
 - Missing data for a year or axis (for example voter gender before 2021, or a cycle still being processed): never invent a number; render the gap as a footnote, following the existing gap rule.
 
 ---
