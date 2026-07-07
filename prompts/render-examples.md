@@ -47,6 +47,7 @@ UKRAINIAN NUMBER FORMATTING (mandatory):
 - Thousands: non-breaking space U+00A0. Write "14 832" — never "14,832" or "14832"
 - Decimals: comma. Write "3,7%" — never "3.7%"
 - Currency: "₴" before number with non-breaking space: "₴1 565", "₴55 млн"
+- Hryvnia glyph: Phenomena has no ₴ — when a ₴ amount is set in the display/Inter-Tight font, keep the ₴ itself in the body font (Inter), never the display font, or it falls back to a mismatched glyph that collides with the digit.
 
 OUTPUT FORMAT: a single HTML file with embedded CSS, ready to open in browser. Inline all SVG. No external dependencies except Google Fonts CDN. Render at the exact pixel dimensions specified — page must fit without scrollbars.
 ```

@@ -1,5 +1,5 @@
 ---
-version: 1.5.1
+version: 1.5.2
 name: Participatory Budgeting Ivano-Frankivsk Community (PB IF)
 description: Design system for the Participatory Budget (PB) of the Ivano-Frankivsk city territorial community (МТГ). Optimized for AI-driven analytics, UI generation, and municipal infographics.
 colors:
@@ -462,6 +462,7 @@ All numbers must be formatted according to Ukrainian standards. This is **mandat
 - **Thousands separator**: non-breaking space (` `). `14 832`, `127 456`, `1 412`. NOT `14,832`, NOT `14.832`.
 - **Decimal separator**: comma. `3,7%`, `5,2 млн`. NOT `3.7%`.
 - **Currency**: `₴` before the number with a non-breaking space, `₴5,2 млн`. For exact sums, as a postfix: `62 437 ₴`.
+  - **`₴` next to a Phenomena number must NOT be set in Phenomena.** Phenomena has no hryvnia glyph, so a `₴` set in it falls back to a mismatched glyph that collides with the adjacent digit. When the amount is a Phenomena display/stat number, set the `₴` in the body font (Inter / Proxima Nova) — e.g. wrap it in a span — while the digits stay Phenomena. The non-breaking space is still required.
 - **Abbreviations**: `тис.`, `млн`, `млрд` with a non-breaking space. `127 тис.`, `5,2 млн`.
 - **Percentages**: tight, no space. `47,3%`.
 - **Year ranges**: en-dash without spaces. `2016–2026`, NOT `2016-2026`, NOT `2016 - 2026`.
