@@ -133,6 +133,8 @@ pb-design/
 
 This design system is distributed under the [MIT](https://opensource.org/licenses/MIT) license.
 
+Copyright (c) 2026 Ivano-Frankivsk Regional Center, NGO
+
 Fonts are **not included in this repository** and must not be committed to it. Download them separately for local use:
 
 - **Phenomena**: free for personal and commercial use at [fontfabric.com](https://www.fontfabric.com/fonts/phenomena/) (email-gated download, 7 weights, Thin → Black). The Fontfabric Free Fonts EULA **forbids redistribution** of the font files, do not upload `.otf` / `.ttf` to public repositories. `@font-face` embedding on your own website is allowed — production web widgets use self-hosted WOFF2 subsets.
