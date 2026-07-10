@@ -362,10 +362,8 @@ Background #FDFDFD. Render at exactly 1200×640.
 
 ## Поради під час генерації
 
-1. **Якщо AI ігнорує точні HEX** і дає «приблизно фіолетовий» — попросіть «strictly use the HEX values from my instructions, do not approximate». 
+1. **Якщо AI ігнорує точні HEX** і дає «приблизно фіолетовий» — попросіть «strictly use the HEX values from my instructions, do not approximate».
 2. **Якщо AI вставляє ваги Phenomena/Proxima Nova** замість Inter Tight/Inter — нагадайте: «use only Google Fonts CDN — Inter Tight + Inter, no commercial font names».
 3. **Якщо число «1 412» рендериться як «1,412»** — попросіть «use a literal non-breaking space U+00A0 between thousands; never use comma as thousand separator».
 4. **Якщо результат у Claude Artifacts** — натисніть «Open in browser», зробіть screenshot з DevTools у точному розмірі (Ctrl+Shift+M → Custom dimensions).
 5. **Для v0** — після генерації в'ю, експортуйте у Figma або зробіть screenshot Chrome DevTools у device mode.
-
-Після того, як зберете 4–5 картинок у відповідну папку `assets/{ai-model}/`, створимо там `README.md` з підписами (див. існуючі приклади: [`assets/Claude-opus-4.7/README.md`](../assets/Claude-opus-4.7/README.md), [`assets/Gemini-3.1-pro/README.md`](../assets/Gemini-3.1-pro/README.md), [`assets/v0-max/README.md`](../assets/v0-max/README.md)).

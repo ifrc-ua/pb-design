@@ -258,4 +258,4 @@ Use consistent footer (slide number + project name + logo), consistent 4px yello
 2. **Для Keynote/PowerPoint:** агент не зробить рідний `.pptx`, але може створити HTML/SVG — експортуйте через браузер у PDF, потім вставте в Keynote як зображення або через «Insert Slides from File».
 3. **Консистентність:** завжди вказуйте «use the same footer pattern across all slides».
 4. **Шрифти в HTML:** нехай агент вкаже `@font-face { src: url('/fonts/Phenomena/Phenomena-Black.otf') format('opentype'); }` — тоді при експорті PDF шрифти збережуться. Це прийом лише для локального експорту в PDF; для веб-сторінок натомість використовуйте self-hosted WOFF2-сабсети Phenomena + Inter (див. design.md §3 «Media Rules») — Proxima Nova у вебі заборонена.
-5. **Діаграми:** для складних — проси SVG з Recharts-подібною структурою; для простих — inline SVG з пропорційно розрахованими bars.
+5. **Діаграми:** для складних — просити SVG з Recharts-подібною структурою; для простих — inline SVG з пропорційно розрахованими bars.
